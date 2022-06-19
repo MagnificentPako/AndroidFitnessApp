@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">22A14</string>
+    <string name="settings_locale_title">Language</string>
+    <string name="settings_button">Settings</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string-array name="language_names">
+        <item>German</item>
+        <item>English</item>
+    </string-array>
+
+    <string name="settings_notifications_description">Enable message notifications</string>
+    <string name="settings_feedback_title">Send feedback</string>
+    <string name="settings_feedback_description">Report technical issues or suggest new features</string>
+</resources>

@@ -12,6 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        resConfigs "de", "en"
         javaCompileOptions {
             annotationProcessorOptions{
                 arguments = [ "room.schemaLocation": "$projectDir/schemas".toString() ]
@@ -34,7 +35,14 @@ android {
 }
 
 dependencies {
+    def preference_version = "1.2.0"
 
+    // TODO: Required unless we want to completely reimplement this stack
+    implementation 'dev.b3nedikt.applocale:applocale:3.0.0'
+    implementation 'dev.b3nedikt.viewpump:viewpump:4.0.10'
+    implementation 'dev.b3nedikt.reword:reword:4.0.2'
+
+    implementation "androidx.preference:preference:$preference_version"
     def room_version = "2.4.2"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
