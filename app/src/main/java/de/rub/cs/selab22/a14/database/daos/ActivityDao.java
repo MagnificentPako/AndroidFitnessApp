@@ -18,12 +18,12 @@ public interface ActivityDao {
     List<DBActivity> getAll();
 
     @Insert
-    void insertAll(Data... data);
+    void insertAll(DBActivity... data);
 
     @Update
-    void updateAll(Data... data);
+    void updateAll(DBActivity... data);
 
     @Delete
-    void delete(Data data);
+    void delete(DBActivity data);
 
 }
