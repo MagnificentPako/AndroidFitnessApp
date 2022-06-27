@@ -102,4 +102,5 @@
     <string name="mood_record_button">Mood Record</string>
     <string name="mood_notification_button">Notification</string>
 
+    <string name="physical_main_button">Physical Activity</string>
 </resources>
