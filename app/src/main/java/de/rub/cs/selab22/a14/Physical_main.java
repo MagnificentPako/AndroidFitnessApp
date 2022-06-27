@@ -28,6 +28,14 @@ import java.util.Random;
 import de.rub.cs.selab22.a14.settings.SettingsActivity;
 import kotlin.collections.IndexedValue;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
+import java.util.ArrayList;
+
 public class Physical_main extends AppCompatActivity {
 
     LineChart lc;
@@ -148,7 +156,6 @@ public class Physical_main extends AppCompatActivity {
 
             dataVals.add(new Entry(i+1, randomInt));
         }
-
 
         return dataVals;
     }

@@ -28,7 +28,6 @@ public class MainActivity extends I18nAppCompatActivity {
         // mood
         Button moodButton = findViewById(R.id.mood_button);
         moodButton.setOnClickListener(view -> goToMoodActivity());
-        physicalButton.setOnClickListener(view -> goToPhysicalMain());
     }
 
     private void goToSettings() {
@@ -40,7 +39,6 @@ public class MainActivity extends I18nAppCompatActivity {
         Intent switchActivity = new Intent(this, MoodActivity.class);
         startActivity(switchActivity);
     }
-
     private void goToPhysicalMain() {
         Intent switchActivity = new Intent(this, Physical_main.class);
         startActivity(switchActivity);
