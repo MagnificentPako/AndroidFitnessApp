@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -40,6 +41,9 @@ public class Physical_main extends AppCompatActivity {
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
+
+        setStyleConfig();
+
         lc.setData(data);
         lc.invalidate();
 
@@ -69,7 +73,7 @@ public class Physical_main extends AppCompatActivity {
     };
 
     private void renderDayActivity(ArrayList<ILineDataSet> dataSets) {
-        LineDataSet lineDataSet = new LineDataSet(day(), "Dayly");
+        LineDataSet lineDataSet = new LineDataSet(day(), "Daily");
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -86,13 +90,34 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private void renderMonthActivity(ArrayList<ILineDataSet> dataSets) {
+    private void renderMonthActivity(ArrayList<ILineDataSet> dataSets)
+    {
         LineDataSet lineDataSet = new LineDataSet(month(), "Monthly");
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
         lc.setData(data);
         lc.invalidate();
+    }
+
+    private Description descriptionHandler (String description, Boolean active)
+    {
+        Description des = lc.getDescription();
+        des.setText(description);
+        if (active)
+        {
+            des.setEnabled(true);
+        } else {
+            des.setEnabled(false);
+        }
+        return des;
+    }
+
+    private void setStyleConfig()
+    {
+        lc.setDescription(descriptionHandler("Physical Activity", false));
+        lc.setDrawBorders(true);
+        lc.setBorderWidth(1f);
     }
 
     private ArrayList<Entry> day ()
