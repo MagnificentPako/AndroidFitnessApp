@@ -45,7 +45,7 @@ public interface DataDao {
     List<Data> getBetweenByIdentifier(Date since, Date until, Identifier identifier);
 
     @Query("SELECT * FROM data WHERE sensor_identifier LIKE :identifier")
-    List<Data> getByIdentifier(String identifier);
+    List<Data> getByIdentifier(Identifier identifier);
 
     @Query("DELETE FROM data")
     public void nukeTable();
