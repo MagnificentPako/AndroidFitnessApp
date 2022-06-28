@@ -36,7 +36,7 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
-        LineDataSet lineDataSet = new LineDataSet(week(), "Activity");
+        LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
 
@@ -100,9 +100,10 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private Description descriptionHandler (String description, Boolean active)
+    private Description descriptionHandler (String description, float textSize, Boolean active)
     {
         Description des = lc.getDescription();
+        des.setTextSize(textSize);
         des.setText(description);
         if (active)
         {
@@ -115,9 +116,10 @@ public class Physical_main extends AppCompatActivity {
 
     private void setStyleConfig()
     {
-        lc.setDescription(descriptionHandler("Physical Activity", false));
+        lc.setDescription(descriptionHandler("Physical Activity", 15f, true));
         lc.setDrawBorders(true);
         lc.setBorderWidth(1f);
+
     }
 
     private ArrayList<Entry> day ()
