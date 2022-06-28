@@ -58,7 +58,7 @@ public class DatabaseTest {
     public void writeDataAndReadInList() throws Exception {
         Data data = new Data(new DataPoint("Test", "Data"), Identifier.STEP_COUNTER);
         dataDao.insertAll(data);
-        List<Data> bySensor = dataDao.getByIdentifier("TEST");
+        List<Data> bySensor = dataDao.getByIdentifier(Identifier.ACCELEROMETER);
         assertThat(bySensor.get(0), isSameData(data));
     }
 
