@@ -52,24 +52,24 @@ public class Physical_main extends AppCompatActivity {
 
         @Override
         public void onClick(final View v) {
+            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
                 case R.id.physical_day_button:
-                    renderDayActivity();
+                    renderDayActivity(dataSets);
                     break;
                 case R.id.physical_week_button:
-                    renderWeekActivity();
+                    renderWeekActivity(dataSets);
                     break;
                 case R.id.physical_month_button:
-                    renderMonthActivity();
+                    renderMonthActivity(dataSets);
                     break;
             }
 
         }
     };
 
-    private void renderDayActivity() {
+    private void renderDayActivity(ArrayList<ILineDataSet> dataSets) {
         LineDataSet lineDataSet = new LineDataSet(day(), "Dayly");
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -77,9 +77,8 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private void renderWeekActivity() {
+    private void renderWeekActivity(ArrayList<ILineDataSet> dataSets) {
         LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -87,9 +86,8 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private void renderMonthActivity() {
+    private void renderMonthActivity(ArrayList<ILineDataSet> dataSets) {
         LineDataSet lineDataSet = new LineDataSet(month(), "Monthly");
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
