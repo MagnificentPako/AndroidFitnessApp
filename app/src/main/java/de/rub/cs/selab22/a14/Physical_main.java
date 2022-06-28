@@ -18,6 +18,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import de.rub.cs.selab22.a14.settings.SettingsActivity;
 import kotlin.collections.IndexedValue;
@@ -36,16 +37,12 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
-        LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(lineDataSet);
-
-        LineData data = new LineData(dataSets);
-
+        //LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
         setStyleConfig();
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        renderWeekActivity(dataSets);
+        //dataSets.add(lineDataSet);
 
-        lc.setData(data);
-        lc.invalidate();
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -71,6 +68,28 @@ public class Physical_main extends AppCompatActivity {
 
         }
     };
+
+    private void setStyleConfig()
+    {
+        lc.setDescription(descriptionHandler("Physical Activity", 15f, true));
+        lc.setDrawBorders(true);
+        lc.setBorderWidth(1f);
+
+    }
+
+    private Description descriptionHandler (String description, float textSize, Boolean active)
+    {
+        Description des = lc.getDescription();
+        des.setTextSize(textSize);
+        des.setText(description);
+        if (active)
+        {
+            des.setEnabled(true);
+        } else {
+            des.setEnabled(false);
+        }
+        return des;
+    }
 
     private void renderDayActivity(ArrayList<ILineDataSet> dataSets) {
         LineDataSet lineDataSet = new LineDataSet(day(), "Daily");
@@ -100,35 +119,16 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private Description descriptionHandler (String description, float textSize, Boolean active)
-    {
-        Description des = lc.getDescription();
-        des.setTextSize(textSize);
-        des.setText(description);
-        if (active)
-        {
-            des.setEnabled(true);
-        } else {
-            des.setEnabled(false);
-        }
-        return des;
-    }
-
-    private void setStyleConfig()
-    {
-        lc.setDescription(descriptionHandler("Physical Activity", 15f, true));
-        lc.setDrawBorders(true);
-        lc.setBorderWidth(1f);
-
-    }
-
     private ArrayList<Entry> day ()
     {
         ArrayList<Entry> dataVals = new ArrayList<>();
-        dataVals.add(new Entry(0,20));
-        dataVals.add(new Entry(1,30));
-        dataVals.add(new Entry(2,10));
-        dataVals.add(new Entry(3,50));
+        for (int i = 0; i < 3; i++)
+        {
+            Random ran = new Random();
+            int randomInt = ran.nextInt(100) + 0;
+
+            dataVals.add(new Entry(i, randomInt));
+        }
 
         return dataVals;
     }
@@ -136,13 +136,13 @@ public class Physical_main extends AppCompatActivity {
     private ArrayList<Entry> week ()
     {
         ArrayList<Entry> dataVals = new ArrayList<>();
-        dataVals.add(new Entry(0,20));
-        dataVals.add(new Entry(1,30));
-        dataVals.add(new Entry(2,10));
-        dataVals.add(new Entry(3,50));
-        dataVals.add(new Entry(4,70));
-        dataVals.add(new Entry(5,40));
-        dataVals.add(new Entry(6,40));
+        for (int i = 0; i < 7; i++)
+        {
+            Random ran = new Random();
+            int randomInt = ran.nextInt(100) + 0;
+
+            dataVals.add(new Entry(i, randomInt));
+        }
 
         return dataVals;
     }
@@ -150,10 +150,13 @@ public class Physical_main extends AppCompatActivity {
     private ArrayList<Entry> month ()
     {
         ArrayList<Entry> dataVals = new ArrayList<>();
-        dataVals.add(new Entry(0,20));
-        dataVals.add(new Entry(1,10));
-        dataVals.add(new Entry(2,0));
-        dataVals.add(new Entry(3,100));
+        for (int i = 0; i < 4; i++)
+        {
+            Random ran = new Random();
+            int randomInt = ran.nextInt(100) + 0;
+
+            dataVals.add(new Entry(i, randomInt));
+        }
 
         return dataVals;
     }
