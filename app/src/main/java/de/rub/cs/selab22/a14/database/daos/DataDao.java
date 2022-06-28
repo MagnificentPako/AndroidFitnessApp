@@ -9,6 +9,7 @@ import androidx.room.Update;
 import java.util.Date;
 import java.util.List;
 
+import de.rub.cs.selab22.a14.database.Identifier;
 import de.rub.cs.selab22.a14.database.entities.Data;
 
 /**
@@ -37,11 +38,11 @@ public interface DataDao {
 
     @Query("SELECT * FROM data WHERE sensor_identifier LIKE :identifier AND " +
             "timestamp >= :since")
-    List<Data> getSinceByIdentifier(Date since, String identifier);
+    List<Data> getSinceByIdentifier(Date since, Identifier identifier);
 
     @Query("SELECT * FROM data WHERE sensor_identifier LIKE :identifier AND " +
             "timestamp BETWEEN :since AND :until")
-    List<Data> getBetweenByIdentifier(Date since, Date until, String identifier);
+    List<Data> getBetweenByIdentifier(Date since, Date until, Identifier identifier);
 
     @Query("SELECT * FROM data WHERE sensor_identifier LIKE :identifier")
     List<Data> getByIdentifier(String identifier);
