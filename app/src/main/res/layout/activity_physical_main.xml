@@ -4,12 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".Physical_main">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/physical_chart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"></com.github.mikephil.charting.charts.LineChart>
+        android:layout_height="400dp"></com.github.mikephil.charting.charts.LineChart>
+
+    <Button
+        android:id="@+id/physical_day_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/physical_day_button"></Button>
+    <Button
+        android:id="@+id/physical_week_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/physical_week_button"></Button>
+    <Button
+        android:id="@+id/physical_month_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/physical_month_button"></Button>
 
 </LinearLayout>

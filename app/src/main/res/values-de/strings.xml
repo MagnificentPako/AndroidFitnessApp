@@ -17,6 +17,7 @@
     <string name="settings_notifications_description">Erhalte Benachrichtigungen von dieser App</string>
     <string name="settings_feedback_title">Gib uns ein Feedback</string>
     <string name="settings_feedback_description">Melde uns eine Technische Stoerung oder schlage neue Ideen vor</string>
+    <string name="physical_main_button">Physische Aktivitaet</string>
     <string name="mood_button">Mood</string>
     <string name="mood_next">weiter</string>
     <string name="mood_back">zurück</string>
@@ -103,8 +104,8 @@
     <string name="mood_record_button">Mood Record</string>
     <string name="mood_notification_button">Benachrichtigung</string>
 
-
-
-
+    <string name="physical_day_button">Tag</string>
+    <string name="physical_week_button">Woche</string>
+    <string name="physical_month_button">Monat</string>
 
 </resources>

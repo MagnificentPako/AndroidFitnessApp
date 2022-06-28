@@ -103,4 +103,7 @@
     <string name="mood_notification_button">Notification</string>
 
     <string name="physical_main_button">Physical Activity</string>
+    <string name="physical_day_button">Day</string>
+    <string name="physical_week_button">Week</string>
+    <string name="physical_month_button">Month</string>
 </resources>
