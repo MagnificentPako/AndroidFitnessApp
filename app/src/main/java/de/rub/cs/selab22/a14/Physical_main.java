@@ -37,12 +37,8 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
-        //LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
         setStyleConfig();
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        renderWeekActivity(dataSets);
-        //dataSets.add(lineDataSet);
-
+        renderActivity("Weekly", 7 );
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -56,13 +52,13 @@ public class Physical_main extends AppCompatActivity {
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
                 case R.id.physical_day_button:
-                    renderDayActivity(dataSets);
+                    renderActivity("Daily", 3 );
                     break;
                 case R.id.physical_week_button:
-                    renderWeekActivity(dataSets);
+                    renderActivity("Weekly", 7 );
                     break;
                 case R.id.physical_month_button:
-                    renderMonthActivity(dataSets);
+                    renderActivity("Monthly", 4 );
                     break;
             }
 
@@ -91,8 +87,11 @@ public class Physical_main extends AppCompatActivity {
         return des;
     }
 
-    private void renderDayActivity(ArrayList<ILineDataSet> dataSets) {
-        LineDataSet lineDataSet = new LineDataSet(day(), "Daily");
+    private void renderActivity(String label, int length) {
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        ArrayList<Entry> entryList = createEntryList(length);
+
+        LineDataSet lineDataSet = new LineDataSet(entryList, label);
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -100,62 +99,16 @@ public class Physical_main extends AppCompatActivity {
         lc.invalidate();
     }
 
-    private void renderWeekActivity(ArrayList<ILineDataSet> dataSets) {
-        LineDataSet lineDataSet = new LineDataSet(week(), "Weekly");
-        dataSets.add(lineDataSet);
 
-        LineData data = new LineData(dataSets);
-        lc.setData(data);
-        lc.invalidate();
-    }
-
-    private void renderMonthActivity(ArrayList<ILineDataSet> dataSets)
-    {
-        LineDataSet lineDataSet = new LineDataSet(month(), "Monthly");
-        dataSets.add(lineDataSet);
-
-        LineData data = new LineData(dataSets);
-        lc.setData(data);
-        lc.invalidate();
-    }
-
-    private ArrayList<Entry> day ()
+    private ArrayList<Entry> createEntryList (int length)
     {
         ArrayList<Entry> dataVals = new ArrayList<>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < length; i++)
         {
             Random ran = new Random();
             int randomInt = ran.nextInt(100) + 0;
 
-            dataVals.add(new Entry(i, randomInt));
-        }
-
-        return dataVals;
-    }
-
-    private ArrayList<Entry> week ()
-    {
-        ArrayList<Entry> dataVals = new ArrayList<>();
-        for (int i = 0; i < 7; i++)
-        {
-            Random ran = new Random();
-            int randomInt = ran.nextInt(100) + 0;
-
-            dataVals.add(new Entry(i, randomInt));
-        }
-
-        return dataVals;
-    }
-
-    private ArrayList<Entry> month ()
-    {
-        ArrayList<Entry> dataVals = new ArrayList<>();
-        for (int i = 0; i < 4; i++)
-        {
-            Random ran = new Random();
-            int randomInt = ran.nextInt(100) + 0;
-
-            dataVals.add(new Entry(i, randomInt));
+            dataVals.add(new Entry(i+1, randomInt));
         }
 
         return dataVals;
