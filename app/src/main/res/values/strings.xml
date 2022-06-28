@@ -1,20 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">22A14</string>
-    <string name="settings_locale_title">Sprache</string>
-    <string name="settings_button">Einstellungen</string>
-    <string name="hello_world">Hallo, Welt!</string>
+    <string name="settings_locale_title">Language</string>
+    <string name="settings_button">Settings</string>
+    <string name="hello_world">Hello World!</string>
 
     <string-array name="language_names">
-        <item>Deutsch</item>
-        <item>Englisch</item>
+        <item>German</item>
+        <item>English</item>
     </string-array>
 
-    <string-array name="language_id" translatable="false">
+    <string-array name="language_id">
         <item>de</item>
         <item>en</item>
     </string-array>
 
-    <string name="settings_notifications_description">Erhalte Benachrichtigungen von dieser App</string>
-    <string name="settings_feedback_title">Gib uns ein Feedback</string>
-    <string name="settings_feedback_description">Melde uns eine Technische Stoerung oder schlage neue Ideen vor</string>
+    <string name="settings_notifications_description">Enable message notifications</string>
+    <string name="settings_feedback_title">Send feedback</string>
+    <string name="settings_feedback_description">Report technical issues or suggest new features</string>
 </resources>

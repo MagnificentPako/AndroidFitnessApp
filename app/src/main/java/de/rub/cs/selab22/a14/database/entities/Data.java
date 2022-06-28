@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import de.rub.cs.selab22.a14.database.DataPoint;
+import de.rub.cs.selab22.a14.database.Identifier;
 
 /**
  * Entity storing all data pertaining to loggable data. Associates stored data with a timestamp
@@ -29,12 +30,12 @@ public class Data {
     public DataPoint<?> dataPoint;
 
     @ColumnInfo(name = "sensor_identifier")
-    public String sensorIdentifier;
+    public Identifier sensorIdentifier;
 
     @ColumnInfo(name = "timestamp")
     public Date timestamp;
 
-    public Data(DataPoint<?> dataPoint, String sensorIdentifier) {
+    public Data(DataPoint<?> dataPoint, Identifier sensorIdentifier) {
         this.dataPoint = dataPoint;
         this.sensorIdentifier = sensorIdentifier;
         this.timestamp = new Date();

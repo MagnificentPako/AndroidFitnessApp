@@ -26,6 +26,7 @@ import java.util.List;
 
 import de.rub.cs.selab22.a14.database.AppDatabase;
 import de.rub.cs.selab22.a14.database.DataPoint;
+import de.rub.cs.selab22.a14.database.Identifier;
 import de.rub.cs.selab22.a14.database.daos.DataDao;
 import de.rub.cs.selab22.a14.database.entities.Data;
 
@@ -55,7 +56,7 @@ public class DatabaseTest {
      */
     @Test
     public void writeDataAndReadInList() throws Exception {
-        Data data = new Data(new DataPoint<>("Test", "Data"), "TEST");
+        Data data = new Data(new DataPoint("Test", "Data"), Identifier.STEP_COUNTER);
         dataDao.insertAll(data);
         List<Data> bySensor = dataDao.getByIdentifier("TEST");
         assertThat(bySensor.get(0), isSameData(data));

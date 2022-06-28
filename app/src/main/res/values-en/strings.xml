@@ -10,6 +10,11 @@
         <item>English</item>
     </string-array>
 
+    <string-array name="language_id">
+        <item>de</item>
+        <item>en</item>
+    </string-array>
+
     <string name="settings_notifications_description">Enable message notifications</string>
     <string name="settings_feedback_title">Send feedback</string>
     <string name="settings_feedback_description">Report technical issues or suggest new features</string>

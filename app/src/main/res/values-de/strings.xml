@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">22A14</string>
+    <string name="settings_locale_title">Sprache</string>
+    <string name="settings_button">Einstellungen</string>
+    <string name="hello_world">Hallo, Welt!</string>
+
+    <string-array name="language_names">
+        <item>Deutsch</item>
+        <item>Englisch</item>
+    </string-array>
+
+    <string-array name="language_id">
+        <item>de</item>
+        <item>en</item>
+    </string-array>
+
+    <string name="settings_notifications_description">Erhalte Benachrichtigungen von dieser App</string>
+    <string name="settings_feedback_title">Gib uns ein Feedback</string>
+    <string name="settings_feedback_description">Melde uns eine Technische Stoerung oder schlage neue Ideen vor</string>
+</resources>

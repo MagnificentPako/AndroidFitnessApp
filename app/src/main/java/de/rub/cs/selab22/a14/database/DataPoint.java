@@ -14,7 +14,6 @@ public class DataPoint<T> {
     private List<T> data;
 
     /**
-     *
      * @param <X> Type parameter used to infer the type of elements in this DataPoint.
      *            Can usually be left empty unless required by the type checker.
      * @return A list of data stored in this DataPoint.

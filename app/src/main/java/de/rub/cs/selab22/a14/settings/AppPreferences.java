@@ -22,10 +22,11 @@ import de.rub.cs.selab22.a14.R;
 import dev.b3nedikt.app_locale.AppLocale;
 import dev.b3nedikt.reword.Reword;
 
-public class AppPreferences extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
+public class AppPreferences extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
         Context ctx = getPreferenceManager().getContext();
+
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
         SwitchPreferenceCompat notificationPref = new SwitchPreferenceCompat(ctx);
@@ -40,29 +41,29 @@ public class AppPreferences extends PreferenceFragmentCompat implements Preferen
         ListPreference localePref = new ListPreference(ctx);
         localePref.setKey("locale");
         localePref.setTitle(R.string.settings_locale_title);
-        localePref.setOnPreferenceChangeListener(this);
         localePref.setEntries(R.array.language_names);
         localePref.setEntryValues(R.array.language_id);
+        localePref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if(preference.getKey().equals("locale")) {
+                AppLocale.setDesiredLocale(new Locale((String) newValue));
+                Reword.reword(getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
+                Intent intent = getActivity().getIntent();
+                getActivity().overridePendingTransition(0,0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                getActivity().finish();
+                getActivity().overridePendingTransition(0,0);
+                getActivity().startActivity(intent);
+            }
+            return true;
+        });
 
         screen.addPreference(notificationPref);
         screen.addPreference(feedbackPref);
         screen.addPreference(localePref);
 
         setPreferenceScreen(screen);
+
+
     }
 
-    @Override
-    public boolean onPreferenceChange(@NonNull Preference preference, Object newValue) {
-        if(preference.getKey().equals("locale")) {
-            AppLocale.setDesiredLocale(new Locale((String) newValue));
-            Reword.reword(getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
-            Intent intent = getActivity().getIntent();
-            getActivity().overridePendingTransition(0,0);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            getActivity().finish();
-            getActivity().overridePendingTransition(0,0);
-            getActivity().startActivity(intent);
-        }
-        return true;
-    }
 }
