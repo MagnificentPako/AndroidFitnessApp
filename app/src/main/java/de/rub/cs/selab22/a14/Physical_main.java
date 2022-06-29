@@ -121,6 +121,11 @@ public class Physical_main extends AppCompatActivity {
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         ArrayList<Entry> entryList = createEntryList(length);
 
+        //ArrayList<Entry> entryList2 = createEntryList(length);
+        //LineDataSet lineDataSet2 = new LineDataSet(entryList2, "Test");
+        //lineDataSet2.setColor(0xff00ff00);
+        //dataSets.add(lineDataSet2);
+
         LineDataSet lineDataSet = new LineDataSet(entryList, label);
         dataSets.add(lineDataSet);
 
@@ -143,6 +148,7 @@ public class Physical_main extends AppCompatActivity {
 
             dataVals.add(new Entry(i+1, randomInt));
         }
+
 
         return dataVals;
     }
