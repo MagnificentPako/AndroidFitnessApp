@@ -149,6 +149,7 @@ public class Physical_main extends AppCompatActivity {
             dataVals.add(new Entry(i+1, randomInt));
         }
 
+
         return dataVals;
     }
 }
