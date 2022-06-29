@@ -8,10 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -37,6 +42,8 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
+
+
         setStyleConfig();
         renderActivity("Weekly", 7 );
 
@@ -70,7 +77,32 @@ public class Physical_main extends AppCompatActivity {
         lc.setDescription(descriptionHandler("Physical Activity", 15f, true));
         lc.setDrawBorders(true);
         lc.setBorderWidth(1f);
+        axisHandler();
+    }
 
+    private void axisHandler ()
+    {
+        XAxis xAxis = lc.getXAxis();
+        xAxis.setAxisMinimum(1);
+        xAxis.setLabelCount(7,true);
+
+        YAxis yAxisLeft = lc.getAxisLeft();
+        YAxis yAxisRight = lc.getAxisRight();
+
+        yAxisRight.setAxisMinimum(0);
+        yAxisRight.setAxisMaximum(100);
+        yAxisLeft.setAxisMinimum(0);
+        yAxisLeft.setAxisMaximum(100);
+
+
+        xAxis.setDrawGridLines(false);
+        yAxisRight.setDrawGridLines(false);
+        yAxisLeft.setDrawGridLines(false);
+        xAxis.setGranularity(1f);
+        yAxisRight.setGranularity(1f);
+        yAxisLeft.setGranularity(1f);
+
+        xAxis.setDrawAxisLine(false);
     }
 
     private Description descriptionHandler (String description, float textSize, Boolean active)
@@ -96,6 +128,8 @@ public class Physical_main extends AppCompatActivity {
 
         LineData data = new LineData(dataSets);
         lc.setData(data);
+
+        setStyleConfig();
         lc.invalidate();
     }
 
@@ -105,6 +139,7 @@ public class Physical_main extends AppCompatActivity {
         ArrayList<Entry> dataVals = new ArrayList<>();
         for (int i = 0; i < length; i++)
         {
+            //DB Data to be inserted here instead of randomInt
             Random ran = new Random();
             int randomInt = ran.nextInt(100) + 0;
 
