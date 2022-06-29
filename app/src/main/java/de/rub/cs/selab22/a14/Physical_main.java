@@ -84,7 +84,6 @@ public class Physical_main extends AppCompatActivity {
     {
         XAxis xAxis = lc.getXAxis();
         xAxis.setAxisMinimum(1);
-        xAxis.setLabelCount(7,true);
 
         YAxis yAxisLeft = lc.getAxisLeft();
         YAxis yAxisRight = lc.getAxisRight();
@@ -93,7 +92,6 @@ public class Physical_main extends AppCompatActivity {
         yAxisRight.setAxisMaximum(100);
         yAxisLeft.setAxisMinimum(0);
         yAxisLeft.setAxisMaximum(100);
-
 
         xAxis.setDrawGridLines(false);
         yAxisRight.setDrawGridLines(false);
