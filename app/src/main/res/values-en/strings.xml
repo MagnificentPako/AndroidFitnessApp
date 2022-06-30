@@ -106,4 +106,7 @@
     <string name="physical_day_button">Day</string>
     <string name="physical_week_button">Week</string>
     <string name="physical_month_button">Month</string>
+    <string name="physical_activity_button">Physical Activities</string>
+    <string name="physical_manage_activities_button">Manage Activities</string>
+    <string name="physical_settings_button">Settings</string>
 </resources>
