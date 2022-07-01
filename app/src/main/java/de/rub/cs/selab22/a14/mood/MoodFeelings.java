@@ -50,13 +50,8 @@ public class MoodFeelings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_feelings);
 
-        Button zurück_button = findViewById(R.id.zurück_button);
-        zurück_button.setOnClickListener(view -> go_to_previous_page());
-        Button weiter_button = findViewById(R.id.weiter_button);
-        weiter_button.setOnClickListener(view -> go_to_next_page());
 
-
-        //seekbar 2
+        //seekbar 1
         SeekBar seekBar1 = (SeekBar) findViewById(R.id.seekBar1);
         textView1 = (TextView) findViewById(R.id.rating_text1);
         final Handler seekbarH1 = new Handler(Looper.getMainLooper());
@@ -243,16 +238,21 @@ public class MoodFeelings extends AppCompatActivity {
             }
         });
 
+        Button backButton = findViewById(R.id.zurück_button);
+        backButton.setOnClickListener(view -> goToPreviousPage());
+        Button nextButton = findViewById(R.id.weiter_button);
+        nextButton.setOnClickListener(view -> goToNextPage());
+
     }
 
 
-    public void go_to_previous_page() {
+    public void goToPreviousPage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void go_to_next_page() {
-        Intent intent = new Intent(MoodFeelings.this, MainActivity.class);
+    public void goToNextPage() {
+        Intent intent = new Intent(MoodFeelings.this, EventAppraisal.class);
         startActivity(intent);
     }
 

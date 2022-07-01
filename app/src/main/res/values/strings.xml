@@ -35,5 +35,9 @@
     <string name="mood_feelings_energetic">energetic</string>
     <string name="mood_feelings_tense">tense</string>
     <string name="mood_feelings_relaxed">relaxed</string>
+    <!-- Mood. Wvent Appraisal-->
+    <string name="Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event">Have you experienced one or more negative events since the last query? How intense was the most significant negative event?</string>
+    <string name="Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event">Have you experienced one or more positive events since the last query? How intense was the most significant positive event?</string>
+    <string name="event_appraisel">Event Appraisel:</string>
 
 </resources>
