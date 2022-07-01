@@ -35,17 +35,17 @@
     <string name="mood_feelings_energetic">energetic</string>
     <string name="mood_feelings_tense">tense</string>
     <string name="mood_feelings_relaxed">relaxed</string>
-    <!-- Mood. Wvent Appraisal-->
+    <!-- Mood_Event Appraisal-->
     <string name="mood_event_appraisel">Event Appraisel:</string>
     <string name="Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event">Have you experienced one or more negative events since the last query?
         How intense was the most important negative event? </string>
     <string name="Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event">Have you experienced one or more positive events since the last query?
         How intense was the most important positive event?</string>
 
-    <!-- Mood.Social Context-->
+    <!-- Mood_Social Context-->
     <string name="mood_social_context">Social Context:</string>
-    <string name="mood_yes">Ja</string>
-    <string name="mood_no">Nein</string>
+    <string name="mood_yes">Yes</string>
+    <string name="mood_no">No</string>
     <string name="Are_you_alone_right_now">are you alone now?</string>
     <string name="What_kind_of_people_are_you_surrounded_by_at_the_moment">What kind of people are you surrounded by at the moment?</string>
     <string name="When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people">When you think of the people you are surrounded,
@@ -57,9 +57,22 @@
         <item>Friends</item>
         <item>co-worker</item>
         <item> Foreign</item>
-
     </string-array>
 
+    <!-- Mood_Context-->
+    <string name="mood_context">Context:</string>
+    <string name="Where_are_you_right_now">Where are you now?</string>
+    <string name="write_here">Write here..</string>
+    <string-array name="context">
+        <item>Select from: </item>
+        <item>At home</item>
+        <item>Work</item>
+        <item>Sport</item>
+        <item>Other hobby</item>
+        <item>Shopping</item>
+        <item>Visit</item>
+        <item>Others</item>
+    </string-array>
 
 
 </resources>

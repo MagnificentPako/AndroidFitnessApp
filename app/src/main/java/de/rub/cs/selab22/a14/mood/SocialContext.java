@@ -40,6 +40,7 @@ public class SocialContext extends AppCompatActivity {
 
 
                     case R.id.yes_radioButton:
+
                         personen.setVisibility(View.GONE);
                         spinner.setVisibility(View.GONE);
                         Toast.makeText(SocialContext.this, "Ja", Toast.LENGTH_SHORT).show();
@@ -109,10 +110,10 @@ public class SocialContext extends AppCompatActivity {
 
             }
         });
-        /*Button nextButton = findViewById(R.id.next_button_event);
-        nextButton.setOnClickListener(view -> goToNextPage());*/
+        Button nextButton = findViewById(R.id.next_button_social_context);
+        nextButton.setOnClickListener(view -> goToNextPage());
 
-        Button backButton = findViewById(R.id.back_button_event);
+        Button backButton = findViewById(R.id.back_button_social_context);
         backButton.setOnClickListener(view -> goToPreviousPage());
 
 
@@ -121,10 +122,10 @@ public class SocialContext extends AppCompatActivity {
     }
 
 
-    /*public void goToNextPage() {
-        Intent intent = new Intent(this, Socialsituation.class);
+    public void goToNextPage() {
+        Intent intent = new Intent(this, Context.class);
         startActivity(intent);
-    }*/
+    }
 
     public void goToPreviousPage() {
         Intent intent = new Intent(this, EventAppraisal.class);

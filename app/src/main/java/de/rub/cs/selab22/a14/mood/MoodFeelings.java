@@ -252,7 +252,7 @@ public class MoodFeelings extends AppCompatActivity {
     }
 
     public void goToNextPage() {
-        Intent intent = new Intent(MoodFeelings.this, EventAppraisal.class);
+        Intent intent = new Intent(this, EventAppraisal.class);
         startActivity(intent);
     }
 
