@@ -47,8 +47,11 @@ public class Context extends AppCompatActivity {
         spinner_context.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Wählen Sie aus:")||
-                        parent.getItemAtPosition(position).equals("Select from: ")){}
+                if (parent.getItemAtPosition(position).equals("Wählen Sie aus:") ||
+                        parent.getItemAtPosition(position).equals("Select from: "))
+                {
+                    // do nothing
+                }
                 else if (parent.getItemAtPosition(position).equals("Sonstiges") ||
                         parent.getItemAtPosition(position).equals("Others"))
                 {

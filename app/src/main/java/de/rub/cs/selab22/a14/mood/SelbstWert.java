@@ -51,7 +51,7 @@ public class SelbstWert extends AppCompatActivity {
         backButton.setOnClickListener(view -> goToPreviousPage());
     }
     public void goToNextPage() {
-        Intent intent = new Intent(SelbstWert.this, Context.class);
+        Intent intent = new Intent(SelbstWert.this, Impulsivity.class);
         startActivity(intent);
     }
 
