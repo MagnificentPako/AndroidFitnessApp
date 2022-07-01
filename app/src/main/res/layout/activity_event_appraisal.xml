@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8C6DF"
+    tools:context=".mood.EventAppraisal">
+
+    <TextView
+        android:id="@+id/event_App_Question1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="454dp"
+        android:text="@string/Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp" />
+
+    <SeekBar
+        android:id="@+id/seekBarQuestion1"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="398dp"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbOffset="@dimen/cardview_default_elevation"
+        android:thumbTint="#D50ADC"
+        android:thumbTintMode="src_in" />
+
+    <TextView
+        android:id="@+id/event_App_Question2"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="250dp"
+        android:text="@string/Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event"
+
+        android:textColor="#0E0E0E"
+        android:textSize="16sp" />
+
+    <SeekBar
+        android:id="@+id/seekBarQuestion2"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="195dp"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <Button
+        android:id="@+id/next_button_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/mood_next" />
+
+    <Button
+        android:id="@+id/back_button_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="289dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/mood_back" />
+
+    <TextView
+        android:id="@+id/mood_textview_question1"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="422dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        tools:text="@string/mood_rating_text" />
+
+    <TextView
+        android:id="@+id/mood_textview_question2"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="222dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        tools:text="@string/mood_rating_text" />
+
+    <TextView
+        android:id="@+id/event_Appraisel"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="528dp"
+        android:text="@string/event_appraisel"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+</RelativeLayout>
