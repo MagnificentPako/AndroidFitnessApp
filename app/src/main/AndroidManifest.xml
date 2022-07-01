@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <activity
+            android:name=".mood.MoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mood.LastPage"
+            android:exported="false" />
+        <activity
+            android:name=".mood.AddNotesActivity"
+            android:exported="false" />
+        <activity
             android:name=".mood.Impulsivity"
             android:exported="false" />
         <activity

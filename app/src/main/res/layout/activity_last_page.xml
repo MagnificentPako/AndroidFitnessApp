@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mood.LastPage">
+
+    <TextView
+        android:id="@+id/end_text"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/mood_your_mood_was_recorded"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/thanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/mood_Thanks_for_your_time"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="163dp"
+        android:layout_marginBottom="184dp"
+        android:onClick="done_button"
+        android:text="@string/mood_done"
+        tools:ignore="MissingConstraints" />
+
+
+</RelativeLayout>

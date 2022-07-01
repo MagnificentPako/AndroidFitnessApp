@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import de.rub.cs.selab22.a14.R;
 
 public class Impulsivity extends AppCompatActivity {
 
-    RadioGroup likert_scale;
-    String printText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +135,6 @@ public class Impulsivity extends AppCompatActivity {
         final RadioButton r42 = findViewById(R.id.radio_button42);
         final RadioButton r52 = findViewById(R.id.radio_button52);
         final RadioButton r62 = findViewById(R.id.radio_button62);
-        final RadioGroup radioGroup = findViewById(R.id.likert_scale2);
         // radioButton0 is selected
 
         r02.setOnClickListener(new View.OnClickListener() {
@@ -234,18 +230,19 @@ public class Impulsivity extends AppCompatActivity {
 
             }
         });
-        //Button nextButton = findViewById(R.id.next_button_imp);
-        //nextButton.setOnClickListener(view -> goToNextPage());
+
+        Button nextButton = findViewById(R.id.next_button_imp);
+        nextButton.setOnClickListener(view -> goToNextPage());
 
         Button backButton = findViewById(R.id.back_button_imp);
         backButton.setOnClickListener(view -> goToPreviousPage());
 
     }
 
-    /*public void goToNextPage() {
+    public void goToNextPage() {
         Intent intent = new Intent(this, AddNotesActivity.class);
         startActivity(intent);
-    }*/
+    }
 
     public void goToPreviousPage() {
         Intent intent = new Intent(this, SelbstWert.class);
