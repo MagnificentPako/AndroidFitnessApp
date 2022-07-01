@@ -72,16 +72,16 @@ public class Context extends AppCompatActivity {
 
 
 
-       // Button nextButton = findViewById(R.id.next_button_context);
-        //nextButton.setOnClickListener(view -> goToNextPage());
+        Button nextButton = findViewById(R.id.next_button_context);
+        nextButton.setOnClickListener(view -> goToNextPage());
 
         Button backButton = findViewById(R.id.back_button_context);
         backButton.setOnClickListener(view -> goToPreviousPage());
     }
-    /*public void goToNextPage() {
+    public void goToNextPage() {
         Intent intent = new Intent(Context.this, SelbstWert.class);
         startActivity(intent);
-    }*/
+    }
 
     public void goToPreviousPage() {
         Intent intent = new Intent(Context.this, SocialContext.class);

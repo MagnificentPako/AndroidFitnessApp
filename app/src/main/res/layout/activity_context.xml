@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="476dp"
-        android:text="@string/Where_are_you_right_now"
+        android:text="@string/mood_Where_are_you_right_now"
         android:textColor="#0E0E0E"
         android:textSize="20sp" />
 
@@ -60,7 +60,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="279dp"
-        android:hint="@string/write_here"
+        android:hint="@string/mood_write_here"
         android:minHeight="48dp"
         android:visibility="gone"
         android:onClick="others_button"

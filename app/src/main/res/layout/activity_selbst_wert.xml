@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mood.SelbstWert">
+
+    <TextView
+        android:id="@+id/text_view1"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="422dp"
+        android:text="@string/mood_At_present_I_am_satisfied_with_myself"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView112"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="275dp"
+        android:text="@string/mood_At_the_moment_I_consider_myself_a_failure"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/rating_scale1"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="178dp"
+        android:layout_marginBottom="385dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        tools:text="@string/mood_rating_self_worth" />
+
+    <TextView
+        android:id="@+id/rating_scale2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="232dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        tools:text="@string/mood_rating_self_worth" />
+
+    <Button
+        android:id="@+id/next_button_self_worth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/mood_next" />
+
+    <Button
+        android:id="@+id/back_button_self_worth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="271dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/mood_back" />
+
+    <TextView
+        android:id="@+id/selbst_wert_text"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="523dp"
+        android:text="@string/mood_self_worth"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="336dp"
+        android:accessibilityHeading="false"
+        android:clickable="true"
+        android:isIndicator="false"
+        android:max="9"
+        android:minHeight="48dp"
+        android:numStars="9"
+        android:progressTint="#D50ADC"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="194dp"
+        android:isIndicator="false"
+        android:max="9"
+        android:numStars="9"
+        android:progressTint="#D50ADC"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</RelativeLayout>
