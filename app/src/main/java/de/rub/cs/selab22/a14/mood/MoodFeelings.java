@@ -247,7 +247,7 @@ public class MoodFeelings extends AppCompatActivity {
 
 
     public void goToPreviousPage() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MoodActivity.class);
         startActivity(intent);
     }
 

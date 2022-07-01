@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import de.rub.cs.selab22.a14.mood.MoodActivity;
 import de.rub.cs.selab22.a14.mood.MoodFeelings;
 import de.rub.cs.selab22.a14.settings.I18nAppCompatActivity;
 import de.rub.cs.selab22.a14.settings.SettingsActivity;
@@ -34,7 +35,7 @@ public class MainActivity extends I18nAppCompatActivity {
 
 
     private void goToMoodActivity() {
-        Intent switchActivity = new Intent(this, MoodFeelings.class);
+        Intent switchActivity = new Intent(this, MoodActivity.class);
         startActivity(switchActivity);
     }
     protected void onStart() {

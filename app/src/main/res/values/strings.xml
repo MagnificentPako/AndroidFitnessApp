@@ -19,22 +19,22 @@
     <string name="settings_feedback_title">Send feedback</string>
     <string name="settings_feedback_description">Report technical issues or suggest new features</string>
     <string name="mood_button">Mood</string>
-    <string name="mood_next">next</string>
-    <string name="mood_back">back</string>
+    <string name="mood_next">Next</string>
+    <string name="mood_back">Back</string>
     <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In the last 24 hours I felt on average</string>
-    <string name="mood_feelings_unsatisfied">unsatisfied</string>
-    <string name="mood_feelings_satisfied">satisfied</string>
-    <string name="mood_feelings_well">well</string>
-    <string name="mood_feelings_unwell">unwell</string>
-    <string name="mood_feelings_troubled">troubled</string>
-    <string name="mood_feelings_calm">calm</string>
+    <string name="mood_feelings_unsatisfied">Unsatisfied</string>
+    <string name="mood_feelings_satisfied">Satisfied</string>
+    <string name="mood_feelings_well">Well</string>
+    <string name="mood_feelings_unwell">Unwell</string>
+    <string name="mood_feelings_troubled">Troubled</string>
+    <string name="mood_feelings_calm">Calm</string>
     <string name="mood_rating_text">0%</string>
-    <string name="mood_feelings_awake">awake</string>
-    <string name="mood_feelings_tired">tired</string>
-    <string name="mood_feelings_energy_less">energy_less</string>
-    <string name="mood_feelings_energetic">energetic</string>
-    <string name="mood_feelings_tense">tense</string>
-    <string name="mood_feelings_relaxed">relaxed</string>
+    <string name="mood_feelings_awake">Awake</string>
+    <string name="mood_feelings_tired">Tired</string>
+    <string name="mood_feelings_energy_less">Energy_less</string>
+    <string name="mood_feelings_energetic">Energetic</string>
+    <string name="mood_feelings_tense">Tense</string>
+    <string name="mood_feelings_relaxed">Relaxed</string>
     <!-- Mood_Event Appraisal-->
     <string name="mood_event_appraisel">Event Appraisel:</string>
     <string name="mood_Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event">Have you experienced one or more negative events since the last query?
@@ -99,10 +99,11 @@
         You can add some notes about your current mood here</string>
 
     <!-- mood_add_notes-->
-
     <string name="mood_your_mood_was_recorded">Your mood was recorded ^-^</string>
     <string name="mood_Thanks_for_your_time">Thanks for yout time</string>
     <string name="mood_done">Done</string>
+    <string name="mood_record_button">Mood Record</string>
+    <string name="mood_notification_button">Notification</string>
 
 
 </resources>
