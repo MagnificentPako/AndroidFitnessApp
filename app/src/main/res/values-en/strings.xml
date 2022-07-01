@@ -77,4 +77,19 @@
     <string name="mood_At_the_moment_I_consider_myself_a_failure">At the moment I consider myself a failure</string>
     <string name="mood_rating_self_worth">0.0</string>
 
+    <!-- Mood_Impulsivity-->
+    <string name="mood_impulsivity">Impulsivity:</string>
+    <string name="mood_Since_the_last_query_I_have_acted_impulsively_i.e._I_have_acted_without_thinking_about_possible_consequences">
+        Since the last query, I have acted impulsively, i.e., I have acted without thinking about possible consequences
+</string>
+    <string name="mood_Since_the_last_query_I_have_behaved_angrily_or_aggressively_towards_another_person_which_I_was_sorry_for_afterwards">
+        Since the last query, I have behaved in an angry or aggressive manner towards another person which I was sorry for afterwards </string>
+    <string name="mood_0_strongly_disagree">0 strongly disagree</string>
+    <string name="mood_1_disagree">1 disagree</string>
+    <string name="mood_2_slightly_disagree">2 slightly disagree</string>
+    <string name="mood_3_either">3 either</string>
+    <string name="mood_4_slightly_agree">4 slightly agree</string>
+    <string name="mood_5_agree">5 agree</string>
+    <string name="mood_6_strongly_agree">6 strongly agree</string>
+
 </resources>

@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <activity
+            android:name=".mood.Impulsivity"
+            android:exported="false" />
+        <activity
             android:name=".mood.SelbstWert"
             android:exported="false" />
         <activity
