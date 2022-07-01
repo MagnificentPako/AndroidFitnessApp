@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <activity
+            android:name=".mood.SocialContext"
+            android:exported="false" />
+        <activity
             android:name=".mood.EventAppraisal"
             android:exported="false" />
         <activity
