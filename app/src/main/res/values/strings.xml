@@ -18,4 +18,22 @@
     <string name="settings_notifications_description">Enable message notifications</string>
     <string name="settings_feedback_title">Send feedback</string>
     <string name="settings_feedback_description">Report technical issues or suggest new features</string>
+    <string name="mood_button">Mood</string>
+    <string name="mood_next">next</string>
+    <string name="mood_back">back</string>
+    <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In the last 24 hours I felt on average</string>
+    <string name="mood_feelings_unsatisfied">unsatisfied</string>
+    <string name="mood_feelings_satisfied">satisfied</string>
+    <string name="mood_feelings_well">well</string>
+    <string name="mood_feelings_unwell">unwell</string>
+    <string name="mood_feelings_troubled">troubled</string>
+    <string name="mood_feelings_calm">calm</string>
+    <string name="mood_rating_text">0%</string>
+    <string name="mood_feelings_awake">awake</string>
+    <string name="mood_feelings_tired">tired</string>
+    <string name="mood_feelings_energy_less">energy_less</string>
+    <string name="mood_feelings_energetic">energetic</string>
+    <string name="mood_feelings_tense">tense</string>
+    <string name="mood_feelings_relaxed">relaxed</string>
+
 </resources>
