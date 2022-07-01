@@ -37,16 +37,16 @@
 
     <!-- Mood_ Event Appraisal-->
     <string name="mood_event_appraisel">Event Appraisel:</string>
-    <string name="Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event">Haben Sie seit der letzten Abfrage eines oder mehrere negative Ereignisse erlebt? Wie intensiv war das bedeutendste negative Ereignis?</string>
-    <string name="Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event">Haben Sie seit der letzten Abfrage eines oder mehrere positive Ereignisse erlebt? Wie intensiv war das bedeutendste positive Ereignis?</string>
+    <string name="mood_Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event">Haben Sie seit der letzten Abfrage eines oder mehrere negative Ereignisse erlebt? Wie intensiv war das bedeutendste negative Ereignis?</string>
+    <string name="mood_Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event">Haben Sie seit der letzten Abfrage eines oder mehrere positive Ereignisse erlebt? Wie intensiv war das bedeutendste positive Ereignis?</string>
 
     <!-- Mood_Social Context-->
     <string name="mood_social_context">Social Context:</string>
     <string name="mood_yes">Ja</string>
     <string name="mood_no">Nein</string>
-    <string name="Are_you_alone_right_now">Sind Sie im Moment alleine?</string>
-    <string name="What_kind_of_people_are_you_surrounded_by_at_the_moment">Von welchen Menschen sind Sie momentan umgeben?</string>
-    <string name="When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people">Wenn Sie an die Personen denken, die Sie gerade umgeben, inwiefern trifft folgende Aussage zu?
+    <string name="mood_Are_you_alone_right_now">Sind Sie im Moment alleine?</string>
+    <string name="mood_What_kind_of_people_are_you_surrounded_by_at_the_moment">Von welchen Menschen sind Sie momentan umgeben?</string>
+    <string name="mood_When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people">Wenn Sie an die Personen denken, die Sie gerade umgeben, inwiefern trifft folgende Aussage zu?
         Ich mag diese Leute nicht!</string>
     <string-array name="persons">
         <item>Wählen Sie aus: </item>
@@ -60,8 +60,8 @@
 
     <!-- Mood_Context-->
     <string name="mood_context">Context:</string>
-    <string name="Where_are_you_right_now">Wo befinden Sie sich grade?</string>
-    <string name="write_here">Hier schreiben..</string>
+    <string name="mood_Where_are_you_right_now">Wo befinden Sie sich grade?</string>
+    <string name="mood_write_here">Hier schreiben..</string>
     <string-array name="context">
         <item>Wählen Sie aus: </item>
         <item>Zuhause</item>
@@ -72,5 +72,12 @@
         <item>Besuch</item>
         <item>Sonstiges</item>
     </string-array>
+
+    <!-- Mood_Selbst_Wert-->
+    <string name="mood_self_worth">Selbst Wert:</string>
+    <string name="mood_At_present_I_am_satisfied_with_myself">Gegenwärtig bin ich mit mir selbst zufrieden</string>
+    <string name="mood_At_the_moment_I_consider_myself_a_failure">Im Augenblick halte ich mich für einen Versager</string>
+    <string name="mood_rating_self_worth">0.0</string>
+
 
 </resources>

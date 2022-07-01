@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="117dp"
         android:layout_marginBottom="475dp"
-        android:text="@string/Are_you_alone_right_now"
+        android:text="@string/mood_Are_you_alone_right_now"
         android:textColor="#0E0E0E"
         android:textSize="16sp" />
 
@@ -29,7 +29,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="310dp"
-        android:text="@string/What_kind_of_people_are_you_surrounded_by_at_the_moment"
+        android:text="@string/mood_What_kind_of_people_are_you_surrounded_by_at_the_moment"
         android:textColor="#0E0E0E"
         android:textSize="16sp"
         android:visibility="gone" />
@@ -67,7 +67,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="165dp"
-        android:text="@string/When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people"
+        android:text="@string/mood_When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people"
         android:textColor="#0E0E0E"
         android:textSize="16sp" />
 
