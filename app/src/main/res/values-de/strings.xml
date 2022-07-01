@@ -97,10 +97,12 @@
         Sie können hier einige Notizen zu Ihrer aktuellen Stimmung hinzufügen</string>
 
     <!-- mood_add_notes-->
-
     <string name="mood_your_mood_was_recorded">Ihre Stimmung wurde aufgezeichnet ^-^</string>
     <string name="mood_Thanks_for_your_time">Danke für Ihre Zeit</string>
     <string name="mood_done">fertig</string>
+    <string name="mood_record_button">Mood Record</string>
+    <string name="mood_notification_button">Benachrichtigung</string>
+
 
 
 
