@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,8 +22,6 @@ public class MoodFeelings extends AppCompatActivity {
     TextView textView5;
     TextView textView6;
 
-
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,7 @@ public class MoodFeelings extends AppCompatActivity {
         //seekbar 1
         SeekBar seekBar1 = findViewById(R.id.seekBar1);
         textView1 = findViewById(R.id.rating_text1);
+
         final Handler seekbarH1 = new Handler(Looper.getMainLooper());
         seekBar1.getThumb().setAlpha(0);
 
@@ -65,6 +65,7 @@ public class MoodFeelings extends AppCompatActivity {
         //seekbar 2
         SeekBar seekBar2 = findViewById(R.id.seekBar2);
         textView2 = findViewById(R.id.rating_text2);
+
         final Handler seekbarH2 = new Handler(Looper.getMainLooper());
         seekBar2.getThumb().setAlpha(0);
 
@@ -95,6 +96,7 @@ public class MoodFeelings extends AppCompatActivity {
         // Seekbar 3
         SeekBar seekBar3 = findViewById(R.id.seekBar3);
         textView3 = findViewById(R.id.rating_text3);
+
         final Handler seekbarH3 = new Handler(Looper.getMainLooper());
         seekBar3.getThumb().setAlpha(0);
 
@@ -126,6 +128,7 @@ public class MoodFeelings extends AppCompatActivity {
         // Seekbar 4
         SeekBar seekBar4 = findViewById(R.id.seekBar4);
         textView4 =findViewById(R.id.rating_text4);
+
         final Handler seekbarH4 = new Handler(Looper.getMainLooper());
         seekBar4.getThumb().setAlpha(0);
 
@@ -157,6 +160,7 @@ public class MoodFeelings extends AppCompatActivity {
         // Seekbar 5
         SeekBar seekBar5 = findViewById(R.id.seekBar5);
         textView5 =findViewById(R.id.rating_text5);
+
         final Handler seekbarH5 = new Handler(Looper.getMainLooper());
         seekBar5.getThumb().setAlpha(0);
 
@@ -188,6 +192,7 @@ public class MoodFeelings extends AppCompatActivity {
         // Seekbar 6
         SeekBar seekBar6 = findViewById(R.id.seekBar6);
         textView6 = findViewById(R.id.rating_text6);
+
         final Handler seekbarH6 = new Handler(Looper.getMainLooper());
         seekBar6.getThumb().setAlpha(0);
 
@@ -234,18 +239,6 @@ public class MoodFeelings extends AppCompatActivity {
         Intent intent = new Intent(this, EventAppraisal.class);
         startActivity(intent);
     }
-
-     /*private boolean isWithinThumb(MotionEvent event, SeekBar seekBar) {
-        Rect rcThumb = seekBar.getThumb().getBounds();
-        Rect rcDetectTouchArea = new Rect();
-        int iWidth = rcThumb.width();
-        int iHeight = rcThumb.height();
-        rcDetectTouchArea.left = rcThumb.left - iWidth;
-        rcDetectTouchArea.right = rcThumb.right + iWidth;
-        rcDetectTouchArea.bottom = rcThumb.bottom + iHeight;
-        Log.i("TAG", "rcDetectSize.left  = " + rcDetectTouchArea.left + " | rcDetectSize.right = " + rcDetectTouchArea.right + " |  rcDetectSize.bottom = " + rcDetectTouchArea.bottom + " | event.getX()= " + event.getX() + " | event.getY()= " + event.getY() + " | rcThumb  area = " + rcDetectTouchArea.contains((int) event.getX(), (int) event.getY()));
-        return rcDetectTouchArea.contains((int) event.getX(), (int) event.getY());
-      }*/
 
 }
 

@@ -14,7 +14,6 @@ import de.rub.cs.selab22.a14.R;
 
 public class EventAppraisal extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -16,11 +16,13 @@ public class SelbstWert extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selbst_wert);
+
         TextView rating_scale1 = findViewById(R.id.rating_scale1);
         TextView rating_scale2 = findViewById(R.id.rating_scale2);
 
         final RatingBar ratingBar1 = findViewById(R.id.ratingBar1);
         final RatingBar ratingBar2 = findViewById(R.id.ratingBar2);
+
 
         ratingBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override

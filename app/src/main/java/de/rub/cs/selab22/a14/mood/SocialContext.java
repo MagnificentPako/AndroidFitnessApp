@@ -76,8 +76,10 @@ public class SocialContext extends AppCompatActivity {
 
             }
         });
+
         social_context_seekbar = findViewById(R.id.social_context_seekbar);
         textViewOne = findViewById(R.id.textView12);
+
         final Handler social_context_seekbar_Handler = new Handler(Looper.getMainLooper());
         social_context_seekbar.getThumb().setAlpha(0);
 
