@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/radio"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".mood.Impulsivity">
+
+
+    <TextView
+        android:id="@+id/textView_imp1"
+        android:layout_width="391dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/mood_Since_the_last_query_I_have_acted_impulsively_i.e._I_have_acted_without_thinking_about_possible_consequences"
+        android:textColor="#0E0E0E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView_imp2"
+        android:layout_width="381dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="136dp"
+        android:text="@string/mood_Since_the_last_query_I_have_behaved_angrily_or_aggressively_towards_another_person_which_I_was_sorry_for_afterwards"
+        android:textColor="#0E0E0E"
+        app:layout_constraintBottom_toTopOf="@+id/next_button_imp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="402dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_imp1">
+
+        <RadioGroup
+            android:id="@+id/likert_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="-194dp"
+            tools:layout_editor_absoluteY="367dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale0"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_0_strongly_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    tools:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_button0"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale1"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_1_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale2"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_2_slightly_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button2"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    tools:ignore="DuplicateIds" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale03"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_3_either"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button3"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale04"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_4_slightly_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button4"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale05"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_5_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button5"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale06"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_6_strongly_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button6"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="402dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_imp1">
+
+        <RadioGroup
+            android:id="@+id/likert_scale2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="-194dp"
+            tools:layout_editor_absoluteY="367dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale02"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_0_strongly_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    tools:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_button02"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale12"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_1_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button12"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale22"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_2_slightly_disagree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button22"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    tools:ignore="DuplicateIds" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale32"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_3_either"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button32"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale42"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_4_slightly_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button42"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale52"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_5_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button52"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_scale62"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/mood_6_strongly_agree"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio_button62"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_button_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/mood_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/back_button_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/mood_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/Impuls"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="160dp"
+        android:text="@string/mood_impulsivity"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

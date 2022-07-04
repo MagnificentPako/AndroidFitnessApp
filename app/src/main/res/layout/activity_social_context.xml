@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mood.SocialContext">
+
+    <TextView
+        android:id="@+id/social_context_textview1"
+        android:layout_width="276dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="475dp"
+        android:text="@string/mood_Are_you_alone_right_now"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/personen"
+        android:layout_width="361dp"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="310dp"
+        android:text="@string/mood_What_kind_of_people_are_you_surrounded_by_at_the_moment"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/next_button_social_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/mood_next" />
+
+    <Button
+        android:id="@+id/back_button_social_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/mood_back" />
+
+
+    <TextView
+        android:id="@+id/social_context_textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="165dp"
+        android:text="@string/mood_When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="137dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        tools:text="@string/mood_rating_text" />
+
+    <TextView
+        android:id="@+id/social_context"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="517dp"
+        android:text="@string/mood_social_context"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <SeekBar
+        android:id="@+id/social_context_seekbar"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="472dp"
+        android:layout_marginEnd="45dp"
+        android:max="100"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="299dp"
+        android:visibility="gone"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup_sc"
+        android:layout_width="127dp"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="140dp">
+
+        <RadioButton
+            android:id="@+id/yes_radioButton"
+            android:layout_width="137dp"
+            android:layout_height="37dp"
+            android:backgroundTint="#D50ADC"
+            android:text="@string/mood_yes"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/no_radioButton"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D50ADCFF"
+            android:minHeight="48dp"
+            android:text="@string/mood_no"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+</RelativeLayout>

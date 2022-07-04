@@ -11,9 +11,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <activity
+            android:name=".mood.Notification"
+            android:exported="false" />
+        <activity
+            android:name=".mood.MoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mood.LastPage"
+            android:exported="false" />
+        <activity
+            android:name=".mood.AddNotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mood.Impulsivity"
+            android:exported="false" />
+        <activity
+            android:name=".mood.SelbstWert"
+            android:exported="false" />
+        <activity
+            android:name=".mood.Context"
+            android:exported="false" />
+        <activity
+            android:name=".mood.SocialContext"
+            android:exported="false" />
+        <activity
+            android:name=".mood.EventAppraisal"
+            android:exported="false" />
+        <activity
+            android:name=".mood.MoodFeelings"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:configChanges="locale">
+            android:configChanges="locale"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +52,8 @@
         </activity>
         <activity
             android:name=".settings.SettingsActivity"
-            android:exported="true"
-            android:configChanges="locale">
-        </activity>
+            android:configChanges="locale"
+            android:exported="true" />
     </application>
 
 </manifest>

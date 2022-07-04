@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mood.MoodFeelings">
+
+    <TextView
+        android:id="@+id/rating_text6"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="140dp"
+        android:textStyle="bold"
+        android:textColor="#0E0E0E"
+        tools:text="@string/mood_rating_text" />
+
+    <TextView
+        android:id="@+id/wach_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="157dp"
+        android:text="@string/mood_feelings_awake"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/muede_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="279dp"
+        android:layout_marginBottom="161dp"
+        android:text="@string/mood_feelings_tired"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/energielos_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="279dp"
+        android:layout_marginBottom="240dp"
+        android:text="@string/mood_feelings_energy_less"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/angespannt_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="279dp"
+        android:layout_marginBottom="300dp"
+        android:text="@string/mood_feelings_tense"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/rating_text4"
+        android:layout_width="67dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="295dp"
+        android:textStyle="bold"
+        android:textColor="#0E0E0E"
+        tools:text="@string/mood_rating_text" />
+
+    <SeekBar
+        android:id="@+id/seekBar5"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="197dp"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <SeekBar
+        android:id="@+id/seekBar6"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="118dp"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <TextView
+        android:id="@+id/energiegeladen_text"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="237dp"
+        android:text="@string/mood_feelings_energetic"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/rating_text3"
+        android:layout_width="67dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginBottom="25dp"
+        android:textStyle="bold"
+        android:textColor="#0E0E0E"
+        tools:text="@string/mood_rating_text" />
+
+    <SeekBar
+        android:id="@+id/seekBar4"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="276dp"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <TextView
+        android:id="@+id/rating_text5"
+        android:layout_width="67dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="216dp"
+        android:textStyle="bold"
+        android:textColor="#0E0E0E"
+        tools:text="@string/mood_rating_text" />
+
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="341dp"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <TextView
+        android:id="@+id/wohl_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="377dp"
+        android:text="@string/mood_feelings_well"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/entspannt_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="301dp"
+        android:text="@string/mood_feelings_relaxed"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/unwohl_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="288dp"
+        android:layout_marginBottom="380dp"
+        android:text="@string/mood_feelings_unwell"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="413dp"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC" />
+
+    <TextView
+        android:id="@+id/unruhig_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="288dp"
+        android:layout_marginBottom="443dp"
+        android:text="@string/mood_feelings_troubled"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:id="@+id/zurück_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="291dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/mood_back"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/weiter_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/mood_next"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="542dp"
+        android:text="@string/mood_feelings_in_the_last_24_hours_I_felt_on_average"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
+
+
+    <TextView
+        android:id="@+id/unzufrieden_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="290dp"
+        android:layout_marginBottom="508dp"
+        android:text="@string/mood_feelings_unsatisfied"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/zufrieden_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="510dp"
+        android:text="@string/mood_feelings_satisfied"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/ruhig_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="445dp"
+        android:text="@string/mood_feelings_calm"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/rating_text1"
+        android:layout_width="67dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="87dp"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:textColor="#0E0E0E"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="@string/mood_rating_text" />
+
+    <TextView
+        android:id="@+id/rating_text2"
+        android:layout_width="67dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginBottom="25dp"
+        android:textStyle="bold"
+        android:textColor="#0E0E0E"
+        tools:text="@string/mood_rating_text" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="477dp"
+        android:clickable="true"
+        android:max="100"
+        android:min="0"
+        android:progress="0"
+        android:progressBackgroundTint="#D50ADC"
+        android:progressTint="#D50ADC"
+        android:thumbTint="#D50ADC"
+        android:thumbTintMode="src_in"
+        android:visibility="visible"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+</RelativeLayout>
