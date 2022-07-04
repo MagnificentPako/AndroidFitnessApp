@@ -28,12 +28,13 @@ public class SocialContext extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_context);
-        TextView personen =(TextView) findViewById(R.id.personen);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
-        RadioGroup radioGroup =(RadioGroup) findViewById(R.id.radiogroup_sc);
+        TextView personen = findViewById(R.id.personen);
+        Spinner spinner = findViewById(R.id.spinner2);
+        RadioGroup radioGroup =  findViewById(R.id.radiogroup_sc);
 
         // radio_Button
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
@@ -75,8 +76,8 @@ public class SocialContext extends AppCompatActivity {
 
             }
         });
-        social_context_seekbar = (SeekBar) findViewById(R.id.social_context_seekbar);
-        textViewOne = (TextView) findViewById(R.id.textView12);
+        social_context_seekbar = findViewById(R.id.social_context_seekbar);
+        textViewOne = findViewById(R.id.textView12);
         final Handler social_context_seekbar_Handler = new Handler(Looper.getMainLooper());
         social_context_seekbar.getThumb().setAlpha(0);
 

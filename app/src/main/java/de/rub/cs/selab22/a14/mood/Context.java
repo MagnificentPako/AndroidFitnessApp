@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,18 +16,16 @@ import de.rub.cs.selab22.a14.R;
 
 
 public class Context extends AppCompatActivity {
-    private RadioGroup radioGroup;
 
-    Button button;
-    Button sonstiges;
+
     Spinner spinner_context;
-    private static final int option0=0;
+    /*private static final int option0=0;
     private static final int option1=1;
     private static final int option2=2;
     private static final int option3=3;
     private static final int option4=4;
     private static final int option5=5;
-    private static final int option6=6;
+    private static final int option6=6;*/
 
 
 

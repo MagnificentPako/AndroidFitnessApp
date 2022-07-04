@@ -14,9 +14,6 @@ import de.rub.cs.selab22.a14.R;
 
 public class EventAppraisal extends AppCompatActivity {
 
-    Button button;
-    TextView textViewOne;
-    TextView textViewTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
