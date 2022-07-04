@@ -23,10 +23,10 @@ public class MainActivity extends I18nAppCompatActivity {
 
         Button settingsButton = findViewById(R.id.settings_button);
         Button physicalButton = findViewById(R.id.physical_main_button);
+        Button moodButton = findViewById(R.id.mood_button);
 
         settingsButton.setOnClickListener(view -> goToSettings());
-        // mood
-        Button moodButton = findViewById(R.id.mood_button);
+        physicalButton.setOnClickListener(view -> goToPhysicalMain());
         moodButton.setOnClickListener(view -> goToMoodActivity());
     }
 
