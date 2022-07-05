@@ -104,9 +104,9 @@
     <string name="mood_notification_button">Benachrichtigung</string>
 
     <string name="physical_main_button">Physische Aktivität</string>
-    <string name="physical_day_button">Tag</string>
-    <string name="physical_week_button">Woche</string>
-    <string name="physical_month_button">Monat</string>
+    <string name="day_button">Tag</string>
+    <string name="week_button">Woche</string>
+    <string name="month_button">Monat</string>
     <string name="physical_activity_button">Aktivitäten</string>
     <string name="physical_manage_activities_button">Aktivitäten Verwalten</string>
     <string name="physical_settings_button">Einstellungen</string>
