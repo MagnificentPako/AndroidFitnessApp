@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.rub.cs.selab22.a14.settings.SettingsActivity;
-import kotlin.collections.IndexedValue;
 
 public class Physical_main extends AppCompatActivity {
 
