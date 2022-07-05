@@ -105,11 +105,11 @@
     <string name="mood_record_button">Mood Record</string>
     <string name="mood_notification_button">Notification</string>
 
-    <string name="day_button">Tag</string>
-    <string name="week_button">Woche</string>
-    <string name="month_button">Monat</string>
-    <string name="physical_activity_button">Aktivitäten</string>
-    <string name="physical_manage_activities_button">Aktivitäten Verwalten</string>
-    <string name="physical_settings_button">Einstellungen</string>
-    <string name="physical_main_button">Physische Aktivitaet</string>
+    <string name="physical_main_button">Physical Activity</string>
+    <string name="day_button">Day</string>
+    <string name="week_button">Week</string>
+    <string name="month_button">Month</string>
+    <string name="physical_activity_button">Physical Activities</string>
+    <string name="physical_manage_activities_button">Manage Activities</string>
+    <string name="physical_settings_button">Settings</string>
 </resources>
