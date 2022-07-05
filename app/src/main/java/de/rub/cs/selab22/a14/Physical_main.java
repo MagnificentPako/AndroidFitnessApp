@@ -126,6 +126,7 @@ public class Physical_main extends AppCompatActivity {
         //dataSets.add(lineDataSet2);
 
         LineDataSet lineDataSet = new LineDataSet(entryList, label);
+        lineDataSet.setColor(getIntFromColor(0,0,0));
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -133,6 +134,14 @@ public class Physical_main extends AppCompatActivity {
 
         setStyleConfig();
         lc.invalidate();
+    }
+
+    public int getIntFromColor(int Red, int Green, int Blue){
+        Red = (Red << 16) & 0x00FF0000;
+        Green = (Green << 8) & 0x0000FF00;
+        Blue = Blue & 0x000000FF;
+
+        return 0xFF000000 | Red | Green | Blue;
     }
 
 

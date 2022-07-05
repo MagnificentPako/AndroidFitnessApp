@@ -3,6 +3,7 @@ package de.rub.cs.selab22.a14.mood;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.rub.cs.selab22.a14.R;
+import de.rub.cs.selab22.a14.settings.SettingsActivity;
 
 public class MoodActivity extends AppCompatActivity {
 
@@ -135,6 +137,7 @@ public class MoodActivity extends AppCompatActivity {
         //dataSets.add(lineDataSet2);
 
         LineDataSet lineDataSet = new LineDataSet(entryList, label);
+        lineDataSet.setColor(getIntFromColor(0, 0, 0));
         dataSets.add(lineDataSet);
 
         LineData data = new LineData(dataSets);
@@ -142,6 +145,14 @@ public class MoodActivity extends AppCompatActivity {
 
         setStyleConfig();
         lc.invalidate();
+    }
+
+    public int getIntFromColor(int Red, int Green, int Blue){
+        Red = (Red << 16) & 0x00FF0000;
+        Green = (Green << 8) & 0x0000FF00;
+        Blue = Blue & 0x000000FF;
+
+        return 0xFF000000 | Red | Green | Blue;
     }
 
     private ArrayList<Entry> createEntryList (int length)
