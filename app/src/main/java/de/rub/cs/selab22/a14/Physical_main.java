@@ -30,7 +30,7 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
-        lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7));
+        lc = ChartsHelper.renderActivity(lc,"Weekly", "Monthly", createEntryList(7), createEntryList(7));
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -44,7 +44,7 @@ public class Physical_main extends AppCompatActivity {
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
                 case R.id.physical_day_button:
-                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(3) );
+                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(4) );
                     lc.invalidate();
                     break;
                 case R.id.physical_week_button:
