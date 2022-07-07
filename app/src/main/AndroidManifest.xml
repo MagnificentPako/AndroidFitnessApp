@@ -11,6 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <activity
+            android:name=".navigation.HostActivity"
+            android:exported="true"
+            android:configChanges="locale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".mood.Notification"
             android:exported="false" />
         <activity
@@ -46,12 +56,8 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="locale"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".settings.SettingsActivity"
