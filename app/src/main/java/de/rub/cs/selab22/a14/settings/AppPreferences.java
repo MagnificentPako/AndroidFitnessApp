@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.LocaleListCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -19,6 +22,7 @@ import java.util.Locale;
 
 import de.rub.cs.selab22.a14.MainActivity;
 import de.rub.cs.selab22.a14.R;
+import de.rub.cs.selab22.a14.database.UserIdManager;
 import dev.b3nedikt.app_locale.AppLocale;
 import dev.b3nedikt.reword.Reword;
 
@@ -38,6 +42,11 @@ public class AppPreferences extends PreferenceFragmentCompat {
         feedbackPref.setTitle(R.string.settings_feedback_title);
         feedbackPref.setSummary(R.string.settings_feedback_description);
 
+        Preference userIdPref = new Preference(ctx);
+        userIdPref.setTitle("User ID");
+        userIdPref.setSummary(UserIdManager.INSTANCE.getID().toString());
+        userIdPref.setEnabled(false);
+
         ListPreference localePref = new ListPreference(ctx);
         localePref.setKey("locale");
         localePref.setTitle(R.string.settings_locale_title);
@@ -47,12 +56,7 @@ public class AppPreferences extends PreferenceFragmentCompat {
             if(preference.getKey().equals("locale")) {
                 AppLocale.setDesiredLocale(new Locale((String) newValue));
                 Reword.reword(getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
-                Intent intent = getActivity().getIntent();
-                getActivity().overridePendingTransition(0,0);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                getActivity().finish();
-                getActivity().overridePendingTransition(0,0);
-                getActivity().startActivity(intent);
+                Navigation.findNavController(getView()).navigate(R.id.action_appPreferences_self, savedInstanceState);
             }
             return true;
         });
@@ -60,6 +64,7 @@ public class AppPreferences extends PreferenceFragmentCompat {
         screen.addPreference(notificationPref);
         screen.addPreference(feedbackPref);
         screen.addPreference(localePref);
+        screen.addPreference(userIdPref);
 
         setPreferenceScreen(screen);
 

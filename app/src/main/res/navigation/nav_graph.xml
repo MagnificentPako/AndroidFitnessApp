@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bottom_home">
+    <fragment
+        android:id="@+id/bottom_settings"
+        android:name="de.rub.cs.selab22.a14.settings.AppPreferences"
+        android:label="AppPreferences">
+        <action
+            android:id="@+id/action_appPreferences_self"
+            app:destination="@id/bottom_settings"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/bottom_settings"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottom_home"
+        android:name="de.rub.cs.selab22.a14.navigation.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/bottom_activities"
+        android:name="de.rub.cs.selab22.a14.navigation.ActivityFragment"
+        android:label="ActivityFragment" />
+    <fragment
+        android:id="@+id/bottom_graphs"
+        android:name="de.rub.cs.selab22.a14.navigation.GraphFragment"
+        android:label="GraphFragment" />
+</navigation>
