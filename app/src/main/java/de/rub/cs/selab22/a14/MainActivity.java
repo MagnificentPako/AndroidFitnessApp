@@ -3,14 +3,11 @@ package de.rub.cs.selab22.a14;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import de.rub.cs.selab22.a14.mood.MoodActivity;
-import de.rub.cs.selab22.a14.mood.MoodFeelings;
 import de.rub.cs.selab22.a14.settings.I18nAppCompatActivity;
 import de.rub.cs.selab22.a14.settings.SettingsActivity;
 
@@ -52,8 +49,6 @@ public class MainActivity extends I18nAppCompatActivity {
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(MainActivity.this, MoodFeelings.class);
-                        startActivity(intent);
                     }
                 })
                 .setNegativeButton("später", new DialogInterface.OnClickListener() {

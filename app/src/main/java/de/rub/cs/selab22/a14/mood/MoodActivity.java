@@ -63,8 +63,7 @@ public class MoodActivity extends AppCompatActivity {
     };
 
     public void mood_record(View view) {
-        Intent intent = new Intent(MoodActivity.this, MoodFeelings.class);
-        startActivity(intent);
+
     }
 
     public void notification_button(View view) {

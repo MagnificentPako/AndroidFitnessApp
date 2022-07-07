@@ -94,10 +94,10 @@ public class EventAppraisal extends AppCompatActivity {
 
             }
         });
-        Button nextButton = findViewById(R.id.next_button_event);
+        Button nextButton = findViewById(R.id.button_appraisal_next);
         nextButton.setOnClickListener(view -> goToNextPage());
 
-        Button backButton = findViewById(R.id.back_button_event);
+        Button backButton = findViewById(R.id.button_appraisal_back);
         backButton.setOnClickListener(view -> goToPreviousPage());
 
 
@@ -109,8 +109,6 @@ public class EventAppraisal extends AppCompatActivity {
     }
 
     public void goToPreviousPage() {
-        Intent intent = new Intent(EventAppraisal.this, MoodFeelings.class);
-        startActivity(intent);
 
 
     }

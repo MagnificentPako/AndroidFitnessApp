@@ -17,14 +17,14 @@
     </fragment>
     <fragment
         android:id="@+id/bottom_home"
-        android:name="de.rub.cs.selab22.a14.navigation.HomeFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/bottom_activities"
-        android:name="de.rub.cs.selab22.a14.navigation.ActivityFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.ActivityFragment"
         android:label="ActivityFragment" />
     <fragment
         android:id="@+id/bottom_graphs"
-        android:name="de.rub.cs.selab22.a14.navigation.GraphFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.GraphFragment"
         android:label="GraphFragment" />
 </navigation>
