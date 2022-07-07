@@ -41,6 +41,9 @@
             android:name=".mood.MoodFeelings"
             android:exported="false" />
         <activity
+            android:name=".Physical_main"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:configChanges="locale"
             android:exported="true">
@@ -53,7 +56,7 @@
         <activity
             android:name=".settings.SettingsActivity"
             android:configChanges="locale"
-            android:exported="true" />
+            android:exported="true"></activity>
     </application>
 
 </manifest>

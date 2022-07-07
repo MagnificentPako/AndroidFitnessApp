@@ -1,9 +1,8 @@
-package de.rub.cs.selab22.a14.mood;
+package de.rub.cs.selab22.a14;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,24 +14,23 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.Random;
 
-import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.charts.ChartsHelper;
 
-public class MoodActivity extends AppCompatActivity {
+public class Physical_main extends AppCompatActivity {
 
     LineChart lc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood);
+        setContentView(R.layout.activity_physical_main);
 
-        Button dayButton = findViewById(R.id.mood_day_button);
-        Button weekButton = findViewById(R.id.mood_week_button);
-        Button monthButton = findViewById(R.id.mood_month_button);
+        Button dayButton = findViewById(R.id.physical_day_button);
+        Button weekButton = findViewById(R.id.physical_week_button);
+        Button monthButton = findViewById(R.id.physical_month_button);
 
-        lc = (LineChart) findViewById(R.id.mood_chart);
-        ChartsHelper.renderActivity(lc, "Weekly", createEntryList(7) );
+        lc = (LineChart) findViewById(R.id.physical_chart);
+        lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7));
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -45,32 +43,22 @@ public class MoodActivity extends AppCompatActivity {
         public void onClick(final View v) {
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
-                case R.id.mood_day_button:
-                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(7) );
+                case R.id.physical_day_button:
+                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(3) );
                     lc.invalidate();
                     break;
-                case R.id.mood_week_button:
+                case R.id.physical_week_button:
                     lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7) );
                     lc.invalidate();
                     break;
-                case R.id.mood_month_button:
-                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(7) );
+                case R.id.physical_month_button:
+                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(4) );
                     lc.invalidate();
                     break;
             }
 
         }
     };
-
-    public void mood_record(View view) {
-        Intent intent = new Intent(MoodActivity.this, MoodFeelings.class);
-        startActivity(intent);
-    }
-
-    public void notification_button(View view) {
-        Intent intent = new Intent(MoodActivity.this, Notification.class);
-        startActivity(intent);
-    }
 
     private ArrayList<Entry> createEntryList (int length)
     {

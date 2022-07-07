@@ -22,9 +22,11 @@ public class MainActivity extends I18nAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button settingsButton = findViewById(R.id.settings_button);
-        settingsButton.setOnClickListener(view -> goToSettings());
-        // mood
+        Button physicalButton = findViewById(R.id.physical_main_button);
         Button moodButton = findViewById(R.id.mood_button);
+
+        settingsButton.setOnClickListener(view -> goToSettings());
+        physicalButton.setOnClickListener(view -> goToPhysicalMain());
         moodButton.setOnClickListener(view -> goToMoodActivity());
     }
 
@@ -33,11 +35,15 @@ public class MainActivity extends I18nAppCompatActivity {
         startActivity(switchActivity);
     }
 
-
     private void goToMoodActivity() {
         Intent switchActivity = new Intent(this, MoodActivity.class);
         startActivity(switchActivity);
     }
+    private void goToPhysicalMain() {
+        Intent switchActivity = new Intent(this, Physical_main.class);
+        startActivity(switchActivity);
+    }
+
     protected void onStart() {
         super.onStart();
         new AlertDialog.Builder(this)
@@ -57,8 +63,5 @@ public class MainActivity extends I18nAppCompatActivity {
                     }
                 })
                 .create().show();
-
-
     }
-
-}
+}   
