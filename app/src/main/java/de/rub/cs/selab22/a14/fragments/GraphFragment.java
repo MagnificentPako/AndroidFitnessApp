@@ -1,4 +1,4 @@
-package de.rub.cs.selab22.a14.navigation;
+package de.rub.cs.selab22.a14.fragments;
 
 import androidx.fragment.app.Fragment;
 

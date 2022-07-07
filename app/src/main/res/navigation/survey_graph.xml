@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/survey_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/moodFeelingsFragment">
+    <fragment
+        android:id="@+id/moodFeelingsFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.survey.MoodFeelingsFragment"
+        android:label="MoodFeelingsFragment"
+        tools:layout="@layout/activity_mood_feelings">
+        <action
+            android:id="@+id/action_feelings_to_appraisal"
+            app:destination="@id/eventAppraisalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventAppraisalFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.survey.EventAppraisalFragment"
+        tools:layout="@layout/activity_event_appraisal"
+        android:label="EventAppraisalFragment" >
+        <action
+            android:id="@+id/action_appraisal_to_feelings"
+            app:destination="@id/moodFeelingsFragment" />
+    </fragment>
+</navigation>
