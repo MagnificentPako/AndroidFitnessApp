@@ -31,24 +31,6 @@
             android:name=".mood.LastPage"
             android:exported="false" />
         <activity
-            android:name=".mood.AddNotesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mood.Impulsivity"
-            android:exported="false" />
-        <activity
-            android:name=".mood.SelbstWert"
-            android:exported="false" />
-        <activity
-            android:name=".mood.Context"
-            android:exported="false" />
-        <activity
-            android:name=".mood.SocialContext"
-            android:exported="false" />
-        <activity
-            android:name=".mood.EventAppraisal"
-            android:exported="false" />
-        <activity
             android:name=".Physical_main"
             android:exported="false" />
         <activity
@@ -59,10 +41,6 @@
         </activity>
         <activity
             android:name=".settings.SettingsActivity"
-            android:configChanges="locale"
-            android:exported="true"></activity>
-        <activity
-            android:name=".navigation.SurveyActivity"
             android:configChanges="locale"
             android:exported="true"></activity>
     </application>

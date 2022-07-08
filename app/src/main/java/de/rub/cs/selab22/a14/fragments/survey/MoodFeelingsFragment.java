@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 import de.rub.cs.selab22.a14.R;
@@ -68,7 +66,9 @@ public class MoodFeelingsFragment extends Fragment {
             });
         });
         view.findViewById(R.id.feelings_next_button).setOnClickListener((v) -> {
-            Navigation.findNavController(view).navigate(R.id.action_feelings_to_appraisal);
+            Navigation.findNavController(view).navigate(R.id.action_moodFeelingsFragment2_to_eventAppraisalFragment2);
         });
+
+
     }
 }

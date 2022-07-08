@@ -24,8 +24,16 @@ public class HostActivity extends I18nAppCompatActivity {
         setContentView(R.layout.activity_host);
 
         NavController nc = Navigation.findNavController(this, R.id.nav_host_fragment);
-
         BottomNavigationView bnv = findViewById(R.id.bottom_nav);
+
+        nc.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
+            if(bnv.getMenu().findItem(navDestination.getId()) == null) {
+                bnv.setVisibility(View.GONE);
+            } else {
+                bnv.setVisibility(View.VISIBLE);
+            }
+        });
+
         NavigationUI.setupWithNavController(bnv, nc);
     }
 }
