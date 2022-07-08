@@ -18,7 +18,12 @@
     <fragment
         android:id="@+id/bottom_home"
         android:name="de.rub.cs.selab22.a14.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_bottom_home_to_mood_feelings"
+            app:destination="@id/nested_survey_graph"
+            />
+    </fragment>
     <fragment
         android:id="@+id/bottom_activities"
         android:name="de.rub.cs.selab22.a14.fragments.ActivityFragment"
@@ -27,4 +32,60 @@
         android:id="@+id/bottom_graphs"
         android:name="de.rub.cs.selab22.a14.fragments.GraphFragment"
         android:label="GraphFragment" />
+    <navigation android:id="@+id/nested_survey_graph"
+        app:startDestination="@id/mood_feelings">
+        <fragment
+            android:id="@+id/eventAppraisalFragment2"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.EventAppraisalFragment"
+            android:label="EventAppraisalFragment"
+            >
+            <action
+                android:id="@+id/action_eventAppraisalFragment2_to_socialContextFragment"
+                app:destination="@id/socialContextFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/mood_feelings"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.MoodFeelingsFragment"
+            android:label="MoodFeelingsFragment">
+            <action
+                android:id="@+id/action_moodFeelingsFragment2_to_eventAppraisalFragment2"
+                app:destination="@id/eventAppraisalFragment2" />
+        </fragment>
+        <fragment
+            android:id="@+id/socialContextFragment"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.SocialContextFragment"
+            android:label="SocialContextFragment" >
+            <action
+                android:id="@+id/action_socialContextFragment_to_contextFragment"
+                app:destination="@id/contextFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/contextFragment"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.ContextFragment"
+            android:label="ContextFragment" >
+            <action
+                android:id="@+id/action_contextFragment_to_selfWorthFragment"
+                app:destination="@id/selfWorthFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/selfWorthFragment"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.SelfWorthFragment"
+            android:label="SelfWorthFragment" >
+            <action
+                android:id="@+id/action_selfWorthFragment_to_impulsivityFragment"
+                app:destination="@id/impulsivityFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/impulsivityFragment"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.ImpulsivityFragment"
+            android:label="ImpulsivityFragment" >
+            <action
+                android:id="@+id/action_impulsivityFragment_to_addNotesFragment"
+                app:destination="@id/addNotesFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/addNotesFragment"
+            android:name="de.rub.cs.selab22.a14.fragments.survey.AddNotesFragment"
+            android:label="AddNotesFragment" />
+    </navigation>
 </navigation>

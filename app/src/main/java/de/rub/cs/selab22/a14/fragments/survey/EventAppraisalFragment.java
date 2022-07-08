@@ -31,8 +31,8 @@ public class EventAppraisalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
         Map<Integer,Integer> surveyData = model.getSurveyData().getValue();
-        Arrays.asList( new Triple(R.id.seekBarQuestion1, R.id.mood_textview_question1, 7)
-                     , new Triple(R.id.seekBarQuestion2, R.id.mood_textview_question2, 8))
+        Arrays.asList( new Triple(R.id.seekBarQuestion1, R.id.mood_textview_question1, 6)
+                     , new Triple(R.id.seekBarQuestion2, R.id.mood_textview_question2, 7))
         .stream().forEach(x -> {
             SeekBar seekBar = view.findViewById((int) x.getFirst());
             TextView textView = view.findViewById((int) x.getSecond());
@@ -73,5 +73,8 @@ public class EventAppraisalFragment extends Fragment {
         });
         view.findViewById(R.id.button_appraisal_back).setOnClickListener(x ->
                 Navigation.findNavController(view).popBackStack());
+        view.findViewById(R.id.button_appraisal_next).setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_eventAppraisalFragment2_to_socialContextFragment)
+        );
     }
 }
