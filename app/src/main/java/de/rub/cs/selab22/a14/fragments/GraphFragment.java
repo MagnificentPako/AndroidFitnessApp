@@ -7,7 +7,7 @@ import de.rub.cs.selab22.a14.R;
 public class GraphFragment extends Fragment {
 
     public GraphFragment() {
-        super(R.layout.graphs_fragment);
+        super(R.layout.activity_physical_main);
     }
 
 }
