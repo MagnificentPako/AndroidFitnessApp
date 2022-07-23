@@ -3,6 +3,7 @@ package de.rub.cs.selab22.a14;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +16,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.rub.cs.selab22.a14.charts.ChartsHelper;
+import de.rub.cs.selab22.a14.settings.I18nAppCompatActivity;
 
-public class Physical_main extends AppCompatActivity {
+public class Physical_main extends I18nAppCompatActivity {
 
     LineChart lc;
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,12 @@ public class Physical_main extends AppCompatActivity {
         Button monthButton = findViewById(R.id.physical_month_button);
 
         lc = (LineChart) findViewById(R.id.physical_chart);
-        lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7));
+        this.resources = getResources();
+
+        String week = resources.getString(R.string.week);
+        String days[] = resources.getStringArray(R.array.weekdays);
+        String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
+        lc = ChartsHelper.renderActivity(lc, createEntryList(7), createEntryList(7), formatterArray);
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -41,18 +49,21 @@ public class Physical_main extends AppCompatActivity {
 
         @Override
         public void onClick(final View v) {
+            String week = resources.getString(R.string.week);
+            String days[] = resources.getStringArray(R.array.weekdays);
+            String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
                 case R.id.physical_day_button:
-                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(3) );
+                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(4), formatterArray);
                     lc.invalidate();
                     break;
                 case R.id.physical_week_button:
-                    lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7) );
+                    lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7), formatterArray);
                     lc.invalidate();
                     break;
                 case R.id.physical_month_button:
-                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(4) );
+                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(4), formatterArray);
                     lc.invalidate();
                     break;
             }

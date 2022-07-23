@@ -110,4 +110,16 @@
     <string name="physical_activity_button">Aktivitäten</string>
     <string name="physical_manage_activities_button">Aktivitäten Verwalten</string>
     <string name="physical_settings_button">Einstellungen</string>
+
+    <string-array name="weekdays">
+        <item>Mo</item>
+        <item>Di</item>
+        <item>Mi</item>
+        <item>Do</item>
+        <item>Fr</item>
+        <item>Sa</item>
+        <item>So</item>
+    </string-array>
+
+    <string name="week">Woche</string>
 </resources>
