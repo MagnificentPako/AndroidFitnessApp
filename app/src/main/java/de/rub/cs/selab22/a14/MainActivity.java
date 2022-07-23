@@ -40,23 +40,4 @@ public class MainActivity extends I18nAppCompatActivity {
         Intent switchActivity = new Intent(this, Physical_main.class);
         startActivity(switchActivity);
     }
-
-    protected void onStart() {
-        super.onStart();
-        new AlertDialog.Builder(this)
-                .setTitle("Tages abfrage")
-                .setMessage("Möchten sie uns sagen wie es Ihnen heute geht")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                })
-                .setNegativeButton("später", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .create().show();
-    }
 }   
