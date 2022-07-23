@@ -45,6 +45,10 @@ dependencies {
     implementation 'dev.b3nedikt.reword:reword:4.0.2'
 
     implementation "androidx.preference:preference:$preference_version"
+
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
     def room_version = "2.4.2"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

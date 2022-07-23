@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/bottom_activities"
-        android:name="de.rub.cs.selab22.a14.fragments.ActivityFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.activity.ActivityFragment"
         android:label="ActivityFragment" />
     <fragment
         android:id="@+id/bottom_graphs"
