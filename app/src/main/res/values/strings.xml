@@ -112,4 +112,16 @@
     <string name="physical_activity_button">Physical Activities</string>
     <string name="physical_manage_activities_button">Manage Activities</string>
     <string name="physical_settings_button">Settings</string>
+
+    <string-array name="weekdays">
+        <item>Mo</item>
+        <item>Tu</item>
+        <item>We</item>
+        <item>Th</item>
+        <item>Fr</item>
+        <item>Sa</item>
+        <item>Su</item>
+    </string-array>
+
+    <string name="week">Week</string>
 </resources>
