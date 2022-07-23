@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class AddNotesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         EditText text = view.findViewById(R.id.notes_text_view);
+        Button backButton = view.findViewById(R.id.back_button_addnotes);
 
         SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
 
@@ -50,6 +52,7 @@ public class AddNotesFragment extends Fragment {
                 text.setText(notes);
             }
         });
-
+        backButton.setOnClickListener(v -> Navigation.findNavController(view).popBackStack());
     }
+
 }
