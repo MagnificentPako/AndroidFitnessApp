@@ -2,6 +2,7 @@ package de.rub.cs.selab22.a14.mood;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,8 +32,11 @@ public class MoodActivity extends AppCompatActivity {
         Button weekButton = findViewById(R.id.mood_week_button);
         Button monthButton = findViewById(R.id.mood_month_button);
 
+        String week = getApplicationContext().getResources().getString(R.string.week);
+        String days[] = getApplicationContext().getResources().getStringArray(R.array.weekdays);
+        String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
         lc = (LineChart) findViewById(R.id.mood_chart);
-        ChartsHelper.renderActivity(lc, "Weekly", createEntryList(7) );
+        ChartsHelper.renderActivity(lc, "Weekly", createEntryList(7), formatterArray);
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -43,18 +47,21 @@ public class MoodActivity extends AppCompatActivity {
 
         @Override
         public void onClick(final View v) {
+            String week = getApplicationContext().getResources().getString(R.string.week);
+            String days[] = getApplicationContext().getResources().getStringArray(R.array.weekdays);
+            String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             switch(v.getId()){
                 case R.id.mood_day_button:
-                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(7) );
+                    lc = ChartsHelper.renderActivity(lc,"Daily", createEntryList(7),  formatterArray);
                     lc.invalidate();
                     break;
                 case R.id.mood_week_button:
-                    lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7) );
+                    lc = ChartsHelper.renderActivity(lc,"Weekly", createEntryList(7), formatterArray);
                     lc.invalidate();
                     break;
                 case R.id.mood_month_button:
-                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(7) );
+                    lc = ChartsHelper.renderActivity(lc,"Monthly", createEntryList(7), formatterArray);
                     lc.invalidate();
                     break;
             }
