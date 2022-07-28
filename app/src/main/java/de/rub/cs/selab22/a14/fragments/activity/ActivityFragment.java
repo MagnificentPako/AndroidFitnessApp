@@ -31,12 +31,10 @@ public class ActivityFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.activity_recycler_view);
         ActivityDao dao = DBHelper.INSTANCE.getActivityDao();
-        DBActivity activity = new DBActivity(new Date(), (new Date(System.currentTimeMillis() + 1000000)));
-        dao.insertAll(activity);
         List<DBActivity> activityList = dao.getAll();
         System.out.println(activityList);
         Locale l = getActivity().getResources().getConfiguration().getLocales().get(0);
-        recyclerView.setAdapter(new ActivityAdapter(activityList, l));
+        recyclerView.setAdapter(new ActivityAdapter(activityList, l, getParentFragmentManager()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 }

@@ -127,4 +127,7 @@
     </string-array>
 
     <string name="week">Woche</string>
+
+    <string name="edit">Bearbeiten</string>
+    <string name="delete">Löschen</string>
 </resources>

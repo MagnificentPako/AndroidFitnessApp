@@ -17,6 +17,9 @@ public interface ActivityDao {
     @Query("SELECT * FROM activity")
     List<DBActivity> getAll();
 
+    @Query("SELECT * FROM activity WHERE uid LIKE :id")
+    DBActivity getById(int id);
+
     @Insert
     void insertAll(DBActivity... data);
 
