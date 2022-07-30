@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
+        <service
+            android:name=".ForegroundService"
+            android:enabled="true"
+            android:exported="true"></service>
         <activity
             android:name=".navigation.HostActivity"
             android:exported="true"
