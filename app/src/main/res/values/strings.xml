@@ -135,5 +135,7 @@
     <string name="achievements">Achievements</string>
     <string name="physical_recordactivity">Record Activity</string>
     <string name="survey_button">Daily Survey</string>
+    <string name="physical_overview">Display Physical</string>
+    <string name="mood_overview">Display Mood</string>
 
 </resources>

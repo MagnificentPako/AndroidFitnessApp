@@ -133,4 +133,6 @@
     <string name="achievements">Achievements</string>
     <string name="physical_recordactivity">Aktivität aufnehmen</string>
     <string name="survey_button">Tägliche Umfrage</string>
+    <string name="physical_overview">Aktivitäten Anzeigen</string>
+    <string name="mood_overview">Mood Anzeigen</string>
 </resources>
