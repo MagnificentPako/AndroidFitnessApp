@@ -2,17 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/appname_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="My Fit"
+        android:text="Fit Me Up"
         android:textAlignment="center"
         android:textSize="32dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +37,30 @@
         app:layout_constraintTop_toTopOf="parent"></com.github.mikephil.charting.charts.LineChart>
 
     <Button
+        android:id="@+id/home_recordactivity_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:text="@string/physical_recordactivity"
+        android:textSize="50px"
+        android:textStyle="bold"
+        app:backgroundTint="@color/SkyBlue"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
         android:id="@+id/home_survey_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="470dp"
         android:text="@string/survey_button"
+        android:textSize="50px"
+        android:textStyle="bold"
+        app:backgroundTint="@color/SkyBlue"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +74,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="520dp"
         android:text="@string/achievements"
+        android:textSize="50px"
+        android:textStyle="bold"
+        app:backgroundTint="@color/SkyBlue"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,18 +84,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/home_recordactivity_button"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
-        android:text="@string/physical_recordactivity"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
