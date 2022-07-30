@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
         <service
-            android:name=".ForegroundService"
+            android:name=".foreground.ForegroundService"
             android:enabled="true"
             android:exported="true"></service>
         <activity

@@ -1,4 +1,4 @@
-package de.rub.cs.selab22.a14;
+package de.rub.cs.selab22.a14.foreground;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
+import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.fragments.HomeFragment;
 
 
