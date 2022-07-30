@@ -14,6 +14,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import de.rub.cs.selab22.a14.R;
+import de.rub.cs.selab22.a14.database.DBHelper;
+import de.rub.cs.selab22.a14.database.DataPoint;
+import de.rub.cs.selab22.a14.database.daos.DataDao;
+import de.rub.cs.selab22.a14.database.Identifier;
+import de.rub.cs.selab22.a14.database.entities.Data;
 
 public class AddNotesFragment extends Fragment {
 
@@ -26,6 +31,7 @@ public class AddNotesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         EditText text = view.findViewById(R.id.notes_text_view);
+        Button nextButton = view.findViewById(R.id.next_button_addnotes);
         Button backButton = view.findViewById(R.id.back_button_addnotes);
 
         SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
@@ -53,6 +59,13 @@ public class AddNotesFragment extends Fragment {
             }
         });
         backButton.setOnClickListener(v -> Navigation.findNavController(view).popBackStack());
+        nextButton.setOnClickListener(v -> {
+            DataDao dataDao = DBHelper.INSTANCE.getDataDao();
+            SurveyData surveyData = new SurveyData(model.getSurveyData().getValue(), model.getContextText().getValue(), model.getNotes().getValue());
+            Data data = new Data(new DataPoint(surveyData), Identifier.SURVEY);
+            dataDao.insertAll(data);
+            Navigation.findNavController(view).popBackStack(R.id.bottom_home, false);
+        });
     }
 
 }
