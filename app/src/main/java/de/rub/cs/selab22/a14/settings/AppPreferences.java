@@ -20,7 +20,6 @@ import androidx.preference.SwitchPreferenceCompat;
 
 import java.util.Locale;
 
-import de.rub.cs.selab22.a14.MainActivity;
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.database.UserIdManager;
 import dev.b3nedikt.app_locale.AppLocale;
