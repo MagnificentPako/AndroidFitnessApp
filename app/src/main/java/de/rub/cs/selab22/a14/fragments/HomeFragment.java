@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,10 +23,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import de.rub.cs.selab22.a14.ForegroundService;
+import de.rub.cs.selab22.a14.foreground.ForegroundService;
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.charts.ChartsHelper;
-import de.rub.cs.selab22.a14.database.UserIdManager;
 import de.rub.cs.selab22.a14.fragments.survey.SurveyViewModel;
 
 public class HomeFragment extends Fragment {
