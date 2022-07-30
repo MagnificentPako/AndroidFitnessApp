@@ -22,24 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mood.Notification"
-            android:exported="false" />
-        <activity
-            android:name=".mood.MoodActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mood.LastPage"
-            android:exported="false" />
-        <activity
-            android:name=".Physical_main"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="locale"
-            android:exported="false">
-
-        </activity>
-        <activity
             android:name=".settings.SettingsActivity"
             android:configChanges="locale"
             android:exported="true"></activity>
