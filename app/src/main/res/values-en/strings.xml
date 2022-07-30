@@ -134,4 +134,14 @@
     <string name="survey_button">Daily Survey</string>
     <string name="physical_overview">Display Physical</string>
     <string name="mood_overview">Display Mood</string>
+
+    <string name="privacy_policy">PRIVACY POLICY</string>
+    <string name="privacy_policy_text">This Application collects personal data from its users.
+        The data excludes sensitive information and consists of the users recorded physical
+        activity and an average numerical value of the users mood. In order to collect such data
+        and for the app to function properly, it requires the user to permit the use of the
+        following Sensors: Physical Activity (consists of the Accelerometer and the Step-Counter)
+        and optionally, the GPS Sensor (can be used for tracking distances; the app will not record
+        and save the users position). For more details and information about this privacy policy
+        go under "SETTINGS -> PRIVACY POLICY"!</string>
 </resources>
