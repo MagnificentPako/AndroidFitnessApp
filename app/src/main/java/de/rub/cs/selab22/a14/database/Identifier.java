@@ -4,6 +4,7 @@ public enum Identifier {
 
     ACCELEROMETER,
     STEP_COUNTER,
-    GPS
+    GPS,
+    ACCELEROMETER_VECTOR_LENGTH,
 
 }
