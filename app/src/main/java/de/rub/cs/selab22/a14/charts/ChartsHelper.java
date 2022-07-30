@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class ChartsHelper {
-    public static LineChart renderActivity(LineChart lc, String label, ArrayList<Entry> entryList, String[] strings) {
+    public static LineChart renderActivity(LineChart lc, String label, ArrayList<Entry> entryList, String[] strings, String description) {
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
 
         //ArrayList<Entry> entryList2 = createEntryList(length);
@@ -39,7 +39,7 @@ public class ChartsHelper {
 
         lc.setData(data);
 
-        setStyleConfig(lc, "Physical Activity", true, label, strings);
+        setStyleConfig(lc, description, true, label, strings);
 
         return lc;
     }
@@ -62,12 +62,15 @@ public class ChartsHelper {
 
         LineDataSet lineDataSet2 = new LineDataSet(entryList2, secondLabel);
         lineDataSet2.setColor(getIntFromColor(255,0,0));
+        lineDataSet2.setDrawCircles(false);
+        lineDataSet2.setDrawValues(false);
+        lineDataSet2.setFormSize(0f);
         dataSets.add(lineDataSet2);
 
         LineData data = new LineData(dataSets);
         lc.setData(data);
 
-        setStyleConfig(lc, "Physical Activity", true, firstLabel, strings);
+        setStyleConfig(lc, "Overview", true, firstLabel, strings);
 
         return lc;
     }
@@ -82,7 +85,7 @@ public class ChartsHelper {
 
     public static LineChart setStyleConfig(LineChart lc, String description, boolean active, String label, String[] strings)
     {
-        lc.setDescription(descriptionHandler(lc, "Physical Activity", 15f, true));
+        lc.setDescription(descriptionHandler(lc, description, 15f, true));
         lc.setDrawBorders(true);
         lc.setBorderWidth(1f);
         //lc.setScaleEnabled(false);
