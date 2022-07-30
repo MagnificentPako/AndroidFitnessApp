@@ -32,14 +32,7 @@
     <fragment
         android:id="@+id/bottom_graphs"
         android:name="de.rub.cs.selab22.a14.fragments.graphs.GraphFragment"
-        android:label="GraphFragment">
-        <action
-            android:id="@+id/action_bottom_graphs_to_physicalOverviewFragment"
-            app:destination="@id/physicalOverviewFragment" />
-        <action
-            android:id="@+id/action_bottom_graphs_to_moodOverviewFragment"
-            app:destination="@id/moodOverviewFragment" />
-    </fragment>
+        android:label="GraphFragment"/>
 
     <navigation android:id="@+id/nested_survey_graph"
         app:startDestination="@id/mood_feelings">
@@ -97,13 +90,5 @@
             android:name="de.rub.cs.selab22.a14.fragments.survey.AddNotesFragment"
             android:label="AddNotesFragment" />
     </navigation>
-    <fragment
-        android:id="@+id/physicalOverviewFragment"
-        android:name="de.rub.cs.selab22.a14.fragments.graphs.PhysicalOverviewFragment"
-        android:label="PhysicalOverviewFragment" />
-    <fragment
-        android:id="@+id/moodOverviewFragment"
-        android:name="de.rub.cs.selab22.a14.fragments.graphs.MoodOverviewFragment"
-        android:label="MoodOverviewFragment" />
 
 </navigation>
