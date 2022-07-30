@@ -36,13 +36,13 @@ public class GraphFragment extends Fragment {
 
         Button physicalOverview = view.findViewById(R.id.physical_overview_button);
         Button moodOverview = view.findViewById(R.id.mood_overview_button);
+        Button surveyButton = view.findViewById(R.id.graph_survey_button);
 
         Button dayButton = view.findViewById(R.id.day_button);
         Button weekButton = view.findViewById(R.id.week_button);
         Button monthButton = view.findViewById(R.id.month_button);
 
-        //moodOverview.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_graphs_to_moodOverviewFragment));
-        //physicalOverview.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_graphs_to_physicalOverviewFragment));
+        surveyButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_graphs_to_nested_survey_graph));
 
         graph = (LineChart) view.findViewById(R.id.graph);
         this.resources = view.getResources();

@@ -32,7 +32,11 @@
     <fragment
         android:id="@+id/bottom_graphs"
         android:name="de.rub.cs.selab22.a14.fragments.graphs.GraphFragment"
-        android:label="GraphFragment"/>
+        android:label="GraphFragment">
+        <action
+            android:id="@+id/action_bottom_graphs_to_nested_survey_graph"
+            app:destination="@id/nested_survey_graph" />
+    </fragment>
 
     <navigation android:id="@+id/nested_survey_graph"
         app:startDestination="@id/mood_feelings">
