@@ -130,4 +130,7 @@
 
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
+    <string name="achievements">Achievements</string>
+    <string name="physical_recordactivity">Aktivität aufnehmen</string>
+    <string name="survey_button">Tägliche Umfrage</string>
 </resources>
