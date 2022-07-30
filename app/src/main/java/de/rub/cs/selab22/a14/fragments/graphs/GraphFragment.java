@@ -26,6 +26,12 @@ public class GraphFragment extends Fragment {
     Resources resources;
     boolean physicalOverviewActive = true;
 
+    Button physicalOverview;
+    Button moodOverview;
+    Button dayButton;
+    Button weekButton;
+    Button monthButton;
+
     public GraphFragment() {
         super(R.layout.activity_graph_main);
     }
@@ -34,13 +40,13 @@ public class GraphFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button physicalOverview = view.findViewById(R.id.physical_overview_button);
-        Button moodOverview = view.findViewById(R.id.mood_overview_button);
+        physicalOverview = view.findViewById(R.id.physical_overview_button);
+        moodOverview = view.findViewById(R.id.mood_overview_button);
         Button surveyButton = view.findViewById(R.id.graph_survey_button);
 
-        Button dayButton = view.findViewById(R.id.day_button);
-        Button weekButton = view.findViewById(R.id.week_button);
-        Button monthButton = view.findViewById(R.id.month_button);
+        dayButton = view.findViewById(R.id.day_button);
+        weekButton = view.findViewById(R.id.week_button);
+        monthButton = view.findViewById(R.id.month_button);
 
         surveyButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_graphs_to_nested_survey_graph));
 
@@ -51,6 +57,10 @@ public class GraphFragment extends Fragment {
         String days[] = resources.getStringArray(R.array.weekdays);
         String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
         graph = ChartsHelper.renderActivity(graph, "Weekly", createEntryList(7), formatterArray, "Physical Activity");
+        physicalOverview.setAlpha(.5f);
+        physicalOverview.setEnabled(false);
+        weekButton.setAlpha(.5f);
+        weekButton.setEnabled(false);
 
         dayButton.setOnClickListener(onClickListener);
         weekButton.setOnClickListener(onClickListener);
@@ -72,11 +82,37 @@ public class GraphFragment extends Fragment {
                     physicalOverviewActive = true;
                     graph = ChartsHelper.renderActivity(graph,"Weekly", createEntryList(7), formatterArray, "Physical Activity");
                     graph.invalidate();
+
+                    physicalOverview.setAlpha(.5f);
+                    moodOverview.setAlpha(1f);
+                    physicalOverview.setEnabled(false);
+                    moodOverview.setEnabled(true);
+
+                    dayButton.setAlpha(1f);
+                    dayButton.setEnabled(true);
+                    weekButton.setAlpha(.5f);
+                    weekButton.setEnabled(false);
+                    monthButton.setAlpha(1f);
+                    monthButton.setEnabled(true);
+
                     break;
                 case R.id.mood_overview_button:
                     physicalOverviewActive = false;
                     graph = ChartsHelper.renderActivity(graph, "Weekly", createEntryList(7), formatterArray, "Mood");
                     graph.invalidate();
+
+                    moodOverview.setAlpha(.5f);
+                    physicalOverview.setAlpha(1f);
+                    moodOverview.setEnabled(false);
+                    physicalOverview.setEnabled(true);
+
+                    dayButton.setAlpha(1f);
+                    dayButton.setEnabled(true);
+                    weekButton.setAlpha(.5f);
+                    weekButton.setEnabled(false);
+                    monthButton.setAlpha(1f);
+                    monthButton.setEnabled(true);
+
                     break;
                 case R.id.day_button:
                     if (physicalOverviewActive) {
@@ -86,6 +122,14 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph, "Daily", createEntryList(4), formatterArray, "Mood");
                     }
                     graph.invalidate();
+
+                    dayButton.setAlpha(.5f);
+                    dayButton.setEnabled(false);
+                    weekButton.setAlpha(1f);
+                    weekButton.setEnabled(true);
+                    monthButton.setAlpha(1f);
+                    monthButton.setEnabled(true);
+
                     break;
                 case R.id.week_button:
                     if (physicalOverviewActive) {
@@ -95,6 +139,14 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph, "Weekly", createEntryList(7), formatterArray, "Mood");
                     }
                     graph.invalidate();
+
+                    dayButton.setAlpha(1f);
+                    dayButton.setEnabled(true);
+                    weekButton.setAlpha(.5f);
+                    weekButton.setEnabled(false);
+                    monthButton.setAlpha(1f);
+                    monthButton.setEnabled(true);
+
                     break;
                 case R.id.month_button:
                     if (physicalOverviewActive) {
@@ -104,6 +156,14 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph, "Monthly", createEntryList(4), formatterArray, "Mood");
                     }
                     graph.invalidate();
+
+                    dayButton.setAlpha(1f);
+                    dayButton.setEnabled(true);
+                    weekButton.setAlpha(1f);
+                    weekButton.setEnabled(true);
+                    monthButton.setAlpha(.5f);
+                    monthButton.setEnabled(false);
+
                     break;
             }
 
