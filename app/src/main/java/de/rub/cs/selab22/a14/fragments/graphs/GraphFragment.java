@@ -43,7 +43,7 @@ public class GraphFragment extends Fragment {
         physicalOverview = view.findViewById(R.id.physical_overview_button);
         moodOverview = view.findViewById(R.id.mood_overview_button);
         Button surveyButton = view.findViewById(R.id.graph_survey_button);
-        Button recordButton = view.findViewById(R.id.home_recordactivity_button);
+        Button recordButton = view.findViewById(R.id.graph_recordactivity_button);
 
         dayButton = view.findViewById(R.id.day_button);
         weekButton = view.findViewById(R.id.week_button);
