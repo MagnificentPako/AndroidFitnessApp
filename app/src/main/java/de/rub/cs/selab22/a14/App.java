@@ -58,7 +58,7 @@ public class App extends Application {
             dao.insertAll(dt);
         }
          */
-        
+
         SensorCenter.init(getApplicationContext());
     }
 
