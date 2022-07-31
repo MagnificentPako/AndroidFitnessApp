@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment {
                     })
                     .create().show();
         }
+
         startService();
         return rootView;
     }
