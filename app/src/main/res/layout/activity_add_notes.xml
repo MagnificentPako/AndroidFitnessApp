@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    tools:context=".mood.AddNotesActivity">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/add_notes"
-        android:layout_width="363dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
         android:autoSizeTextType="uniform"
         android:text="@string/mood_You_can_add_some_notes_about_your_current_mood_here"
-        android:textSize="16sp"
+        android:textSize="28sp"
         android:textStyle="bold|italic"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,8 +24,9 @@
 
     <EditText
         android:id="@+id/notes_text_view"
-        android:layout_width="303dp"
-        android:layout_height="197dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="500dp"
         android:hint="@string/mood_write_here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

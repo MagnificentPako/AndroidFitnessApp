@@ -4,18 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    tools:context=".mood.SelbstWert">
-
-
-    <TextView
-        android:id="@+id/selbst_wert_text"
-        android:layout_width="239dp"
-        android:layout_height="47dp"
-        android:text="@string/mood_self_worth"
-        android:textColor="#0E0E0E"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+    android:orientation="vertical">
 
     <Space
         android:layout_width="match_parent"
@@ -24,7 +13,11 @@
 
     <TextView
         android:id="@+id/text_view1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/mood_At_present_I_am_satisfied_with_myself"
@@ -58,7 +51,12 @@
 
     <TextView
         android:id="@+id/textView112"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/mood_At_the_moment_I_consider_myself_a_failure"
@@ -91,7 +89,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" />
+        android:layout_weight="2" />
 
     <LinearLayout
         android:layout_width="match_parent"

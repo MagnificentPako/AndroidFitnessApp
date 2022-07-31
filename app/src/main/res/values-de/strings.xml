@@ -26,19 +26,19 @@
     <string name="mood_next">weiter</string>
     <string name="mood_back">zurück</string>
     <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In den letzten 24 Stunden fühlte ich mich im Durchschnitt…</string>
-    <string name="mood_feelings_unsatisfied">unzufrieden</string>
-    <string name="mood_feelings_satisfied">zufrieden</string>
-    <string name="mood_feelings_well">wohl</string>
-    <string name="mood_feelings_unwell">unwohl</string>
-    <string name="mood_feelings_troubled">unruhig</string>
-    <string name="mood_feelings_calm">ruhig</string>
+    <string name="mood_feelings_unsatisfied">Unzufrieden</string>
+    <string name="mood_feelings_satisfied">Zufrieden</string>
+    <string name="mood_feelings_well">Wohl</string>
+    <string name="mood_feelings_unwell">Unwohl</string>
+    <string name="mood_feelings_troubled">Unruhig</string>
+    <string name="mood_feelings_calm">Ruhig</string>
     <string name="mood_rating_text">0%</string>
-    <string name="mood_feelings_awake">wach</string>
-    <string name="mood_feelings_tired">müde</string>
-    <string name="mood_feelings_energy_less">energielos</string>
-    <string name="mood_feelings_energetic">energiegeladen</string>
-    <string name="mood_feelings_tense">angespannt</string>
-    <string name="mood_feelings_relaxed">entspannt</string>
+    <string name="mood_feelings_awake">Wach</string>
+    <string name="mood_feelings_tired">Müde</string>
+    <string name="mood_feelings_energy_less">Energielos</string>
+    <string name="mood_feelings_energetic">Energiegeladen</string>
+    <string name="mood_feelings_tense">Angespannt</string>
+    <string name="mood_feelings_relaxed">Entspannt</string>
 
     <!-- Mood_ Event Appraisal-->
     <string name="mood_event_appraisel">Event Appraisel:</string>
@@ -90,13 +90,13 @@
         Seit der letzten Abfrage habe ich impulsiv gehandelt,d.h. ich habe gehandelt, ohne mir Gedanken über mögliche Konsequenzen zu machen</string>
     <string name="mood_Since_the_last_query_I_have_behaved_angrily_or_aggressively_towards_another_person_which_I_was_sorry_for_afterwards">
         Seit der letzten Abfrage habe ich mich gegenüber einer anderen Person ärgerlich oder aggressiv verhalten, was mir danach leidtat</string>
-    <string name="mood_0_strongly_disagree">0 trifft gar nicht zu</string>
-    <string name="mood_1_disagree">1 trifft nicht zu</string>
-    <string name="mood_2_slightly_disagree">2 trifft eher nicht zu</string>
-    <string name="mood_3_either">3 teils/teils</string>
-    <string name="mood_4_slightly_agree">4 trifft eher zu</string>
-    <string name="mood_5_agree">5 trifft zu</string>
-    <string name="mood_6_strongly_agree">6 trifft ganz zu</string>
+    <string name="mood_0_strongly_disagree">trifft gar nicht zu</string>
+    <string name="mood_1_disagree">trifft nicht zu</string>
+    <string name="mood_2_slightly_disagree">trifft eher nicht zu</string>
+    <string name="mood_3_either">teils/teils</string>
+    <string name="mood_4_slightly_agree">trifft eher zu</string>
+    <string name="mood_5_agree">trifft zu</string>
+    <string name="mood_6_strongly_agree">trifft ganz zu</string>
 
     <string name="mood_You_can_add_some_notes_about_your_current_mood_here">
         Sie können hier einige Notizen zu Ihrer aktuellen Stimmung hinzufügen</string>

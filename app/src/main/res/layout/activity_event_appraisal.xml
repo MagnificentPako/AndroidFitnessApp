@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    tools:context=".mood.EventAppraisal">
+    android:orientation="vertical">
 
     <Space
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
 
     <TextView
         android:id="@+id/event_Appraisel"
-        android:layout_width="239dp"
+        android:layout_width="match_parent"
         android:layout_height="47dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -39,10 +38,11 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:elegantTextHeight="true"
+            android:layout_marginBottom="15dp"
             android:gravity="center_horizontal"
             android:text="@string/mood_Have_you_experienced_one_or_more_negative_events_since_the_last_query_How_intense_was_the_most_significant_negative_event"
             android:textColor="#0E0E0E"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/mood_textview_question1"
@@ -88,10 +88,11 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
 
             android:text="@string/mood_Have_you_experienced_one_or_more_positive_events_since_the_last_query_How_intense_was_the_most_significant_positive_event"
             android:textColor="#0E0E0E"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/mood_textview_question2"
