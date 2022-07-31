@@ -26,8 +26,8 @@ public class SensorCenter implements SensorEventListener {
         stepCounter = sm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         accelerometer = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        sm.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_FASTEST);
-        sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+        sm.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
+        sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     public void stepChange(SensorEvent event) {
@@ -49,9 +49,9 @@ public class SensorCenter implements SensorEventListener {
         accelValue[2] = Math.abs(event.values[2]);
 
         DataDao dataDao = DBHelper.INSTANCE.getDataDao();
-        Data accelerometerRawData = new Data( new DataPoint(accelValue[0], accelValue[1], accelValue[2]),
+        Data accelerometerRawData = new Data( new DataPoint<Float>(accelValue[0], accelValue[1], accelValue[2]),
                 Identifier.ACCELEROMETER);
-        Data accelerometerVectorData= new Data( new DataPoint(getVectorLength(accelValue[0], accelValue[1], accelValue[2])),
+        Data accelerometerVectorData= new Data( new DataPoint<Float>(getVectorLength(accelValue[0], accelValue[1], accelValue[2])),
                 Identifier.ACCELEROMETER_VECTOR_LENGTH);
         dataDao.insertAll(accelerometerRawData);
         dataDao.insertAll(accelerometerVectorData);

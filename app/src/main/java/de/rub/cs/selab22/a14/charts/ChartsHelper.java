@@ -23,11 +23,14 @@ import java.util.Locale;
 public class ChartsHelper {
     public static LineChart renderActivity(LineChart lc, String label, ArrayList<Entry> entryList, String[] strings, String description) {
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        System.out.println("Oben: " + label);
 
         //ArrayList<Entry> entryList2 = createEntryList(length);
         //LineDataSet lineDataSet2 = new LineDataSet(entryList2, "Test");
         //lineDataSet2.setColor(0xff00ff00);
         //dataSets.add(lineDataSet2);
+
+        setStyleConfig(lc, description, true, label, strings);
 
         LineDataSet lineDataSet = new LineDataSet(entryList, label);
         lineDataSet.setColor(getIntFromColor(0,0,0));
@@ -38,8 +41,6 @@ public class ChartsHelper {
         LineData data = new LineData(dataSets);
 
         lc.setData(data);
-
-        setStyleConfig(lc, description, true, label, strings);
 
         return lc;
     }
@@ -119,6 +120,7 @@ public class ChartsHelper {
         xAxis.setDrawAxisLine(false);
 
         yAxisRight.setValueFormatter(new YAxisFormatter());
+        System.out.println(label);
         switch (label.toLowerCase(Locale.ROOT)) {
             case "daily":
                 xAxis.setValueFormatter(new DayValueFormatter());
@@ -150,11 +152,11 @@ public class ChartsHelper {
     }
 
     private static class DayValueFormatter extends ValueFormatter {
-        private String daytime[] = {"06:00", "12:00", "18:00", "24:00","1","2","3"};
+        private String daytime[] = {"0","1","2","3","4","5","6","7","8","4"};
         //private String days[] = {"Mo", "Tu", "Wed", "Th", "Fr", "Sa", "Su"};
         @Override
         public String getAxisLabel(float value, AxisBase axis) {
-            return daytime[(int) value-1];
+            return (String.valueOf((int)value) + ":00");
         }
     }
 

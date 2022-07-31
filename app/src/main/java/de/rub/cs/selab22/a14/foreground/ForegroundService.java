@@ -40,7 +40,6 @@ public class ForegroundService extends Service {
                 .setContentText("");
         Notification notification = mBuilder.build();
         startForeground(46, notification);
-        Toast.makeText(getApplicationContext(),"App running", Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
     @Override
