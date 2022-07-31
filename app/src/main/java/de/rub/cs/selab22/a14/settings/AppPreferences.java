@@ -67,7 +67,6 @@ public class AppPreferences extends PreferenceFragmentCompat {
 
         setPreferenceScreen(screen);
 
-
     }
 
 }
