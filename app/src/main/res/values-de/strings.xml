@@ -15,8 +15,8 @@
     </string-array>
 
     <string name="bottom_home">Start</string>
-    <string name="bottom_graphs">Graphen</string>
-    <string name="bottom_activities">Aktivitäten</string>
+    <string name="bottom_graphs">Aktivitäten</string>
+    <string name="bottom_activities">Verwalten</string>
     <string name="bottom_settings">Einstellungen</string>
 
     <string name="settings_notifications_description">Erhalte Benachrichtigungen von dieser App</string>
