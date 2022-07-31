@@ -22,10 +22,21 @@ import androidx.navigation.Navigation;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
+import de.rub.cs.selab22.a14.database.DBHelper;
+import de.rub.cs.selab22.a14.database.Identifier;
+import de.rub.cs.selab22.a14.database.daos.DataDao;
+import de.rub.cs.selab22.a14.database.entities.Data;
 import de.rub.cs.selab22.a14.foreground.ForegroundService;
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.charts.ChartsHelper;
@@ -60,7 +71,7 @@ public class HomeFragment extends Fragment {
         String week = resources.getString(R.string.week);
         String days[] = resources.getStringArray(R.array.weekdays);
         String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
-        overview_chart = ChartsHelper.renderActivity(overview_chart, createEntryList(7), createEntryList(7), formatterArray);
+        overview_chart = ChartsHelper.renderActivity(overview_chart, createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao()), createEntryList(7), formatterArray);
 
         if (!privacyPolicyAgreed) {
             new AlertDialog.Builder(this.getContext())
@@ -106,4 +117,29 @@ public class HomeFragment extends Fragment {
         serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android");
         ContextCompat.startForegroundService(this.getContext(), serviceIntent);
     }
+
+    private ArrayList<Entry> createPhysicalWeeklyEntryList(DataDao dao) {
+        Date since = Date.from(LocalDate.now()
+                .with(DayOfWeek.MONDAY)
+                .atStartOfDay()
+                .atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(LocalDate.now()
+                .with(DayOfWeek.SUNDAY)
+                .atTime(23, 59)
+                .atZone(ZoneId.systemDefault()).toInstant());
+        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        ArrayList<Entry> entries = new ArrayList<>();
+        dailyData.stream()
+                .collect(Collectors.groupingBy(
+                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getDayOfWeek().getValue(),
+                        LinkedHashMap::new,
+                        Collectors.toList())).forEach((hour, data) ->
+                        entries.add(new Entry(hour,
+                                data.stream().collect(Collectors.averagingDouble(
+                                                (x) -> (
+                                                        ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
+                                        .floatValue())));
+        return entries;
+    }
+
 }

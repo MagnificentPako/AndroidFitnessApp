@@ -53,10 +53,10 @@ public class ChartsHelper {
 
         LineDataSet lineDataSet = new LineDataSet(entryList1, firstLabel);
         lineDataSet.setColor(getIntFromColor(0,0,0));
-        lineDataSet.setDrawCircles(false);
+        lineDataSet.setDrawCircles(true);
         lineDataSet.setDrawValues(false);
         lineDataSet.setFormSize(0f);
-        lc.setDrawMarkers(false);
+        lc.setDrawMarkers(true);
 
         dataSets.add(lineDataSet);
 
@@ -71,7 +71,7 @@ public class ChartsHelper {
         LineData data = new LineData(dataSets);
         lc.setData(data);
 
-        setStyleConfig(lc, "Overview", true, firstLabel, strings);
+        setStyleConfig(lc, "Overview", true, "weekly", strings);
 
         return lc;
     }

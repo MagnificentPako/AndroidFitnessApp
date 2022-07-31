@@ -43,9 +43,9 @@
         android:accessibilityHeading="false"
         android:clickable="true"
         android:isIndicator="false"
-        android:max="9"
+        android:max="10"
         android:minHeight="48dp"
-        android:numStars="9"
+        android:numStars="10"
         android:progressTint="#D50ADC"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -80,9 +80,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_horizontal|center_vertical"
         android:isIndicator="false"
-        android:max="9"
+        android:max="10"
         android:minHeight="48dp"
-        android:numStars="9"
+        android:numStars="10"
         android:progressTint="#D50ADC"
         tools:ignore="SpeakableTextPresentCheck" />
 
