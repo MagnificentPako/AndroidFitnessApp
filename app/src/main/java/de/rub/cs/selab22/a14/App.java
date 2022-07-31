@@ -63,12 +63,13 @@ public class App extends Application {
         UserIdManager.init(preferences);
         ActivityRecorder.init(preferences);
 
+
         /* For testing purposes only
         DataDao dao = DBHelper.INSTANCE.getDataDao();
         dao.nukeTable();
         for (int i = 0;i < 90; i++)
         {
-            Data dt = new Data(new DataPoint<>( (float) ((90*(i+1))%100) ), Identifier.ACCELEROMETER_VECTOR_LENGTH);
+            Data dt = new Data(new DataPoint<>( (float) ((30*(i+1))%100) ), Identifier.ACCELEROMETER_VECTOR_LENGTH);
             dt.timestamp = Date.from(LocalDateTime.now().minusDays(90-i).atZone(ZoneId.systemDefault()).toInstant());
             dao.insertAll(dt);
         }
