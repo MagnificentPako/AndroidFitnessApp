@@ -23,6 +23,9 @@
             android:id="@+id/action_bottom_home_to_mood_feelings"
             app:destination="@id/nested_survey_graph"
             />
+        <action
+            android:id="@+id/action_bottom_home_to_recordFragment"
+            app:destination="@id/recordFragment" />
     </fragment>
 
     <fragment
@@ -94,5 +97,9 @@
             android:name="de.rub.cs.selab22.a14.fragments.survey.AddNotesFragment"
             android:label="AddNotesFragment" />
     </navigation>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="de.rub.cs.selab22.a14.fragments.activity.RecordFragment"
+        android:label="RecordFragment" />
 
 </navigation>

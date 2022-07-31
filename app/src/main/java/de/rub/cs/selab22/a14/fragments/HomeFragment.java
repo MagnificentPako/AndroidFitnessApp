@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,6 +45,9 @@ public class HomeFragment extends Fragment {
             model.setSurveyData(new HashMap<>());
             Navigation.findNavController(rootView).navigate(R.id.action_bottom_home_to_mood_feelings);
         });
+
+        Button recordButton = rootView.findViewById(R.id.home_recordactivity_button);
+        recordButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_home_to_recordFragment));
 
         overview_chart = (LineChart) rootView.findViewById(R.id.overview_chart);
         this.resources = getResources();

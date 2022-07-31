@@ -43,12 +43,14 @@ public class GraphFragment extends Fragment {
         physicalOverview = view.findViewById(R.id.physical_overview_button);
         moodOverview = view.findViewById(R.id.mood_overview_button);
         Button surveyButton = view.findViewById(R.id.graph_survey_button);
+        Button recordButton = view.findViewById(R.id.home_recordactivity_button);
 
         dayButton = view.findViewById(R.id.day_button);
         weekButton = view.findViewById(R.id.week_button);
         monthButton = view.findViewById(R.id.month_button);
 
         surveyButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_graphs_to_nested_survey_graph));
+        recordButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_bottom_home_to_recordFragment));
 
         graph = (LineChart) view.findViewById(R.id.graph);
         this.resources = view.getResources();
