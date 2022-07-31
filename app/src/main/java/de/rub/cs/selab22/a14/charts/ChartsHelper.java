@@ -120,7 +120,6 @@ public class ChartsHelper {
         xAxis.setDrawAxisLine(false);
 
         yAxisRight.setValueFormatter(new YAxisFormatter());
-        System.out.println(label);
         switch (label.toLowerCase(Locale.ROOT)) {
             case "daily":
                 xAxis.setValueFormatter(new DayValueFormatter());
@@ -169,7 +168,7 @@ public class ChartsHelper {
         public String getAxisLabel(float value, AxisBase axis) {
             String days[] = dayStrings;
 
-            return days[(int) value];
+            return String.valueOf(value);//days[(int) value-1];
         }
     }
 

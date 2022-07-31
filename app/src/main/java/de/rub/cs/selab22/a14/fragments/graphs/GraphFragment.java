@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -206,8 +207,17 @@ public class GraphFragment extends Fragment {
     private ArrayList<Entry> createPhysicalDailyEntryList(DataDao dao) {
         Date since = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         Date until = Date.from(LocalDate.now().atTime(23, 59).atZone(ZoneId.systemDefault()).toInstant());
-        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        //List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        Map<Integer,List<Data>> dailyData = dao.getBetweenByIdentifierByHour(since, until);
         ArrayList<Entry> entries = new ArrayList<>();
+        dailyData.forEach((h, d) -> {
+            float sum = 0f;
+            for(Data dd : d) {
+                sum +=  dd.dataPoint.<Double>getData().get(0).floatValue();
+            }
+            entries.add(new Entry(h, sum/d.size()));
+        });
+        /*
         dailyData.stream()
                 .collect(Collectors.groupingBy(
                         d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getHour(),
@@ -218,6 +228,7 @@ public class GraphFragment extends Fragment {
                                                 (x) -> (
                                                         ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
                                         .floatValue())));
+         */
         return entries;
     }
 
@@ -230,18 +241,16 @@ public class GraphFragment extends Fragment {
                 .with(DayOfWeek.SUNDAY)
                 .atTime(23, 59)
                 .atZone(ZoneId.systemDefault()).toInstant());
-        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        Map<Integer,List<Data>> dailyData = dao.getBetweenByIdentifierByDay(since, until);
         ArrayList<Entry> entries = new ArrayList<>();
-        dailyData.stream()
-                .collect(Collectors.groupingBy(
-                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getDayOfWeek().getValue(),
-                        LinkedHashMap::new,
-                        Collectors.toList())).forEach((hour, data) ->
-                        entries.add(new Entry(hour,
-                                data.stream().collect(Collectors.averagingDouble(
-                                                (x) -> (
-                                                        ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
-                                        .floatValue())));
+        dailyData.forEach((h, d) -> {
+            System.out.println(h);
+            float sum = 0f;
+            for(Data dd : d) {
+                sum += dd.dataPoint.<Double>getData().get(0).floatValue();
+            }
+            entries.add(new Entry(h, sum/d.size()));
+        });
         return entries;
     }
 
@@ -255,20 +264,19 @@ public class GraphFragment extends Fragment {
                 .withDayOfMonth(init.getMonth().length(init.isLeapYear()))
                 .atTime(23, 59)
                 .atZone(ZoneId.systemDefault()).toInstant());
-        TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfMonth();
-        System.out.println(init.get(woy));
-        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        int i = 0;
+        Map<Integer,List<Data>> dailyData = dao.getBetweenByIdentifierByWeek(since, until);
         ArrayList<Entry> entries = new ArrayList<>();
-        dailyData.stream()
-                .collect(Collectors.groupingBy(
-                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().get(woy),
-                        LinkedHashMap::new,
-                        Collectors.toList())).forEach((hour, data) ->
-                        entries.add(new Entry(hour,
-                                data.stream().collect(Collectors.averagingDouble(
-                                                (x) -> (
-                                                        ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
-                                        .floatValue())));
+        for (Map.Entry<Integer, List<Data>> entry : dailyData.entrySet()) {
+            Integer integer = entry.getKey();
+            List<Data> data = entry.getValue();
+            float sum = 0;
+            for(Data d : data) {
+                sum += d.dataPoint.<Double>getData().get(0).floatValue();
+            }
+            entries.add(new Entry(i, sum));
+            i++;
+        }
         return entries;
     }
 }
