@@ -65,7 +65,6 @@ public class SocialContextFragment extends Fragment {
                 if (parent.getItemAtPosition(position).equals("Wählen Sie aus:")){}
                 else {
                     String text3 = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(view.getContext(), text3, Toast.LENGTH_SHORT).show();
                     surveyData.put(9, position);
                     model.setSurveyData(surveyData);
                 }
@@ -82,15 +81,7 @@ public class SocialContextFragment extends Fragment {
         social_context_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress1, boolean fromUser) {
-                if (progress1 == 0) {
-                    textViewOne.setText(progress1 + "%" +"trifft überhaupt nicht zu " );
-                }
-                else if (progress1 == 100) {
-                    textViewOne.setText( progress1 + "%" +"trifft völlig  zu " );
-                }
-                else{
-                    textViewOne.setText(progress1 + "%");
-                }
+                textViewOne.setText(progress1 + "%");
                 surveyData.put(10, progress1);
                 model.setSurveyData(surveyData);
             }

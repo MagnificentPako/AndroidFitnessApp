@@ -26,19 +26,19 @@
     <string name="mood_next">weiter</string>
     <string name="mood_back">zurück</string>
     <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In den letzten 24 Stunden fühlte ich mich im Durchschnitt…</string>
-    <string name="mood_feelings_unsatisfied">unzufrieden</string>
-    <string name="mood_feelings_satisfied">zufrieden</string>
-    <string name="mood_feelings_well">wohl</string>
-    <string name="mood_feelings_unwell">unwohl</string>
-    <string name="mood_feelings_troubled">unruhig</string>
-    <string name="mood_feelings_calm">ruhig</string>
+    <string name="mood_feelings_unsatisfied">Unzufrieden</string>
+    <string name="mood_feelings_satisfied">Zufrieden</string>
+    <string name="mood_feelings_well">Wohl</string>
+    <string name="mood_feelings_unwell">Unwohl</string>
+    <string name="mood_feelings_troubled">Unruhig</string>
+    <string name="mood_feelings_calm">Ruhig</string>
     <string name="mood_rating_text">0%</string>
-    <string name="mood_feelings_awake">wach</string>
-    <string name="mood_feelings_tired">müde</string>
-    <string name="mood_feelings_energy_less">energielos</string>
-    <string name="mood_feelings_energetic">energiegeladen</string>
-    <string name="mood_feelings_tense">angespannt</string>
-    <string name="mood_feelings_relaxed">entspannt</string>
+    <string name="mood_feelings_awake">Wach</string>
+    <string name="mood_feelings_tired">Müde</string>
+    <string name="mood_feelings_energy_less">Energielos</string>
+    <string name="mood_feelings_energetic">Energiegeladen</string>
+    <string name="mood_feelings_tense">Angespannt</string>
+    <string name="mood_feelings_relaxed">Entspannt</string>
 
     <!-- Mood_ Event Appraisal-->
     <string name="mood_event_appraisel">Event Appraisel:</string>

@@ -26,7 +26,7 @@
     <string name="mood_button">Mood</string>
     <string name="mood_next">Next</string>
     <string name="mood_back">Back</string>
-    <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In the last 24 hours I felt on average</string>
+    <string name="mood_feelings_in_the_last_24_hours_I_felt_on_average">In the last 24 hours I felt on average...</string>
     <string name="mood_feelings_unsatisfied">Unsatisfied</string>
     <string name="mood_feelings_satisfied">Satisfied</string>
     <string name="mood_feelings_well">Well</string>
@@ -36,7 +36,7 @@
     <string name="mood_rating_text">0%</string>
     <string name="mood_feelings_awake">Awake</string>
     <string name="mood_feelings_tired">Tired</string>
-    <string name="mood_feelings_energy_less">Energy_less</string>
+    <string name="mood_feelings_energy_less">Powerless</string>
     <string name="mood_feelings_energetic">Energetic</string>
     <string name="mood_feelings_tense">Tense</string>
     <string name="mood_feelings_relaxed">Relaxed</string>
@@ -66,7 +66,7 @@
 
     <!-- Mood_Context-->
     <string name="mood_context">Context:</string>
-    <string name="mood_Where_are_you_right_now">Where are you now?</string>
+    <string name="mood_Where_are_you_right_now">Where are you right now?</string>
     <string name="mood_write_here">Write here..</string>
     <string-array name="context">
         <item>Select from: </item>
