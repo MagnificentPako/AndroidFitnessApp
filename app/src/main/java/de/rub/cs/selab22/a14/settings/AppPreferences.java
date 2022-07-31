@@ -1,5 +1,6 @@
 package de.rub.cs.selab22.a14.settings;
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -22,6 +23,8 @@ import java.util.Locale;
 
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.database.UserIdManager;
+import de.rub.cs.selab22.a14.fragments.survey.MoodFeelingsFragment;
+import de.rub.cs.selab22.a14.notification.MyNotificationCenter;
 import dev.b3nedikt.app_locale.AppLocale;
 import dev.b3nedikt.reword.Reword;
 
@@ -32,9 +35,30 @@ public class AppPreferences extends PreferenceFragmentCompat {
 
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
-        SwitchPreferenceCompat notificationPref = new SwitchPreferenceCompat(ctx);
+        ListPreference notificationPref = new ListPreference(ctx);
         notificationPref.setKey("notifications");
         notificationPref.setTitle(R.string.settings_notifications_description);
+        notificationPref.setEntries(R.array.notification_names);
+        notificationPref.setEntryValues(R.array.notification_id);
+        notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if(newValue == "nv"){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+            }
+            else if(newValue == "1tms"){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this,
+                        "", "", new Intent(this.getContext()., MoodFeelingsFragment.class),
+                        0, AlarmManager.INTERVAL_DAY);
+            }
+            else if(newValue == "2tms"){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this,
+                        "", "", new Intent(this.getClass(), MoodFeelingsFragment.class),
+                        0, AlarmManager.INTERVAL_HALF_DAY);
+            }
+            return true;
+        });
+
 
         Preference feedbackPref = new Preference(ctx);
         feedbackPref.setKey("feedback");

@@ -15,6 +15,18 @@
         <item>en</item>
     </string-array>
 
+    <string-array name="notification_names">
+        <item>Never</item>
+        <item>1x a day</item>
+        <item>2x a day</item>
+    </string-array>
+
+    <string-array name="notification_id">
+        <item>nv</item>
+        <item>1tms</item>
+        <item>2tms</item>
+    </string-array>
+
     <string name="bottom_home">Home</string>
     <string name="bottom_graphs">Activities</string>
     <string name="bottom_activities">Manage</string>
@@ -134,6 +146,7 @@
     <string name="delete">Delete</string>
     <string name="achievements">Achievements</string>
     <string name="physical_recordactivity">Record Activity</string>
+    <string name="physical_stopactivity">Stop Activity</string>
     <string name="survey_button">Daily Survey</string>
     <string name="physical_overview">Display Physical</string>
     <string name="mood_overview">Display Mood</string>

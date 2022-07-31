@@ -36,6 +36,7 @@ import de.rub.cs.selab22.a14.database.daos.DataDao;
 import de.rub.cs.selab22.a14.database.entities.DBActivity;
 import de.rub.cs.selab22.a14.database.entities.Data;
 import de.rub.cs.selab22.a14.helper.ActivityRecorder;
+import de.rub.cs.selab22.a14.notification.MyNotificationCenter;
 import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import de.rub.cs.selab22.a14.settings.LocaleHelper;
 import de.rub.cs.selab22.a14.settings.Locales;
@@ -88,6 +89,8 @@ public class App extends Application {
                 sendResearchData();
                 preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();            }
         }
+
+        MyNotificationCenter.init();
     }
 
     private void sendResearchData() {

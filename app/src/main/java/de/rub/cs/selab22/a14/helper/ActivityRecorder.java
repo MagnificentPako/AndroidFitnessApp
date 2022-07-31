@@ -20,6 +20,8 @@ public class ActivityRecorder {
         return prefs.getBoolean("activityRecording", false);
     }
 
+    public long startTime() { return prefs.getLong("activityStart", 0); }
+
     public void startRecording() {
         if(!isRecording()) {
             prefs.edit()

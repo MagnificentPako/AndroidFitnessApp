@@ -14,6 +14,18 @@
         <item>en</item>
     </string-array>
 
+    <string-array name="notification_names">
+        <item>Niemals</item>
+        <item>1x am Tag</item>
+        <item>2x am Tag</item>
+    </string-array>
+
+    <string-array name="notification_id">
+        <item>nv</item>
+        <item>1tms</item>
+        <item>2tms</item>
+    </string-array>
+
     <string name="bottom_home">Start</string>
     <string name="bottom_graphs">Aktivitäten</string>
     <string name="bottom_activities">Verwalten</string>
@@ -132,6 +144,7 @@
     <string name="delete">Löschen</string>
     <string name="achievements">Achievements</string>
     <string name="physical_recordactivity">Aktivität aufnehmen</string>
+    <string name="physical_stopactivity">Aktivität stoppen</string>
     <string name="survey_button">Tägliche Umfrage</string>
     <string name="physical_overview">Aktivitäten Anzeigen</string>
     <string name="mood_overview">Mood Anzeigen</string>
