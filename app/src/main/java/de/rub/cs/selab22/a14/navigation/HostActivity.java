@@ -14,6 +14,7 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import de.rub.cs.selab22.a14.R;
+import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import de.rub.cs.selab22.a14.settings.I18nAppCompatActivity;
 
 public class HostActivity extends I18nAppCompatActivity {

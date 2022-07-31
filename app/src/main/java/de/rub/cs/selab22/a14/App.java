@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 
 import de.rub.cs.selab22.a14.database.DBHelper;
 import de.rub.cs.selab22.a14.database.UserIdManager;
+import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import de.rub.cs.selab22.a14.settings.LocaleHelper;
 import de.rub.cs.selab22.a14.settings.Locales;
 import dev.b3nedikt.app_locale.AppLocale;
@@ -25,6 +26,8 @@ public class App extends Application {
         super.onCreate();
 
         SharedPreferences preferences = getSharedPreferences("22a14", Context.MODE_PRIVATE);
+
+        SensorCenter sc = new SensorCenter(getApplicationContext());
 
         AppLocale.setSupportedLocales(Locales.APP_LOCALES);
         AppLocale.setAppLocaleRepository(new SharedPrefsAppLocaleRepository(this));

@@ -1,7 +1,9 @@
 package de.rub.cs.selab22.a14.fragments;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,12 +35,15 @@ public class HomeFragment extends Fragment {
 
     LineChart overview_chart;
     Resources resources;
-    Boolean privacyPolicyAgreed = false;
+    boolean privacyPolicyAgreed = false;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("22a14", Context.MODE_PRIVATE);
+        privacyPolicyAgreed = preferences.getBoolean("privacyPolicyAgreed", false);
 
         rootView.findViewById(R.id.home_survey_button).setOnClickListener(v -> {
             SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
@@ -65,12 +70,14 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             privacyPolicyAgreed = true;
+                            preferences.edit().putBoolean("privacyPolicyAgreed", true).commit();
                         }
                     })
                     .setNegativeButton("Decline", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+                            getActivity().finish();
                         }
                     })
                     .create().show();
