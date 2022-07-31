@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_bottom_graphs_to_nested_survey_graph"
             app:destination="@id/nested_survey_graph" />
+        <action
+            android:id="@+id/action_bottom_graphs_to_recordFragment"
+            app:destination="@id/recordFragment" />
     </fragment>
 
     <navigation android:id="@+id/nested_survey_graph"
