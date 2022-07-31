@@ -34,7 +34,7 @@ public class App extends Application {
         DBHelper.init(getApplicationContext());
         UserIdManager.init(preferences);
         ActivityRecorder.init(preferences);
-        SensorCenter sc = new SensorCenter(getApplicationContext());
+        SensorCenter.init(getApplicationContext());
     }
 
 }

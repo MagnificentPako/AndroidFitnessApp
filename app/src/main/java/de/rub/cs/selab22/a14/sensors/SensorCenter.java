@@ -13,6 +13,8 @@ import android.hardware.SensorManager;
 
 public class SensorCenter implements SensorEventListener {
 
+    public static SensorCenter INSTANCE;
+
     protected long steps;
     protected long recordedSteps = 0;
     float[] accelValue = new float[3];
@@ -21,7 +23,7 @@ public class SensorCenter implements SensorEventListener {
     private Sensor accelerometer;
     private SensorManager sm;
 
-    public SensorCenter(Context context) {
+    private SensorCenter(Context context) {
         this.context = context;
         sm = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         stepCounter = sm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -29,6 +31,12 @@ public class SensorCenter implements SensorEventListener {
 
         sm.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
         sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    public static void init(Context context) {
+        if(INSTANCE == null) {
+            INSTANCE = new SensorCenter(context);
+        }
     }
 
     private void unregisterSensor(Sensor s) {
