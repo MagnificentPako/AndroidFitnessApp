@@ -19,15 +19,29 @@ public class SensorCenter implements SensorEventListener {
     private final Context context;
     private Sensor stepCounter;
     private Sensor accelerometer;
+    private SensorManager sm;
 
     public SensorCenter(Context context) {
         this.context = context;
-        SensorManager sm = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        sm = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         stepCounter = sm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         accelerometer = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         sm.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
         sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    private void unregisterSensor(Sensor s) {
+        if(s != null) {
+            sm.unregisterListener(this, s);
+        }
+    }
+
+    public void setFrequency(Sensor s, int speed) {
+        unregisterSensor(s);
+        if(s != null) {
+            sm.registerListener(this, s, speed);
+        }
     }
 
     public void stepChange(SensorEvent event) {
