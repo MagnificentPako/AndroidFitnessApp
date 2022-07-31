@@ -19,8 +19,8 @@ public class SensorCenter implements SensorEventListener {
     protected long recordedSteps = 0;
     float[] accelValue = new float[3];
     private final Context context;
-    private Sensor stepCounter;
-    private Sensor accelerometer;
+    public Sensor stepCounter;
+    public Sensor accelerometer;
     private SensorManager sm;
 
     private SensorCenter(Context context) {
