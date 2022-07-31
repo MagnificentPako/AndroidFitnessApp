@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">22A14</string>
+    <string name="app_name">Fit Me Up</string>
     <string name="settings_locale_title">Sprache</string>
     <string name="settings_button">Einstellungen</string>
     <string name="hello_world">Hallo, Welt!</string>
@@ -135,6 +135,7 @@
     <string name="survey_button">Tägliche Umfrage</string>
     <string name="physical_overview">Aktivitäten Anzeigen</string>
     <string name="mood_overview">Mood Anzeigen</string>
+    <string name="data_notification">Ihre Daten werden aufgezeichnet.</string>
 
     <string name="privacy_policy">PRIVACY POLICY</string>
     <string name="privacy_policy_text">This Application collects personal data from its users.

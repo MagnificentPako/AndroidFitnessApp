@@ -27,13 +27,12 @@ public class App extends Application {
 
         SharedPreferences preferences = getSharedPreferences("22a14", Context.MODE_PRIVATE);
 
-        SensorCenter sc = new SensorCenter(getApplicationContext());
-
         AppLocale.setSupportedLocales(Locales.APP_LOCALES);
         AppLocale.setAppLocaleRepository(new SharedPrefsAppLocaleRepository(this));
         ViewPump.init(RewordInterceptor.INSTANCE);
         DBHelper.init(getApplicationContext());
         UserIdManager.init(preferences);
+        SensorCenter sc = new SensorCenter(getApplicationContext());
     }
 
 }

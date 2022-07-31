@@ -36,8 +36,8 @@ public class ForegroundService extends Service {
                 .setAutoCancel(false)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Test")
-                .setContentText("foreground activity");
+                .setContentTitle("Fit Me Up")
+                .setContentText("");
         Notification notification = mBuilder.build();
         startForeground(46, notification);
         Toast.makeText(getApplicationContext(),"App running", Toast.LENGTH_SHORT).show();
