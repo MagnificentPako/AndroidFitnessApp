@@ -4,63 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    tools:context=".mood.SocialContext">
-
-    <TextView
-        android:id="@+id/social_context"
-        android:layout_width="239dp"
-        android:layout_height="47dp"
-        android:text="@string/mood_social_context"
-        android:textColor="#0E0E0E"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/social_context_textview1"
-        android:layout_width="276dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/mood_Are_you_alone_right_now"
         android:textColor="#0E0E0E"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
-    <RadioGroup
-        android:id="@+id/radiogroup_sc"
-        android:layout_width="127dp"
-        android:layout_height="73dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/yes_radioButton"
-            android:layout_width="137dp"
-            android:layout_height="37dp"
-            android:backgroundTint="#D50ADC"
-            android:text="@string/mood_yes"
-            tools:ignore="TouchTargetSizeCheck" />
 
-        <RadioButton
-            android:id="@+id/no_radioButton"
-            android:layout_width="138dp"
+        <RadioGroup
+            android:id="@+id/radiogroup_sc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#D50ADCFF"
-            android:minHeight="48dp"
-            android:text="@string/mood_no"
-            tools:ignore="TouchTargetSizeCheck" />
-    </RadioGroup>
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/yes_radioButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D50ADC"
+                android:text="@string/mood_yes"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/no_radioButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D50ADCFF"
+                android:text="@string/mood_no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/personen"
-        android:layout_width="361dp"
-        android:layout_height="69dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/mood_What_kind_of_people_are_you_surrounded_by_at_the_moment"
         android:textColor="#0E0E0E"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:visibility="gone" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="245dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:entries="@array/persons"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="50dp"
         android:visibility="gone"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -68,15 +80,18 @@
     <TextView
         android:id="@+id/social_context_textview2"
         android:layout_width="wrap_content"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:text="@string/mood_When_you_think_about_the_people_who_are_surrounding_you_right_now_to_what_extent_is_the_following_statement_true_I_do_not_like_these_people"
         android:textColor="#0E0E0E"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="#0E0E0E"

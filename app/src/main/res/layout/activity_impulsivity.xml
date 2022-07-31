@@ -6,9 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:orientation="vertical"
-    tools:context=".mood.Impulsivity">
-
+    android:orientation="vertical">
 
     <Space
         android:layout_width="match_parent"
@@ -17,8 +15,10 @@
 
     <TextView
         android:id="@+id/Impuls"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginBottom="15dp"
         android:text="@string/mood_impulsivity"
         android:textColor="#0E0E0E"
         android:textSize="24sp"
@@ -29,7 +29,9 @@
 
     <TextView
         android:id="@+id/textView_imp1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
         android:text="@string/mood_Since_the_last_query_I_have_acted_impulsively_i.e._I_have_acted_without_thinking_about_possible_consequences"
         android:textColor="#0E0E0E"
@@ -200,6 +202,9 @@
         android:id="@+id/textView_imp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
         android:text="@string/mood_Since_the_last_query_I_have_behaved_angrily_or_aggressively_towards_another_person_which_I_was_sorry_for_afterwards"
         android:textColor="#0E0E0E"
         app:layout_constraintBottom_toTopOf="@+id/next_button_imp"
@@ -225,7 +230,7 @@
 
             <TextView
                 android:id="@+id/button_scale02"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -237,7 +242,7 @@
 
             <TextView
                 android:id="@+id/button_scale12"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -248,7 +253,7 @@
 
             <TextView
                 android:id="@+id/button_scale22"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -259,7 +264,7 @@
 
             <TextView
                 android:id="@+id/button_scale32"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -270,8 +275,8 @@
 
             <TextView
                 android:id="@+id/button_scale42"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="2dp"
@@ -281,7 +286,7 @@
 
             <TextView
                 android:id="@+id/button_scale52"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -292,7 +297,7 @@
 
             <TextView
                 android:id="@+id/button_scale62"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"

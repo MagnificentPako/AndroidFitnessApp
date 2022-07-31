@@ -89,13 +89,13 @@
 </string>
     <string name="mood_Since_the_last_query_I_have_behaved_angrily_or_aggressively_towards_another_person_which_I_was_sorry_for_afterwards">
         Since the last query, I have behaved in an angry or aggressive manner towards another person which I was sorry for afterwards </string>
-    <string name="mood_0_strongly_disagree">0strongly disagree</string>
-    <string name="mood_1_disagree">1 disagree</string>
-    <string name="mood_2_slightly_disagree">2slightly disagree</string>
-    <string name="mood_3_either">3 either</string>
-    <string name="mood_4_slightly_agree">4slightly agree</string>
-    <string name="mood_5_agree">5 agree</string>
-    <string name="mood_6_strongly_agree">6strongly agree</string>
+    <string name="mood_0_strongly_disagree">strongly disagree</string>
+    <string name="mood_1_disagree">disagree</string>
+    <string name="mood_2_slightly_disagree">slightly disagree</string>
+    <string name="mood_3_either">either</string>
+    <string name="mood_4_slightly_agree">slightly agree</string>
+    <string name="mood_5_agree">agree</string>
+    <string name="mood_6_strongly_agree">strongly agree</string>
 
     <string name="mood_You_can_add_some_notes_about_your_current_mood_here">
         You can add some notes about your current mood here</string>
