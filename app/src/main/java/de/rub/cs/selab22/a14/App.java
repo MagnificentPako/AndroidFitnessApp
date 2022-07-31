@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 
 import de.rub.cs.selab22.a14.database.DBHelper;
 import de.rub.cs.selab22.a14.database.UserIdManager;
+import de.rub.cs.selab22.a14.helper.ActivityRecorder;
 import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import de.rub.cs.selab22.a14.settings.LocaleHelper;
 import de.rub.cs.selab22.a14.settings.Locales;
@@ -32,6 +33,7 @@ public class App extends Application {
         ViewPump.init(RewordInterceptor.INSTANCE);
         DBHelper.init(getApplicationContext());
         UserIdManager.init(preferences);
+        ActivityRecorder.init(preferences);
         SensorCenter sc = new SensorCenter(getApplicationContext());
     }
 
