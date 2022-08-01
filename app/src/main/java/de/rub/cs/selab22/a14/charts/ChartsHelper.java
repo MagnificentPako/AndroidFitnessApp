@@ -102,6 +102,38 @@ public class ChartsHelper {
         return lc;
     }
 
+    public static LineChart renderVariableActivity(LineChart lc, ArrayList<String> labels, ArrayList<ArrayList<Entry>> entryEntryList, String[] strings, String chart_label) {
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+
+        Random random = new Random();
+
+        setStyleConfig(lc, "Overview", true, chart_label, strings);
+
+        int i = 0;
+        for (ArrayList<Entry> el : entryEntryList) {
+            LineDataSet lds = new LineDataSet(el, labels.get(i));
+            if (i == entryEntryList.size()-1)
+            {
+                lds.setColor(getIntFromColor(0,0,0));
+                lds.setDrawCircles(true);
+            } else {
+                lds.setColor(getIntFromColor(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
+                lds.setDrawCircles(false);
+            }
+            lds.setDrawValues(false);
+            lds.setFormSize(5f);
+            dataSets.add(lds);
+            i++;
+
+        }
+        lc.setDrawMarkers(true);
+
+        LineData data = new LineData(dataSets);
+        lc.setData(data);
+
+        return lc;
+    }
+
     private static int getIntFromColor(int Red, int Green, int Blue){
         Red = (Red << 16) & 0x00FF0000;
         Green = (Green << 8) & 0x0000FF00;
