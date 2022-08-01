@@ -1,19 +1,26 @@
 package de.rub.cs.selab22.a14.fragments;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -74,6 +81,20 @@ public class HomeFragment extends Fragment {
         String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
         overview_chart = ChartsHelper.renderActivity(overview_chart, createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao()), createEntryList(7), formatterArray);
 
+
+        if (ActivityCompat.checkSelfPermission(this.getContext(),
+                Manifest.permission.ACTIVITY_RECOGNITION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.ACTIVITY_RECOGNITION)) {
+
+            } else {
+                requestPermissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION);
+            }
+        }
+
+
         if (!privacyPolicyAgreed) {
             new AlertDialog.Builder(this.getContext())
                     .setTitle(getString(R.string.privacy_policy))
@@ -94,6 +115,7 @@ public class HomeFragment extends Fragment {
                     })
                     .create().show();
         }
+
 
         startService();
         return rootView;
@@ -141,4 +163,14 @@ public class HomeFragment extends Fragment {
         return entries;
     }
 
+    private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(), result -> {
+                if(result){
+                    Toast.makeText(this.getContext(), "Permission(s) Granted!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this.getContext(), "Permission(s) Denied!", Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(this.getContext(), "Continue to Home-Screen", Toast.LENGTH_SHORT).show();
+            }
+    );
 }

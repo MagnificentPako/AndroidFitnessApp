@@ -5,14 +5,16 @@
     <string name="settings_button">Settings</string>
     <string name="hello_world">Hello World!</string>
 
-    <string-array name="language_names">
-        <item>German</item>
-        <item>English</item>
+    <string-array name="notification_names">
+        <item>Never</item>
+        <item>1x a day</item>
+        <item>2x a day</item>
     </string-array>
 
-    <string-array name="language_id">
-        <item>de</item>
-        <item>en</item>
+    <string-array name="notification_id">
+        <item>nv</item>
+        <item>1tms</item>
+        <item>2tms</item>
     </string-array>
 
     <string name="bottom_home">Home</string>
@@ -131,6 +133,7 @@
     <string name="delete">Delete</string>
     <string name="achievements">Achievements</string>
     <string name="physical_recordactivity">Record Activity</string>
+    <string name="physical_stopactivity">Stop Activity</string>
     <string name="survey_button">Daily Survey</string>
     <string name="physical_overview">Display Physical</string>
     <string name="mood_overview">Display Mood</string>

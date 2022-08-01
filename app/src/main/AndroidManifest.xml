@@ -2,8 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.rub.cs.selab22.a14">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="Manifest.permission.HIGH_SAMPLING_RATE_SENSORS" />
 
-        <application
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true"/>
+
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+
+    <application
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,11 +21,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.22A14">
+
         <service
             android:name=".foreground.ForegroundService"
             android:enabled="true"
             android:exported="true"></service>
         <activity
+
             android:name=".navigation.HostActivity"
             android:exported="true"
             android:configChanges="locale"
@@ -26,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".settings.SettingsActivity"
             android:configChanges="locale"

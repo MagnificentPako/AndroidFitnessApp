@@ -10,6 +10,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.widget.Toast;
 
 public class SensorCenter implements SensorEventListener {
 
@@ -39,17 +40,27 @@ public class SensorCenter implements SensorEventListener {
         }
     }
 
-    private void unregisterSensor(Sensor s) {
+    public void unregisterSensor(Sensor s) {
         if(s != null) {
             sm.unregisterListener(this, s);
         }
+        else
+        {
+            Toast.makeText(context.getApplicationContext(), "No Sensor detected!", Toast.LENGTH_LONG).show();
+        }
     }
 
-    public void setFrequency(Sensor s, int speed) {
-        unregisterSensor(s);
-        if(s != null) {
-            sm.registerListener(this, s, speed);
+    public void setFrequency(Sensor sensor, int speed) {
+        unregisterSensor(sensor);
+        if(sensor != null) {
+            sm.registerListener(this, sensor, speed);
         }
+        /*
+        SENSOR_DELAY_FASTEST = 0 microsecond delay
+        SENSOR_DELAY_GAME = 20000 microsecond delay
+        SENSOR_DELAY_UI = 60000 microsecond delay
+        SENSOR_DELAY_NORMAL = 200000 microsecond delay
+         */
     }
 
     public void stepChange(SensorEvent event) {
@@ -104,4 +115,6 @@ public class SensorCenter implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+
 }

@@ -36,6 +36,7 @@ import de.rub.cs.selab22.a14.database.daos.DataDao;
 import de.rub.cs.selab22.a14.database.entities.DBActivity;
 import de.rub.cs.selab22.a14.database.entities.Data;
 import de.rub.cs.selab22.a14.helper.ActivityRecorder;
+import de.rub.cs.selab22.a14.notification.MyNotificationCenter;
 import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import de.rub.cs.selab22.a14.settings.LocaleHelper;
 import de.rub.cs.selab22.a14.settings.Locales;
@@ -46,14 +47,25 @@ import dev.b3nedikt.viewpump.ViewPump;
 
 public class App extends Application {
 
+    private static Context appcontext;
+    private static Application sApplication;
+
     public App() {
         ViewPump.init(RewordInterceptor.INSTANCE);
+    }
+
+    public static Application getApplication() {
+        return sApplication;
+    }
+
+    public static Context getAppContext() {
+        return getApplication().getApplicationContext();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sApplication = this;
         SharedPreferences preferences = getSharedPreferences("22a14", Context.MODE_PRIVATE);
 
         AppLocale.setSupportedLocales(Locales.APP_LOCALES);
@@ -88,6 +100,8 @@ public class App extends Application {
                 sendResearchData();
                 preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();            }
         }
+
+        MyNotificationCenter.init();
     }
 
     private void sendResearchData() {

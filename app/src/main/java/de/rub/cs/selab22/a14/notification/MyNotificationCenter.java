@@ -7,11 +7,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.SystemClock;
 
 import androidx.core.app.NotificationCompat;
 
 import de.rub.cs.selab22.a14.R;
+import de.rub.cs.selab22.a14.helper.ActivityRecorder;
 
 
 /* Create an Object from the class MyNotificationCenter in the appropriate Class/interface and use
@@ -26,7 +28,16 @@ inexact ones, it'll be the specified values, above the function "scheduledInexac
  */
 public class MyNotificationCenter {
 
-    public void scheduleNotification(Context context, String title, String message, Intent intent, long delay, int notificationId) {
+    public static MyNotificationCenter INSTANCE;
+
+    public MyNotificationCenter() {}
+
+    public static void init() {
+        if (INSTANCE == null) {
+            INSTANCE = new MyNotificationCenter();
+        }
+    }
+    public void scheduleNotification(Context context, String title, String message, Intent intent, long delay) {
         String channelId = "channel-01";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -38,14 +49,14 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, notificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent activity = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         mBuilder.setContentIntent(activity);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, notificationId);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_CHANNEL, mChannel);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, notificationId, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 1, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         long futureInMillis = SystemClock.elapsedRealtime() + delay;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
@@ -60,7 +71,7 @@ public class MyNotificationCenter {
     AlarmManager.INTERVAL_DAY = 2*INTERVAL_HALF_DAY
     */
     public void scheduleInexactRepeatingNotification(Context context, String title, String message,
-                                                     Intent intent, long delay, long inexactInterval, int notificationId) {
+                                                     Intent intent, long delay, long inexactInterval) {
         String channelId = "channel-01";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -72,14 +83,14 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, notificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent activity = PendingIntent.getActivity(context, 2, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         mBuilder.setContentIntent(activity);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, notificationId);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 2);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_CHANNEL, mChannel);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, notificationId, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 2, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         long futureInMillis = SystemClock.elapsedRealtime() + delay;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, inexactInterval, pendingIntent);
@@ -98,14 +109,14 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, notificationId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent activity = PendingIntent.getActivity(context, 3, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         mBuilder.setContentIntent(activity);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, notificationId);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 3);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_CHANNEL, mChannel);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, notificationId, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 3, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         long futureInMillis = SystemClock.elapsedRealtime() + delay;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, intervalInMillis, pendingIntent);
