@@ -170,7 +170,6 @@ public class HomeFragment extends Fragment {
                 } else {
                     Toast.makeText(this.getContext(), "Permission(s) Denied!", Toast.LENGTH_SHORT).show();
                 }
-
                 Toast.makeText(this.getContext(), "Continue to Home-Screen", Toast.LENGTH_SHORT).show();
             }
     );
