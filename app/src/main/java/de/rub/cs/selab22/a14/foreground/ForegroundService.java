@@ -36,8 +36,8 @@ public class ForegroundService extends Service {
                 .setAutoCancel(false)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Fit Me Up")
-                .setContentText("");
+                .setContentTitle("FitMeUp")
+                .setContentText("Get fit right now!");
         Notification notification = mBuilder.build();
         startForeground(46, notification);
         return START_STICKY;
