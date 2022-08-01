@@ -57,12 +57,14 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.ViewHo
         holder.getTitle().setText(format.format(activity.start) + " - " + format.format(activity.end));
 
         holder.getDeleteButton().setOnClickListener((v) -> {
-            DBActivity tbd = localDataSet.get(position);
+            int pos = holder.getBindingAdapterPosition();
+            DBActivity tbd = localDataSet.get(holder.getBindingAdapterPosition());
             dao.delete(tbd);
-            localDataSet.remove(position);
-            notifyItemChanged(position);
-            notifyItemRangeChanged(position, localDataSet.size());
-            holder.itemView.setVisibility(View.GONE);
+            localDataSet.remove(pos);
+            //notifyItemChanged(holder.getBindingAdapterPosition());
+            //notifyItemRangeChanged(holder.getBindingAdapterPosition(), localDataSet.size());
+            notifyDataSetChanged();
+            //holder.itemView.setVisibility(View.GONE);
         });
 
         holder.getEditButton().setOnClickListener((v) -> {
