@@ -26,12 +26,29 @@
         <item>2tms</item>
     </string-array>
 
+    <string-array name="frequency_names">
+        <item>Hohe Frequenz</item>
+        <item>Normale Frequenz (Standard)</item>
+        <item>Niedrige Frequenz</item>
+    </string-array>
+
+    <string-array name="frequency_id">
+        <item>high</item>
+        <item>normal</item>
+        <item>low</item>
+    </string-array>
+
     <string name="bottom_home">Start</string>
     <string name="bottom_graphs">Aktivitäten</string>
     <string name="bottom_activities">Verwalten</string>
     <string name="bottom_settings">Einstellungen</string>
 
-    <string name="settings_notifications_description">Erhalte Benachrichtigungen von dieser App</string>
+    <string name="notification_title">Tägliche Abfrage</string>
+    <string name="notification_text">Möchten Sie uns mitteilen wie Sie sich heute fühlen?</string>
+    <string name="settings_notifications_description">Häufigkeit der Benachrichtigungen</string>
+    <string name="settings_notifications_summary">Wähle aus wie oft du Benachrichtigungen bekommen möchtest.</string>
+    <string name="settings_frequency_description">Sensor-Frequenz festlegen</string>
+    <string name="settings_frequency_summary">Diese Option beeinflusst deinen Akku Verbrauch (höhere Frequenz = höherer Akku Verbrauch)</string>
     <string name="settings_feedback_title">Gib uns ein Feedback</string>
     <string name="settings_feedback_description">Melde uns eine Technische Stoerung oder schlage neue Ideen vor</string>
     <string name="mood_button">Mood</string>
@@ -150,13 +167,34 @@
     <string name="mood_overview">Mood Anzeigen</string>
     <string name="data_notification">Ihre Daten werden aufgezeichnet.</string>
 
-    <string name="privacy_policy">PRIVACY POLICY</string>
-    <string name="privacy_policy_text">This Application collects personal data from its users.
-        The data excludes sensitive information and consists of the users recorded physical
-        activity and an average numerical value of the users mood. In order to collect such data
-        and for the app to function properly, it requires the user to permit the use of the
-        following Sensors: Physical Activity (consists of the Accelerometer and the Step-Counter)
-        and optionally, the GPS Sensor (can be used for tracking distances; the app will not record
-        and save the users position). For more details and information about this privacy policy
-        go under "SETTINGS -> PRIVACY POLICY"!</string>
+    <string name="privacy_policy">DATENSCHUTZ-BESTIMMUNGEN [PLATZHALTER]</string>
+    <string name="privacy_policy_text">DEMO DATENSCHUTZ-BESTIMMUNGEN:\n \n
+
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Nulla tristique elit in arcu blandit rhoncus. Phasellus ipsum lacus,
+        lacinia vel metus in, laoreet tempor massa. Etiam dignissim lectus vitae arcu convallis,
+        ut dignissim neque ullamcorper. Nullam porta, elit sed condimentum tincidunt, mauris ligula
+        malesuada odio, sit amet semper quam quam et augue.\n Morbi eu libero nec neque suscipit
+        consectetur sed vel tortor. Etiam rhoncus ante nec lacus tristique egestas.
+        Maecenas vitae est fermentum sapien tincidunt ultrices ut non magna.\n Vestibulum ac sodales
+        ligula, nec egestas eros. Donec nec mollis elit. Nullam venenatis commodo est eget varius.
+        Donec pulvinar est vel bibendum sollicitudin. Phasellus ac facilisis est.\n
+
+        Nulla venenatis, ex at porttitor dictum, neque arcu bibendum metus, ac pretium velit risus
+        in leo. Etiam vulputate mauris at tortor viverra sodales. Vivamus efficitur magna eget velit
+        fringilla, aliquam ullamcorper augue suscipit.\n Aliquam ex nisl, laoreet in ultricies a,
+        pulvinar sit amet arcu. Cras bibendum nibh efficitur quam consectetur mattis. Vivamus quis
+        arcu maximus, tristique felis a, hendrerit augue.\n Pellentesque suscipit, erat ac gravida
+        accumsan, quam leo placerat nunc, at suscipit arcu ligula nec sem. Donec lacinia sapien
+        vitae quam varius venenatis. Pellentesque viverra odio quis erat viverra pretium.\n
+        Quisque pulvinar sed velit eget mattis. Mauris sit amet arcu nisl. Fusce et sapien sit amet
+        augue sollicitudin feugiat eget lobortis ex. Quisque pharetra lacus non maximus sollicitudin.\n
+
+        Nulla sagittis commodo mi, at vehicula ante. Nunc et tempor odio, sed efficitur metus.
+        Ut sit amet neque sollicitudin, dignissim felis id, posuere augue.\n Curabitur malesuada
+        ultricies neque, sed dapibus leo porta a. Donec semper enim a ullamcorper malesuada.
+        Quisque tempus lectus a erat viverra facilisis.\n Etiam nec risus nunc. Nam sed neque sit amet
+        magna viverra ultrices. Proin ut consectetur velit.\n Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Aenean commodo efficitur ante sed auctor. Suspendisse tristique elit risus,
+        eget fermentum neque rhoncus eu.</string>
 </resources>

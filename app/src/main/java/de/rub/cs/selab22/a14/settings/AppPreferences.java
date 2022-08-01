@@ -2,12 +2,14 @@ package de.rub.cs.selab22.a14.settings;
 
 import android.app.AlarmManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.FragmentManager;
@@ -27,6 +29,7 @@ import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.database.UserIdManager;
 import de.rub.cs.selab22.a14.fragments.survey.MoodFeelingsFragment;
 import de.rub.cs.selab22.a14.notification.MyNotificationCenter;
+import de.rub.cs.selab22.a14.sensors.SensorCenter;
 import dev.b3nedikt.app_locale.AppLocale;
 import dev.b3nedikt.reword.Reword;
 
@@ -37,31 +40,55 @@ public class AppPreferences extends PreferenceFragmentCompat {
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
         ListPreference notificationPref = new ListPreference(ctx);
-        notificationPref.setKey("settingsnotifications");
+        notificationPref.setKey("notifications");
         notificationPref.setTitle(R.string.settings_notifications_description);
+        notificationPref.setSummary(R.string.settings_notifications_summary);
         notificationPref.setEntries(R.array.notification_names);
         notificationPref.setEntryValues(R.array.notification_id);
-
-        Intent notificationIntent = new Intent(getContext(), MoodFeelingsFragment.class);
         notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            if(newValue == "nv"){
-                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+            if(newValue.equals("nv")){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 3);
             }
             else if(newValue.equals("1tms")){
-                System.out.println("I was here");
-                MyNotificationCenter.INSTANCE.cancelAlarm(App.getAppContext(), 2);
-                MyNotificationCenter.INSTANCE.scheduleNotification(App.getAppContext(),
-                        "Mustafa", "Yallah", notificationIntent,
-                        0);
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 3);
+                MyNotificationCenter.INSTANCE.scheduleExactRepeatingNotification(this.getContext(),
+                        getString(R.string.notification_title), getString(R.string.notification_text),  24 * 60 * 60 * 1000);
+            }
+            else if(newValue.equals("2tms")){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 3);
+                MyNotificationCenter.INSTANCE.scheduleExactRepeatingNotification(this.getContext(),
+                        getString(R.string.notification_title), getString(R.string.notification_text),  12 * 60 * 60 * 1000);
+            }
+            return true;
+        });
+
+        ListPreference setFrequencyPref = new ListPreference(ctx);
+        setFrequencyPref.setKey("frequency");
+        setFrequencyPref.setTitle(R.string.settings_frequency_description);
+        setFrequencyPref.setSummary(R.string.settings_frequency_summary);
+        setFrequencyPref.setEntries(R.array.frequency_names);
+        setFrequencyPref.setEntryValues(R.array.frequency_id);
+        setFrequencyPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if(newValue.equals("high")){
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.accelerometer,
+                        SensorCenter.INSTANCE.HIGH_FREQUENCY);
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.stepCounter,
+                        SensorCenter.INSTANCE.HIGH_FREQUENCY);
+            }
+            else if(newValue.equals("normal")){
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.accelerometer,
+                        SensorCenter.INSTANCE.NORMAL_FREQUENCY);
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.stepCounter,
+                        SensorCenter.INSTANCE.NORMAL_FREQUENCY);
 
             }
-            else if(newValue == "2tms"){
-                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
-                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this.getContext(),
-                        "", "", notificationIntent,
-                        0, AlarmManager.INTERVAL_HALF_DAY);
-            }
+            else if(newValue.equals("low")){
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.accelerometer,
+                        SensorCenter.INSTANCE.LOW_FREQUENCY);
+                SensorCenter.INSTANCE.setFrequency(SensorCenter.INSTANCE.stepCounter,
+                        SensorCenter.INSTANCE.LOW_FREQUENCY);
 
+            }
             return true;
         });
 
@@ -69,6 +96,23 @@ public class AppPreferences extends PreferenceFragmentCompat {
         feedbackPref.setKey("feedback");
         feedbackPref.setTitle(R.string.settings_feedback_title);
         feedbackPref.setSummary(R.string.settings_feedback_description);
+
+        Preference privacyPolicyPref = new Preference(ctx);
+        privacyPolicyPref.setTitle(R.string.privacy_policy);
+        privacyPolicyPref.setEnabled(true);
+        privacyPolicyPref.setOnPreferenceClickListener((preference) -> {
+            new AlertDialog.Builder(this.getContext())
+                    .setTitle(getString(R.string.privacy_policy))
+                    .setMessage(getString(R.string.privacy_policy_text))
+                    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .create().show();
+            return true;
+        });
 
         Preference userIdPref = new Preference(ctx);
         userIdPref.setTitle("User ID");
@@ -90,12 +134,12 @@ public class AppPreferences extends PreferenceFragmentCompat {
         });
 
         screen.addPreference(notificationPref);
+        screen.addPreference(setFrequencyPref);
         screen.addPreference(feedbackPref);
         screen.addPreference(localePref);
+        screen.addPreference(privacyPolicyPref);
         screen.addPreference(userIdPref);
-
         setPreferenceScreen(screen);
-
     }
 
 }

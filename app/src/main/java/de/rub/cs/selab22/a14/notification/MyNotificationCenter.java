@@ -11,6 +11,9 @@ import android.content.SharedPreferences;
 import android.os.SystemClock;
 
 import androidx.core.app.NotificationCompat;
+import androidx.navigation.NavDeepLinkBuilder;
+
+import java.util.Calendar;
 
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.helper.ActivityRecorder;
@@ -37,7 +40,13 @@ public class MyNotificationCenter {
             INSTANCE = new MyNotificationCenter();
         }
     }
-    public void scheduleNotification(Context context, String title, String message, Intent intent, long delay) {
+    public void scheduleNotification(Context context, String title, String message, long delay) {
+        PendingIntent moodPendingIntent =
+                new NavDeepLinkBuilder(context.getApplicationContext())
+                        .setGraph(R.navigation.nav_graph)
+                        .setDestination(R.id.nested_survey_graph)
+                        .createPendingIntent();
+
         String channelId = "channel-01";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -49,8 +58,7 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        mBuilder.setContentIntent(activity);
+        mBuilder.setContentIntent(moodPendingIntent);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
@@ -71,7 +79,13 @@ public class MyNotificationCenter {
     AlarmManager.INTERVAL_DAY = 2*INTERVAL_HALF_DAY
     */
     public void scheduleInexactRepeatingNotification(Context context, String title, String message,
-                                                     Intent intent, long delay, long inexactInterval) {
+                                                     long delay, long inexactInterval) {
+        PendingIntent moodPendingIntent =
+                new NavDeepLinkBuilder(context.getApplicationContext())
+                        .setGraph(R.navigation.nav_graph)
+                        .setDestination(R.id.nested_survey_graph)
+                        .createPendingIntent();
+
         String channelId = "channel-01";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -83,8 +97,7 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, 2, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        mBuilder.setContentIntent(activity);
+        mBuilder.setContentIntent(moodPendingIntent);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 2);
@@ -96,8 +109,19 @@ public class MyNotificationCenter {
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, inexactInterval, pendingIntent);
     }
 
-    public void scheduleExactRepeatingNotification(Context context, String title, String message,
-                                                   Intent intent, long delay, long intervalInMillis, int notificationId) {
+    public void scheduleExactRepeatingNotification(Context context, String title, String message, long intervalInMillis) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY,22);
+        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.SECOND, 00);
+
+        PendingIntent moodPendingIntent =
+                new NavDeepLinkBuilder(context.getApplicationContext())
+                        .setGraph(R.navigation.nav_graph)
+                        .setDestination(R.id.nested_survey_graph)
+                        .createPendingIntent();
+
         String channelId = "channel-01";
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -109,17 +133,16 @@ public class MyNotificationCenter {
                 .setContentText(message);
         //.setSubText("Look, subtext!");
 
-        PendingIntent activity = PendingIntent.getActivity(context, 3, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        mBuilder.setContentIntent(activity);
+        mBuilder.setContentIntent(moodPendingIntent);
         Notification notification = mBuilder.build();
         Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 3);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
         notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_CHANNEL, mChannel);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 3, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        long futureInMillis = calendar.getTimeInMillis();
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, intervalInMillis, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, futureInMillis, intervalInMillis, pendingIntent);
     }
 
     public void cancelAlarm(Context context, int notificationId) {

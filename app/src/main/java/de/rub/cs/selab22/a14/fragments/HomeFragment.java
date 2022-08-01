@@ -49,6 +49,7 @@ import de.rub.cs.selab22.a14.foreground.ForegroundService;
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.charts.ChartsHelper;
 import de.rub.cs.selab22.a14.fragments.survey.SurveyViewModel;
+import de.rub.cs.selab22.a14.notification.MyNotificationCenter;
 
 public class HomeFragment extends Fragment {
 
@@ -81,10 +82,12 @@ public class HomeFragment extends Fragment {
         String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
         overview_chart = ChartsHelper.renderActivity(overview_chart, createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao()), createEntryList(7), formatterArray);
 
+        MyNotificationCenter.INSTANCE.scheduleExactRepeatingNotification(this.getContext(),
+                getString(R.string.notification_title), getString(R.string.notification_text),  24 * 60 * 60 * 1000);
 
         if (ActivityCompat.checkSelfPermission(this.getContext(),
                 Manifest.permission.ACTIVITY_RECOGNITION)
-                != PackageManager.PERMISSION_GRANTED) {
+                == PackageManager.PERMISSION_DENIED) {
             //explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     Manifest.permission.ACTIVITY_RECOGNITION)) {
@@ -93,7 +96,6 @@ public class HomeFragment extends Fragment {
                 requestPermissionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION);
             }
         }
-
 
         if (!privacyPolicyAgreed) {
             new AlertDialog.Builder(this.getContext())
@@ -115,7 +117,6 @@ public class HomeFragment extends Fragment {
                     })
                     .create().show();
         }
-
 
         startService();
         return rootView;
@@ -170,7 +171,6 @@ public class HomeFragment extends Fragment {
                 } else {
                     Toast.makeText(this.getContext(), "Permission(s) Denied!", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(this.getContext(), "Continue to Home-Screen", Toast.LENGTH_SHORT).show();
             }
     );
 }
