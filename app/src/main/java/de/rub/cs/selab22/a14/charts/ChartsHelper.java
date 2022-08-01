@@ -98,7 +98,7 @@ public class ChartsHelper {
         LineData data = new LineData(dataSets);
         lc.setData(data);
 
-        setStyleConfig(lc, "Overview", true, "weekly", strings);
+        setStyleConfig(lc, "Mood", true, "weekly", strings);
 
         return lc;
     }

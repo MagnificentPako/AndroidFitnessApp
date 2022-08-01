@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -37,6 +39,7 @@ import de.rub.cs.selab22.a14.database.DataPoint;
 import de.rub.cs.selab22.a14.database.Identifier;
 import de.rub.cs.selab22.a14.database.daos.DataDao;
 import de.rub.cs.selab22.a14.database.entities.Data;
+import de.rub.cs.selab22.a14.fragments.survey.SurveyViewModel;
 
 public class GraphFragment extends Fragment {
 
@@ -88,6 +91,13 @@ public class GraphFragment extends Fragment {
         monthButton.setOnClickListener(onClickListener);
         moodOverview.setOnClickListener(onClickListener);
         physicalOverview.setOnClickListener(onClickListener);
+
+        view.findViewById(R.id.graph_survey_button).setOnClickListener(v -> {
+            SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
+            model.setSurveyData(new HashMap<>());
+            Navigation.findNavController(view).navigate(R.id.action_bottom_graphs_to_nested_survey_graph);
+        });
+
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
