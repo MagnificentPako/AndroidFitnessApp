@@ -40,7 +40,7 @@ public class AppPreferences extends PreferenceFragmentCompat {
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
         ListPreference notificationPref = new ListPreference(ctx);
-        notificationPref.setKey("notifications");
+        notificationPref.setKey("notificationscenter");
         notificationPref.setTitle(R.string.settings_notifications_description);
         notificationPref.setSummary(R.string.settings_notifications_summary);
         notificationPref.setEntries(R.array.notification_names);
