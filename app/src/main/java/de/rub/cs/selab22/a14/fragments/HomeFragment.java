@@ -172,9 +172,9 @@ public class HomeFragment extends Fragment {
     private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(), result -> {
                 if(result){
-                    Toast.makeText(this.getContext(), "Permission(s) Granted!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this.getContext(), "Permission(s) Granted!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this.getContext(), "Permission(s) Denied!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this.getContext(), "Permission(s) Denied!", Toast.LENGTH_SHORT).show();
                 }
             }
     );
