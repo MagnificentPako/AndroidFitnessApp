@@ -20,6 +20,8 @@ import java.time.ZoneId;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -97,6 +99,7 @@ public class GraphFragment extends Fragment {
             String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             DataDao dao = DBHelper.INSTANCE.getDataDao();
+            ArrayList<String> moodLabels = new ArrayList(Arrays.asList("1", "2", "3", "4", "5", "6"));
             switch(v.getId()){
                 case R.id.physical_overview_button:
                     physicalOverviewActive = true;
@@ -139,7 +142,7 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph,"Daily", createPhysicalDailyEntryList(dao), formatterArray, "Physical Activity");
                     }
                     else {
-                        graph = ChartsHelper.renderActivity(graph, "Daily", createEntryList(4), formatterArray, "Mood");
+                        graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodDailyEntryList(dao), formatterArray, "Mood");
                     }
                     graph.invalidate();
 
@@ -217,18 +220,6 @@ public class GraphFragment extends Fragment {
             }
             entries.add(new Entry(h, sum/d.size()));
         });
-        /*
-        dailyData.stream()
-                .collect(Collectors.groupingBy(
-                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getHour(),
-                        LinkedHashMap::new,
-                        Collectors.toList())).forEach((hour, data) ->
-                        entries.add(new Entry(hour,
-                                data.stream().collect(Collectors.averagingDouble(
-                                                (x) -> (
-                                                        ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
-                                        .floatValue())));
-         */
         return entries;
     }
 
@@ -276,6 +267,30 @@ public class GraphFragment extends Fragment {
             }
             entries.add(new Entry(i, sum));
             i++;
+        }
+        return entries;
+    }
+
+    private ArrayList<ArrayList<Entry>> createMoodDailyEntryList(DataDao dao) {
+        Date since = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(LocalDate.now().atTime(23, 59).atZone(ZoneId.systemDefault()).toInstant());
+        List<Data> dataList = dao.getBetweenByIdentifier(since, until, Identifier.SURVEY);
+        ArrayList<ArrayList<Entry>> entries = new ArrayList<>();
+        int acc = 0;
+        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> entries.add(new ArrayList<Entry>()));
+        dataList.sort(Comparator.comparing(o -> o.timestamp));
+        for(Data d : dataList) {
+            Map<String, Object> dataSet = d.dataPoint.<Map<String, Object>>getData().get(0);
+            Map<String, Double> data = (Map<String, Double>) dataSet.get("surveyData");
+            int finalAcc = acc;
+            Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> {
+                System.out.println(data.keySet());
+                if(data.containsKey(String.valueOf(i))) {
+                    System.out.println("Found key: " + i);
+                    entries.get(i).add(new Entry(finalAcc,data.get(String.valueOf(i)).intValue()));
+                }
+            });
+            acc++;
         }
         return entries;
     }

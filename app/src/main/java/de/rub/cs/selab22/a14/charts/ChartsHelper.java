@@ -19,6 +19,7 @@ import de.rub.cs.selab22.a14.R;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 
 public class ChartsHelper {
     public static LineChart renderActivity(LineChart lc, String label, ArrayList<Entry> entryList, String[] strings, String description) {
@@ -67,6 +68,32 @@ public class ChartsHelper {
         lineDataSet2.setDrawValues(false);
         lineDataSet2.setFormSize(0f);
         dataSets.add(lineDataSet2);
+
+        LineData data = new LineData(dataSets);
+        lc.setData(data);
+
+        setStyleConfig(lc, "Overview", true, "weekly", strings);
+
+        return lc;
+    }
+
+    public static LineChart renderVariableActivity(LineChart lc, ArrayList<String> labels, ArrayList<ArrayList<Entry>> entryEntryList, String[] strings, String mood) {
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+
+        Random random = new Random();
+
+        int i = 0;
+        for (ArrayList<Entry> el : entryEntryList) {
+            LineDataSet lds = new LineDataSet(el, labels.get(i));
+            lds.setColor(getIntFromColor(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
+            lds.setDrawCircles(false);
+            lds.setDrawValues(false);
+            lds.setFormSize(0f);
+            dataSets.add(lds);
+            i++;
+
+        }
+        lc.setDrawMarkers(true);
 
         LineData data = new LineData(dataSets);
         lc.setData(data);

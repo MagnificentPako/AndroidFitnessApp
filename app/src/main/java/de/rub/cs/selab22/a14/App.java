@@ -78,15 +78,15 @@ public class App extends Application {
         SensorCenter.init(getApplicationContext());
 
         long lastSentLong = preferences.getLong("lastSubmittedData", -1);
-        if(lastSentLong != -1) {
+        if(lastSentLong == -1) {
             sendResearchData();
-            preferences.edit().putLong("lastSubmittedData", new Date().getTime());
+            preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();
         } else {
             Date d = new Date(lastSentLong);
             Duration duration = Duration.between(d.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), LocalDateTime.now());
             if(duration.toHours() >= 24) {
                 sendResearchData();
-                preferences.edit().putLong("lastSubmittedData", new Date().getTime());            }
+                preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();            }
         }
     }
 

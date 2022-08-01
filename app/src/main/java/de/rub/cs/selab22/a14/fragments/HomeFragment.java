@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -127,18 +128,16 @@ public class HomeFragment extends Fragment {
                 .with(DayOfWeek.SUNDAY)
                 .atTime(23, 59)
                 .atZone(ZoneId.systemDefault()).toInstant());
-        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.ACCELEROMETER_VECTOR_LENGTH);
+        Map<Integer,List<Data>> dailyData = dao.getBetweenByIdentifierByDay(since, until);
         ArrayList<Entry> entries = new ArrayList<>();
-        dailyData.stream()
-                .collect(Collectors.groupingBy(
-                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getDayOfWeek().getValue(),
-                        LinkedHashMap::new,
-                        Collectors.toList())).forEach((hour, data) ->
-                        entries.add(new Entry(hour,
-                                data.stream().collect(Collectors.averagingDouble(
-                                                (x) -> (
-                                                        ((double) ((Data) x).dataPoint.<Double>getData().get(0)))))
-                                        .floatValue())));
+        dailyData.forEach((h, d) -> {
+            System.out.println(h);
+            float sum = 0f;
+            for(Data dd : d) {
+                sum += dd.dataPoint.<Double>getData().get(0).floatValue();
+            }
+            entries.add(new Entry(h, sum/d.size()));
+        });
         return entries;
     }
 
