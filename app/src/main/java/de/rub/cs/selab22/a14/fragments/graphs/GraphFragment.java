@@ -115,7 +115,7 @@ public class GraphFragment extends Fragment {
             switch(v.getId()){
                 case R.id.physical_overview_button:
                     physicalOverviewActive = true;
-                    graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodWeeklyEntryList(dao), formatterArray, "Mood", "weekly");
+                    graph = ChartsHelper.renderActivity(graph,"Weekly", createPhysicalWeeklyEntryList(dao), formatterArray, "Physical Activity");
                     graph.invalidate();
 
                     physicalOverview.setAlpha(.5f);
