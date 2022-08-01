@@ -193,7 +193,7 @@ public class ChartsHelper {
         @Override
         public String getAxisLabel(float value, AxisBase axis) {
             int temp = (int) value;
-            if ( (int) value == 0)
+            if ( (int) value == 0 || (int) value > dayStrings.length-1)
             {
                 return "";
             } else {

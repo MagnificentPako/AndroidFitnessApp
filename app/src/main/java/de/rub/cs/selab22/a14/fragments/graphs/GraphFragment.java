@@ -169,7 +169,7 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph,"Weekly", createPhysicalWeeklyEntryList(dao), formatterArray, "Physical Activity");
                     }
                     else {
-                        graph = ChartsHelper.renderActivity(graph, "Weekly", createEntryList(7), formatterArray, "Mood");
+                        graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodWeeklyEntryList(dao), formatterArray, "Mood", "weekly");
                     }
                     graph.invalidate();
 
@@ -186,7 +186,7 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph,"Monthly", createPhysicalMonthlyEntryList(dao), formatterArray, "Physical Activity");
                     }
                     else {
-                        graph = ChartsHelper.renderActivity(graph, "Monthly", createEntryList(4), formatterArray, "Mood");
+                        graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodMonthlyEntryList(dao), formatterArray, "Mood", "monthly");
                     }
                     graph.invalidate();
 
@@ -331,6 +331,78 @@ public class GraphFragment extends Fragment {
                                 entries.get(integer).add(new Entry(hour, accs.get(integer)/data.size()));
                             });
                         });
+        return entries;
+    }
+
+    private ArrayList<ArrayList<Entry>> createMoodWeeklyEntryList(DataDao dao) {
+        Date since = Date.from(LocalDate.now()
+                .with(DayOfWeek.MONDAY)
+                .atStartOfDay()
+                .atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(LocalDate.now()
+                .with(DayOfWeek.SUNDAY)
+                .atTime(23, 59)
+                .atZone(ZoneId.systemDefault()).toInstant());
+        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.SURVEY);
+        ArrayList<ArrayList<Entry>> entries = new ArrayList<>();
+        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> entries.add(new ArrayList<Entry>()));
+        dailyData.stream()
+                .collect(Collectors.groupingBy(
+                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getDayOfWeek().getValue(),
+                        LinkedHashMap::new,
+                        Collectors.toList())).forEach((hour, data) -> {
+                            System.out.println(hour);
+                    ArrayList<Integer> accs = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
+                    data.forEach(data1 -> {
+                        Map<String, Object> dataSet = data1.dataPoint.<Map<String, Object>>getData().get(0);
+                        Map<String, Double> dd = (Map<String, Double>) dataSet.get("surveyData");
+                        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                            if(dd.containsKey(String.valueOf(integer))) {
+                                accs.set(integer, accs.get(integer) + dd.get(String.valueOf(integer)).intValue());
+                            }
+                        });
+                    });
+                    Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                        entries.get(integer).add(new Entry(hour, accs.get(integer)/data.size()));
+                    });
+                });
+        return entries;
+    }
+
+    private ArrayList<ArrayList<Entry>> createMoodMonthlyEntryList(DataDao dao) {
+        LocalDate init = LocalDate.now();
+        Date since = Date.from(init
+                .withDayOfMonth(1)
+                .atStartOfDay()
+                .atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(init
+                .withDayOfMonth(init.getMonth().length(init.isLeapYear()))
+                .atTime(23, 59)
+                .atZone(ZoneId.systemDefault()).toInstant());
+        TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfMonth();
+        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.SURVEY);
+        ArrayList<ArrayList<Entry>> entries = new ArrayList<>();
+        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> entries.add(new ArrayList<Entry>()));
+        dailyData.stream()
+                .collect(Collectors.groupingBy(
+                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().get(woy),
+                        LinkedHashMap::new,
+                        Collectors.toList())).forEach((hour, data) -> {
+                    System.out.println(hour);
+                    ArrayList<Integer> accs = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
+                    data.forEach(data1 -> {
+                        Map<String, Object> dataSet = data1.dataPoint.<Map<String, Object>>getData().get(0);
+                        Map<String, Double> dd = (Map<String, Double>) dataSet.get("surveyData");
+                        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                            if(dd.containsKey(String.valueOf(integer))) {
+                                accs.set(integer, accs.get(integer) + dd.get(String.valueOf(integer)).intValue());
+                            }
+                        });
+                    });
+                    Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                        entries.get(integer).add(new Entry(hour, accs.get(integer)/data.size()));
+                    });
+                });
         return entries;
     }
 }
