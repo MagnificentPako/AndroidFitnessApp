@@ -152,7 +152,7 @@ public class GraphFragment extends Fragment {
                         graph = ChartsHelper.renderActivity(graph,"Daily", createPhysicalDailyEntryList(dao), formatterArray, "Physical Activity");
                     }
                     else {
-                        graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodDailyEntryList(dao), formatterArray, "Mood");
+                        graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodDailyEntryList(dao), formatterArray, "Mood", "daily");
                     }
                     graph.invalidate();
 
@@ -280,7 +280,7 @@ public class GraphFragment extends Fragment {
         }
         return entries;
     }
-
+/*
     private ArrayList<ArrayList<Entry>> createMoodDailyEntryList(DataDao dao) {
         Date since = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         Date until = Date.from(LocalDate.now().atTime(23, 59).atZone(ZoneId.systemDefault()).toInstant());
@@ -302,6 +302,35 @@ public class GraphFragment extends Fragment {
             });
             acc++;
         }
+        return entries;
+    }
+ */
+
+    private ArrayList<ArrayList<Entry>> createMoodDailyEntryList(DataDao dao) {
+        Date since = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(LocalDate.now().atTime(23, 59).atZone(ZoneId.systemDefault()).toInstant());
+        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.SURVEY);
+        ArrayList<ArrayList<Entry>> entries = new ArrayList<>();
+        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> entries.add(new ArrayList<Entry>()));
+        dailyData.stream()
+                .collect(Collectors.groupingBy(
+                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getHour(),
+                        LinkedHashMap::new,
+                        Collectors.toList())).forEach((hour, data) -> {
+                            ArrayList<Integer> accs = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
+                            data.forEach(data1 -> {
+                                Map<String, Object> dataSet = data1.dataPoint.<Map<String, Object>>getData().get(0);
+                                Map<String, Double> dd = (Map<String, Double>) dataSet.get("surveyData");
+                                Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                                    if(dd.containsKey(String.valueOf(integer))) {
+                                        accs.set(integer, accs.get(integer) + dd.get(String.valueOf(integer)).intValue());
+                                    }
+                                });
+                            });
+                            Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                                entries.get(integer).add(new Entry(hour, accs.get(integer)/data.size()));
+                            });
+                        });
         return entries;
     }
 }

@@ -76,10 +76,12 @@ public class ChartsHelper {
         return lc;
     }
 
-    public static LineChart renderVariableActivity(LineChart lc, ArrayList<String> labels, ArrayList<ArrayList<Entry>> entryEntryList, String[] strings, String mood) {
+    public static LineChart renderVariableActivity(LineChart lc, ArrayList<String> labels, ArrayList<ArrayList<Entry>> entryEntryList, String[] strings, String mood, String chart_label) {
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
 
         Random random = new Random();
+
+        setStyleConfig(lc, "Mood", true, chart_label, strings);
 
         int i = 0;
         for (ArrayList<Entry> el : entryEntryList) {
@@ -96,8 +98,6 @@ public class ChartsHelper {
 
         LineData data = new LineData(dataSets);
         lc.setData(data);
-
-        setStyleConfig(lc, "Mood", true, "", strings);
 
         return lc;
     }
