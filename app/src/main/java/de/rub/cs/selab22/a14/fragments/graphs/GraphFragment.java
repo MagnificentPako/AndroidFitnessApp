@@ -109,7 +109,9 @@ public class GraphFragment extends Fragment {
             String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
             ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             DataDao dao = DBHelper.INSTANCE.getDataDao();
-            ArrayList<String> moodLabels = new ArrayList(Arrays.asList("1", "2", "3", "4", "5", "6"));
+
+            ArrayList<String> moodLabels = new ArrayList(Arrays.asList("", "", "", "", "", ""));
+
             switch(v.getId()){
                 case R.id.physical_overview_button:
                     physicalOverviewActive = true;
