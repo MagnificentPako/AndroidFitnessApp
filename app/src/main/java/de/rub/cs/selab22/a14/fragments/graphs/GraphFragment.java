@@ -113,7 +113,7 @@ public class GraphFragment extends Fragment {
             switch(v.getId()){
                 case R.id.physical_overview_button:
                     physicalOverviewActive = true;
-                    graph = ChartsHelper.renderActivity(graph,"Weekly", createPhysicalWeeklyEntryList(dao), formatterArray, "Physical Activity");
+                    graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodWeeklyEntryList(dao), formatterArray, "Mood", "weekly");
                     graph.invalidate();
 
                     physicalOverview.setAlpha(.5f);
@@ -131,7 +131,7 @@ public class GraphFragment extends Fragment {
                     break;
                 case R.id.mood_overview_button:
                     physicalOverviewActive = false;
-                    graph = ChartsHelper.renderActivity(graph, "Weekly", createEntryList(7), formatterArray, "Mood");
+                    graph = ChartsHelper.renderVariableActivity(graph, moodLabels, createMoodWeeklyEntryList(dao), formatterArray, "Mood", "weekly");
                     graph.invalidate();
 
                     moodOverview.setAlpha(.5f);
