@@ -193,9 +193,13 @@ public class ChartsHelper {
 
         @Override
         public String getAxisLabel(float value, AxisBase axis) {
-            String days[] = dayStrings;
-
-            return String.valueOf(value);//days[(int) value-1];
+            int temp = (int) value;
+            if ( (int) value == 0)
+            {
+                return "";
+            } else {
+                return dayStrings[temp];
+            }
         }
     }
 
