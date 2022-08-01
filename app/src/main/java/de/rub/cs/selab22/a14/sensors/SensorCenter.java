@@ -23,6 +23,9 @@ public class SensorCenter implements SensorEventListener {
     public Sensor stepCounter;
     public Sensor accelerometer;
     private SensorManager sm;
+    public static int NORMAL_FREQUENCY = 2000000;
+    public static int HIGH_FREQUENCY = 1000000;
+    public static int LOW_FREQUENCY = 5000000;
 
     private SensorCenter(Context context) {
         this.context = context;
@@ -30,8 +33,8 @@ public class SensorCenter implements SensorEventListener {
         stepCounter = sm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         accelerometer = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        sm.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
-        sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sm.registerListener(this, stepCounter, NORMAL_FREQUENCY);
+        sm.registerListener(this, accelerometer, NORMAL_FREQUENCY);
     }
 
     public static void init(Context context) {
@@ -115,6 +118,5 @@ public class SensorCenter implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
-
 
 }

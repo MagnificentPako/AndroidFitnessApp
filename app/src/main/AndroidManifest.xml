@@ -39,6 +39,8 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".notification.MyNotificationPublisher" />
+
         <activity
             android:name=".settings.SettingsActivity"
             android:configChanges="locale"
