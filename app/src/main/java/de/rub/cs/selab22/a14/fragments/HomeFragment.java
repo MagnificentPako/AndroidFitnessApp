@@ -69,7 +69,10 @@ public class HomeFragment extends Fragment {
         rootView.findViewById(R.id.home_survey_button).setOnClickListener(v -> {
             SurveyViewModel model = new ViewModelProvider(requireActivity()).get(SurveyViewModel.class);
             model.setSurveyData(new HashMap<>());
+            model.setNotes("");
+            model.setContextText("");
             Navigation.findNavController(rootView).navigate(R.id.action_bottom_home_to_mood_feelings);
+
         });
 
         Button recordButton = rootView.findViewById(R.id.home_recordactivity_button);
@@ -84,8 +87,9 @@ public class HomeFragment extends Fragment {
         ArrayList<Entry> phys = createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao());
         ArrayList<ArrayList<Entry>> entries = createMoodWeeklyEntryList(DBHelper.INSTANCE.getDataDao());
         entries.add(phys);
-        ArrayList<String> labels = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5", "6", "Physical"));
-        overview_chart = ChartsHelper.renderVariableActivity(overview_chart, labels, entries, formatterArray, "Huh", "weekly");
+
+        ArrayList<String> labels = new ArrayList<>(Arrays.asList("", "", "", "", "", "", "Physical"));
+        overview_chart = ChartsHelper.renderVariableActivity(overview_chart, labels, entries, formatterArray, "weekly");
 
         MyNotificationCenter.INSTANCE.scheduleExactRepeatingNotification(this.getContext(),
                 getString(R.string.notification_title), getString(R.string.notification_text),  24 * 60 * 60 * 1000);
