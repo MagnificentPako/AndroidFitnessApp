@@ -47,14 +47,25 @@ import dev.b3nedikt.viewpump.ViewPump;
 
 public class App extends Application {
 
+    private static Context appcontext;
+    private static Application sApplication;
+
     public App() {
         ViewPump.init(RewordInterceptor.INSTANCE);
+    }
+
+    public static Application getApplication() {
+        return sApplication;
+    }
+
+    public static Context getAppContext() {
+        return getApplication().getApplicationContext();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sApplication = this;
         SharedPreferences preferences = getSharedPreferences("22a14", Context.MODE_PRIVATE);
 
         AppLocale.setSupportedLocales(Locales.APP_LOCALES);
