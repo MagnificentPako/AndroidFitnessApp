@@ -32,14 +32,9 @@ public class AppPreferences extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
         Context ctx = getPreferenceManager().getContext();
-
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
-        ListPreference notificationPref = new ListPreference(ctx);
-        notificationPref.setKey("notifications");
-        notificationPref.setTitle(R.string.settings_notifications_description);
-        notificationPref.setEntries(R.array.notification_names);
-        notificationPref.setEntryValues(R.array.notification_id);
+        /*
         notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if(newValue == "nv"){
                 MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
@@ -49,6 +44,7 @@ public class AppPreferences extends PreferenceFragmentCompat {
                 MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this,
                         "", "", new Intent(this.getContext()., MoodFeelingsFragment.class),
                         0, AlarmManager.INTERVAL_DAY);
+
             }
             else if(newValue == "2tms"){
                 MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
@@ -56,9 +52,16 @@ public class AppPreferences extends PreferenceFragmentCompat {
                         "", "", new Intent(this.getClass(), MoodFeelingsFragment.class),
                         0, AlarmManager.INTERVAL_HALF_DAY);
             }
+
             return true;
         });
+        */
 
+        ListPreference notificationPref = new ListPreference(ctx);
+        notificationPref.setKey("settingsnotifications");
+        notificationPref.setTitle(R.string.settings_notifications_description);
+        notificationPref.setEntries(R.array.notification_names);
+        notificationPref.setEntryValues(R.array.notification_id);
 
         Preference feedbackPref = new Preference(ctx);
         feedbackPref.setKey("feedback");
