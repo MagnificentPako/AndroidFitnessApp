@@ -33,6 +33,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -80,7 +81,11 @@ public class HomeFragment extends Fragment {
         String week = resources.getString(R.string.week);
         String days[] = resources.getStringArray(R.array.weekdays);
         String formatterArray[] = { week, days[0], days[1], days[2], days[3], days[4], days[5], days[6]};
-        overview_chart = ChartsHelper.renderActivity(overview_chart, createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao()), createEntryList(7), formatterArray);
+        ArrayList<Entry> phys = createPhysicalWeeklyEntryList(DBHelper.INSTANCE.getDataDao());
+        ArrayList<ArrayList<Entry>> entries = createMoodWeeklyEntryList(DBHelper.INSTANCE.getDataDao());
+        entries.add(phys);
+        ArrayList<String> labels = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5", "6", "Physical"));
+        overview_chart = ChartsHelper.renderVariableActivity(overview_chart, labels, entries, formatterArray, "Huh", "weekly");
 
         MyNotificationCenter.INSTANCE.scheduleExactRepeatingNotification(this.getContext(),
                 getString(R.string.notification_title), getString(R.string.notification_text),  24 * 60 * 60 * 1000);
@@ -173,4 +178,39 @@ public class HomeFragment extends Fragment {
                 }
             }
     );
+
+    private ArrayList<ArrayList<Entry>> createMoodWeeklyEntryList(DataDao dao) {
+        Date since = Date.from(LocalDate.now()
+                .with(DayOfWeek.MONDAY)
+                .atStartOfDay()
+                .atZone(ZoneId.systemDefault()).toInstant());
+        Date until = Date.from(LocalDate.now()
+                .with(DayOfWeek.SUNDAY)
+                .atTime(23, 59)
+                .atZone(ZoneId.systemDefault()).toInstant());
+        List<Data> dailyData = dao.getBetweenByIdentifier(since, until, Identifier.SURVEY);
+        ArrayList<ArrayList<Entry>> entries = new ArrayList<>();
+        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(i -> entries.add(new ArrayList<Entry>()));
+        dailyData.stream()
+                .collect(Collectors.groupingBy(
+                        d -> d.timestamp.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().getDayOfWeek().getValue(),
+                        LinkedHashMap::new,
+                        Collectors.toList())).forEach((hour, data) -> {
+                    System.out.println(hour);
+                    ArrayList<Integer> accs = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
+                    data.forEach(data1 -> {
+                        Map<String, Object> dataSet = data1.dataPoint.<Map<String, Object>>getData().get(0);
+                        Map<String, Double> dd = (Map<String, Double>) dataSet.get("surveyData");
+                        Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                            if(dd.containsKey(String.valueOf(integer))) {
+                                accs.set(integer, accs.get(integer) + dd.get(String.valueOf(integer)).intValue());
+                            }
+                        });
+                    });
+                    Arrays.asList(0, 1, 2, 3, 4, 5).stream().forEach(integer -> {
+                        entries.get(integer).add(new Entry(hour, accs.get(integer)/data.size()));
+                    });
+                });
+        return entries;
+    }
 }
