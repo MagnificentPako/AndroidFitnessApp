@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavDeepLinkBuilder;
 import androidx.navigation.Navigation;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -21,6 +22,7 @@ import androidx.preference.SwitchPreferenceCompat;
 
 import java.util.Locale;
 
+import de.rub.cs.selab22.a14.App;
 import de.rub.cs.selab22.a14.R;
 import de.rub.cs.selab22.a14.database.UserIdManager;
 import de.rub.cs.selab22.a14.fragments.survey.MoodFeelingsFragment;
@@ -34,34 +36,34 @@ public class AppPreferences extends PreferenceFragmentCompat {
         Context ctx = getPreferenceManager().getContext();
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(ctx);
 
-        /*
-        notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            if(newValue == "nv"){
-                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
-            }
-            else if(newValue == "1tms"){
-                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
-                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this,
-                        "", "", new Intent(this.getContext()., MoodFeelingsFragment.class),
-                        0, AlarmManager.INTERVAL_DAY);
-
-            }
-            else if(newValue == "2tms"){
-                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
-                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this,
-                        "", "", new Intent(this.getClass(), MoodFeelingsFragment.class),
-                        0, AlarmManager.INTERVAL_HALF_DAY);
-            }
-
-            return true;
-        });
-        */
-
         ListPreference notificationPref = new ListPreference(ctx);
         notificationPref.setKey("settingsnotifications");
         notificationPref.setTitle(R.string.settings_notifications_description);
         notificationPref.setEntries(R.array.notification_names);
         notificationPref.setEntryValues(R.array.notification_id);
+
+        Intent notificationIntent = new Intent(getContext(), MoodFeelingsFragment.class);
+        notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if(newValue == "nv"){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+            }
+            else if(newValue.equals("1tms")){
+                System.out.println("I was here");
+                MyNotificationCenter.INSTANCE.cancelAlarm(App.getAppContext(), 2);
+                MyNotificationCenter.INSTANCE.scheduleNotification(App.getAppContext(),
+                        "Mustafa", "Yallah", notificationIntent,
+                        0);
+
+            }
+            else if(newValue == "2tms"){
+                MyNotificationCenter.INSTANCE.cancelAlarm(this.getContext(), 2);
+                MyNotificationCenter.INSTANCE.scheduleInexactRepeatingNotification(this.getContext(),
+                        "", "", notificationIntent,
+                        0, AlarmManager.INTERVAL_HALF_DAY);
+            }
+
+            return true;
+        });
 
         Preference feedbackPref = new Preference(ctx);
         feedbackPref.setKey("feedback");
