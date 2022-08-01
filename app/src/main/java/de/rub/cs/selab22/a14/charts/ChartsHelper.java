@@ -24,7 +24,6 @@ import java.util.Random;
 public class ChartsHelper {
     public static LineChart renderActivity(LineChart lc, String label, ArrayList<Entry> entryList, String[] strings, String description) {
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        System.out.println("Oben: " + label);
 
         //ArrayList<Entry> entryList2 = createEntryList(length);
         //LineDataSet lineDataSet2 = new LineDataSet(entryList2, "Test");
@@ -98,7 +97,7 @@ public class ChartsHelper {
         LineData data = new LineData(dataSets);
         lc.setData(data);
 
-        setStyleConfig(lc, "Mood", true, "weekly", strings);
+        setStyleConfig(lc, "Mood", true, "", strings);
 
         return lc;
     }
@@ -221,6 +220,7 @@ public class ChartsHelper {
             return String.valueOf(value);
         }
     }
+    
     private static class YAxisFormatter extends ValueFormatter {
         @Override
         public String getAxisLabel(float value, AxisBase axis) {
