@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.icu.util.LocaleData;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -90,15 +92,17 @@ public class App extends Application {
         SensorCenter.init(getApplicationContext());
 
         long lastSentLong = preferences.getLong("lastSubmittedData", -1);
-        if(lastSentLong == -1) {
-            sendResearchData(new Date());
-            preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();
-        } else {
-            Date d = new Date(lastSentLong);
-            Duration duration = Duration.between(d.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), LocalDateTime.now());
-            if(duration.toHours() >= 24) {
-                sendResearchData(d);
-                preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();            }
+        if(isNetworkAvailable()) {
+            if(lastSentLong == -1) {
+                sendResearchData(new Date());
+                preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();
+            } else {
+                Date d = new Date(lastSentLong);
+                Duration duration = Duration.between(d.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(), LocalDateTime.now());
+                if(duration.toHours() >= 24) {
+                    sendResearchData(d);
+                    preferences.edit().putLong("lastSubmittedData", new Date().getTime()).commit();            }
+            }
         }
 
         MyNotificationCenter.init();
@@ -126,6 +130,13 @@ public class App extends Application {
         } catch (Exception e) {
 
         }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     /* For testing purposes only
