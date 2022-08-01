@@ -18,8 +18,7 @@ import de.rub.cs.selab22.a14.helper.ActivityRecorder;
 
 public class RecordFragment extends Fragment {
 
-    private Chronometer chronometer;
-
+    Chronometer chronometer;
 
     public RecordFragment() {
         super(R.layout.activity_record_activity);
@@ -31,14 +30,7 @@ public class RecordFragment extends Fragment {
 
         Button startButton = view.findViewById(R.id.recordactivity_button);
         Button stopButton = view.findViewById(R.id.stopactivity_button);
-
-        TextView timerText = view.findViewById(R.id.timer_value);
-
-        if (ActivityRecorder.INSTANCE.isRecording()) {
-            chronometer.setBase(SystemClock.elapsedRealtime() - ActivityRecorder.INSTANCE.startTime());
-            startButton.setVisibility(View.GONE);
-            stopButton.setVisibility(View.VISIBLE);
-        }
+        chronometer = view.findViewById(R.id.chronometer);
 
         startButton.setOnClickListener(v -> {
             chronometer.setBase(SystemClock.elapsedRealtime());
